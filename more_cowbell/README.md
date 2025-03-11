@@ -1,0 +1,16 @@
+# More Cowbell: The Utility
+**origins**: This utility is effectively a reaper for repositories that are not being collected. It is "The Reaper". "Don't Fear the Reaper" is a Blue Oyster Cult Song. In a famous episode of Saturday Night Live Christopher Walken played the musical producer of that song, and Will Ferrel played the cowbell. Walken made famous assertions like, "I got a fever. And the only cure is more cowbell". So, that's why the name. 
+
+## This utility: 
+1. Reads a markdown file like the examples provided and checks the GitHub API to determine if 
+    * The repository still exists
+    * If the repository, still existing, has moved
+    * What the new URL for the repository "is" and 
+    * The GitHub identifier for that repository, which could be especially useful for evolving this script into checking an Augur instance for duplicate repositories. 
+2. Outputs a file with a structure of "url checked", "still exists", moved, "new repo URL or repo URL", and GitHub identifier. 
+
+## Configuration
+1. This script was tested with Python 3.13.2 running on OSX, and installed using brew. 
+2. The `githubapi.json.example` file should be copied to a local file `githubapi.json`, and a GitHub API key should be added in the specified location
+3. Create a python virtual environment `python3 -m venv .venv`, for example. 
+4. `pip install -r requirements.txt` will install the libraries this utility leverages from the Python ecosystem. 

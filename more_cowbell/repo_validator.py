@@ -53,17 +53,19 @@ def check_repository_status(url):
             if response.status_code == 200:
                 json_data = response.json()
                 correct_html_url = json_data.get("html_url", url)
-                return url, True, False, correct_html_url  # Repo exists, not moved
+                repo_id = json_data.get("id", None)  # Extract Repository ID
+                return url, True, False, correct_html_url, repo_id  # Repo exists, not moved
 
             elif response.status_code in [301, 302]:  # Redirection
                 new_repo_response = requests.get(api_url, headers=headers, allow_redirects=True)
                 if new_repo_response.status_code == 200:
                     new_json_data = new_repo_response.json()
                     new_html_url = new_json_data.get("html_url", None)  # Extract correct HTML URL
-                    return url, True, True, new_html_url if new_html_url else "Unknown"
+                    repo_id = new_json_data.get("id", None)  # Extract Repository ID
+                    return url, True, True, new_html_url if new_html_url else "Unknown", repo_id
 
             elif response.status_code == 404:
-                return url, False, False, None  # Repo doesn't exist
+                return url, False, False, None, None  # Repo doesn't exist
 
             elif response.status_code == 429:  # Too Many Requests
                 print(f"Rate limited. Waiting 60 seconds before retrying... (Attempt {attempt+1}/3)")
@@ -75,7 +77,7 @@ def check_repository_status(url):
             print(f"Request failed for {url}: {e}")
             break
 
-    return url, False, False, None  # Default case
+    return url, False, False, None, None  # Default case
 
 # Load repositories from markdown file
 md_file = "repos-small.md"  # Change this to your markdown file path
@@ -95,13 +97,13 @@ print(f"Results collected: {len(results)} entries")
 output_file = "repo_status.csv"
 with open(output_file, "w", newline="") as f:
     writer = csv.writer(f)
-    writer.writerow(["URL Searched", "Still There", "Moved", "New URL"])
+    writer.writerow(["URL Searched", "Still There", "Moved", "New URL", "Repo ID"])
     writer.writerows(results)
 
 print(f"Results saved to {output_file}")  # Debug print
 
 # Display output using Pandas
-df = pd.DataFrame(results, columns=["URL Searched", "Still There", "Moved", "New URL"])
+df = pd.DataFrame(results, columns=["URL Searched", "Still There", "Moved", "New URL", "Repo ID"])
 print(df)  # Print results to the screen
 
 # Optional: Save the table to a file

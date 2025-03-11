@@ -80,7 +80,7 @@ def check_repository_status(url):
     return url, False, False, None, None  # Default case
 
 # Load repositories from markdown file
-md_file = "repos-small.md"  # Change this to your markdown file path
+md_file = "repos.md"  # Change this to your markdown file path
 repo_urls = read_repos_from_markdown(md_file)
 
 if not repo_urls:

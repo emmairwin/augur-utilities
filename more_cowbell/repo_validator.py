@@ -131,6 +131,7 @@ def check_repository_status(url):
             return url, False, False, None, None  # Generic 403 case
 
         elif response.status_code == 404:
+            print(f'code: {response.status_code}')
             return url, False, False, None, None  # Repository doesn't exist
 
         elif response.status_code == 429 or handle_rate_limit(response):  # Too Many Requests or Rate Limit

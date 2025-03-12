@@ -195,7 +195,7 @@ if results:
     results_file='results.csv'
     with open(results_file, "w", newline="") as g: 
         writer = csv.writer(g) 
-        writer.writerow("old_url", "still_there", "moved", "new_url", "repo_id")
+        writer.writerow(["old_url", "still_there", "moved", "new_url", "repo_src_id"])
         writer.writerows(results) 
 
 # Close the database connection

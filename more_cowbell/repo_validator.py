@@ -83,12 +83,75 @@ def handle_rate_limit(response):
     return False
 
 # Function to check repository status via GitHub API
+import requests
+import json
+import time
+
 def check_repository_status(url):
     headers = {
         "Accept": "application/vnd.github.v3+json",
-        "Authorization": f"token {GITHUB_TOKEN}"
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "User-Agent": "GitHubRepoChecker"  # Helps prevent bot blocking
     }
     
+    repo_path = "/".join(url.split("https://github.com/")[-1].split("/"))
+    api_url = f"https://api.github.com/repos/{repo_path}"
+
+    print(f"Checking: {url}")
+
+    for attempt in range(5):  # Retry up to 5 times if rate limited
+        response = requests.get(api_url, headers=headers, allow_redirects=False)
+        
+        if response.status_code == 200:
+            json_data = response.json()
+            correct_html_url = json_data.get("html_url", url)
+            repo_id = json_data.get("id", None)
+            return url, True, False, correct_html_url, repo_id
+
+        elif response.status_code in [301, 302]:  # Redirection
+            new_repo_response = requests.get(api_url, headers=headers, allow_redirects=True)
+            if new_repo_response.status_code == 200:
+                new_json_data = new_repo_response.json()
+                new_html_url = new_json_data.get("html_url", None)
+                repo_id = new_json_data.get("id", None)
+                return url, True, True, new_html_url if new_html_url else "Unknown", repo_id
+
+        elif response.status_code == 403:
+            try:
+                error_message = response.json().get("message", "").lower()
+                print(f"DEBUG: 403 Response - Error Message: {error_message}")
+
+                # Check if the message contains TOS violation indicators
+                if "repository unavailable due to a takedown" in error_message or "repository is disabled" in error_message:
+                    print(f"Repository {url} has been removed due to GitHub TOS violation.")
+                    return url, False, False, "TOS Violation", None  # Special indicator for TOS removals
+
+            except json.JSONDecodeError:
+                print(f"DEBUG: Failed to decode JSON error message for {url}")
+
+            return url, False, False, None, None  # Generic 403 case
+
+        elif response.status_code == 404:
+            return url, False, False, None, None  # Repository doesn't exist
+
+        elif response.status_code == 429 or handle_rate_limit(response):  # Too Many Requests or Rate Limit
+            print(f"Rate limited. Retrying... (Attempt {attempt+1}/5)")
+            continue  # Retry after sleeping
+
+        else:
+            print(f"Unexpected error for {url}: {response.status_code}")
+            break  # Don't retry other errors
+
+    return url, False, False, None, None  # Default case after retries
+
+"""
+
+def check_repository_status(url):
+    headers = {
+        "Accept": "application/vnd.github.v3+json",
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "User-Agent": "CHAOSS-GitHubRepoChecker"  # Avoids GitHub blocking requests as suspicious
+    }    
     repo_path = "/".join(url.split("https://github.com/")[-1].split("/"))
     api_url = f"https://api.github.com/repos/{repo_path}"
 
@@ -123,7 +186,7 @@ def check_repository_status(url):
             break  # Don't retry other errors
 
     return url, False, False, None, None  # Default case after retries
-
+"""
 # Get GitHub token
 GITHUB_TOKEN = read_github_token()
 if not GITHUB_TOKEN:

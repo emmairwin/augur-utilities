@@ -41,13 +41,34 @@ def connect_to_db(db_config):
 
 # Function to handle GitHub rate limits
 def handle_rate_limit(response):
-    if response.status_code == 403 and "X-RateLimit-Reset" in response.headers:
-        reset_time = int(response.headers["X-RateLimit-Reset"])
-        sleep_time = reset_time - int(time.time())  # Time in seconds until reset
-        if sleep_time > 0:
+    """
+    Handles GitHub API rate limiting.
+    Sleeps until the reset time if the limit is exceeded.
+    """
+
+    # Extract rate limit headers for debugging
+    rate_limit = response.headers.get("X-RateLimit-Limit", "UNKNOWN")
+    remaining_calls = response.headers.get("X-RateLimit-Remaining", "UNKNOWN")
+    reset_time = response.headers.get("X-RateLimit-Reset", None)
+
+    print(f"DEBUG: API Rate Limit: {rate_limit}")
+    print(f"DEBUG: API Calls Remaining: {remaining_calls}")
+
+    if reset_time:
+        reset_time = int(reset_time)
+        current_time = int(time.time())
+        sleep_time = reset_time - current_time
+
+        print(f"DEBUG: Current Time: {current_time}, Rate Limit Resets At: {reset_time}")
+        print(f"DEBUG: Computed Sleep Time: {sleep_time} seconds")
+
+        if response.status_code == 403 and sleep_time > 0:
             print(f"Rate limit reached. Sleeping for {sleep_time} seconds...")
-            time.sleep(sleep_time)  # Sleep until the reset time
-        return True  # Indicates a rate limit was handled
+            time.sleep(sleep_time)
+            return True  # Indicates rate limit was handled
+    else:
+        print("DEBUG: No X-RateLimit-Reset header found. Skipping sleep.")
+
     return False  # No rate limit issue
 
 # Function to check repository status via GitHub API

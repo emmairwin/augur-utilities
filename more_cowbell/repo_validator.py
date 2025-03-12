@@ -59,7 +59,7 @@ def check_repository_in_db(conn, old_url, new_url, repo_id):
             results["new_url_exists"] = cur.fetchone()[0] > 0
 
         # Check if the Repo ID exists in the database
-        cur.execute("SELECT url FROM augur_data.repo WHERE repo_src_id = %s", (repo_id,))
+        cur.execute("SELECT repo_git FROM augur_data.repo WHERE repo_src_id = %s", (repo_id,))
         row = cur.fetchone()
         if row:
             results["repo_id_exists"] = True

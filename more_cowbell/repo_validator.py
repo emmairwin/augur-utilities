@@ -46,7 +46,8 @@ def check_repository_in_db(conn, old_url, new_url, repo_id):
             "old_url_exists": False,
             "new_url_exists": False,
             "repo_id_exists": False,
-            "conflicting_url": None
+            "conflicting_url": None,
+            "repo_git_with_null_src_id": None
         }
 
         # Check if the old URL exists
@@ -64,6 +65,19 @@ def check_repository_in_db(conn, old_url, new_url, repo_id):
         if row:
             results["repo_id_exists"] = True
             results["conflicting_url"] = row[0]  # The URL that contains the conflicting Repo ID
+
+        # If both old and new URLs exist, check for repo_git with NULL repo_src_id
+        if results["old_url_exists"] and results["new_url_exists"]:
+            cur.execute(
+                """
+                SELECT repo_id FROM augur_data.repo
+                WHERE repo_git IN (%s, %s) AND repo_src_id IS NULL
+                """,
+                (old_url, new_url)
+            )
+            null_src_id_row = cur.fetchone()
+            if null_src_id_row:
+                results["repo_git_with_null_src_id"] = null_src_id_row[0]  # The repo_git with NULL repo_src_id
 
         return results
 
@@ -165,23 +179,14 @@ for url in repo_urls:
 
     # Detect duplicate repos
     if db_results["repo_id_exists"] and db_results["old_url_exists"] and db_results["new_url_exists"]:
-        duplicates.append((old_url, new_url, repo_id, db_results["conflicting_url"]))
-
-# Save main results to CSV
-output_file = "repo_status.csv"
-with open(output_file, "w", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["URL Searched", "Still There", "Moved", "New URL", "Repo ID"])
-    writer.writerows(results)
-
-print(f"Results saved to {output_file}")
+        duplicates.append((old_url, new_url, repo_id, db_results["conflicting_url"], db_results["repo_git_with_null_src_id"]))
 
 # Save duplicate repos to CSV if any found
 if duplicates:
     duplicate_file = "duplicate_repos.csv"
     with open(duplicate_file, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Old URL", "New URL", "Repo ID", "Conflicting URL"])
+        writer.writerow(["Old URL", "New URL", "Repo ID", "Conflicting URL", "Repo with NULL repo_src_id"])
         writer.writerows(duplicates)
     
     print(f"Duplicate repository report saved to {duplicate_file}")

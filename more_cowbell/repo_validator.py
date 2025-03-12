@@ -46,30 +46,41 @@ def handle_rate_limit(response):
     Sleeps until the reset time if the limit is exceeded.
     """
 
-    # Extract rate limit headers for debugging
+    # Extract rate limit headers
     rate_limit = response.headers.get("X-RateLimit-Limit", "UNKNOWN")
     remaining_calls = response.headers.get("X-RateLimit-Remaining", "UNKNOWN")
     reset_time = response.headers.get("X-RateLimit-Reset", None)
 
+    # Convert values to integers where possible
+    try:
+        remaining_calls = int(remaining_calls)
+        rate_limit = int(rate_limit)
+        reset_time = int(reset_time) if reset_time else None
+    except ValueError:
+        print("DEBUG: Error converting rate limit headers to integers. Skipping rate limit handling.")
+        return False
+
+    current_time = int(time.time())
+
     print(f"DEBUG: API Rate Limit: {rate_limit}")
     print(f"DEBUG: API Calls Remaining: {remaining_calls}")
+    print(f"DEBUG: Current Time: {current_time}, Rate Limit Resets At: {reset_time}")
 
-    if reset_time:
-        reset_time = int(reset_time)
-        current_time = int(time.time())
-        sleep_time = reset_time - current_time
+    # If we still have calls remaining, DO NOT sleep
+    if remaining_calls > 0:
+        print("DEBUG: Sufficient API calls remaining. No need to sleep.")
+        return False
 
-        print(f"DEBUG: Current Time: {current_time}, Rate Limit Resets At: {reset_time}")
-        print(f"DEBUG: Computed Sleep Time: {sleep_time} seconds")
+    # Compute sleep time if no calls remain
+    sleep_time = reset_time - current_time if reset_time else 0
 
-        if response.status_code == 403 and sleep_time > 0:
-            print(f"Rate limit reached. Sleeping for {sleep_time} seconds...")
-            time.sleep(sleep_time)
-            return True  # Indicates rate limit was handled
-    else:
-        print("DEBUG: No X-RateLimit-Reset header found. Skipping sleep.")
+    if sleep_time > 0:
+        print(f"Rate limit reached. Sleeping for {sleep_time} seconds...")
+        time.sleep(sleep_time)
+        return True  # Indicates rate limit was handled
 
-    return False  # No rate limit issue
+    print("DEBUG: No valid reset time found. Not sleeping.")
+    return False
 
 # Function to check repository status via GitHub API
 def check_repository_status(url):

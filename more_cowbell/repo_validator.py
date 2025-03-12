@@ -158,7 +158,7 @@ def check_repository_status(url):
     return url, False, False, None, None  # Default case
 
 # Load repositories from markdown file
-md_file = "repos.md"  # Change this to your markdown file path
+md_file = "repos-small.md"  # Change this to your markdown file path
 repo_urls = read_repos_from_markdown(md_file)
 
 if not repo_urls:
@@ -190,6 +190,13 @@ if duplicates:
         writer.writerows(duplicates)
     
     print(f"Duplicate repository report saved to {duplicate_file}")
+
+if results: 
+    results_file='results.csv'
+    with open(results_file, "w", newline="") as g: 
+        writer = csv.writer(g) 
+        writer.writerow("old_url", "still_there", "moved", "new_url", "repo_id")
+        writer.writerows(results) 
 
 # Close the database connection
 conn.close()

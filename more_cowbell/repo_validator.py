@@ -3,8 +3,9 @@ import csv
 import time
 import json
 import pandas as pd
+import psycopg2  # PostgreSQL Database Driver
 
-# Read API key from githubapi.json
+# Read GitHub API token from JSON file
 def read_github_token(file_path="githubapi.json"):
     try:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -14,11 +15,74 @@ def read_github_token(file_path="githubapi.json"):
         print(f"Error reading GitHub API key from {file_path}: {e}")
         return None
 
+# Read database connection details from JSON file
+def read_db_config(file_path="db.config.json"):
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error reading database config from {file_path}: {e}")
+        return None
+
+# Connect to PostgreSQL database
+def connect_to_db(db_config):
+    try:
+        conn = psycopg2.connect(
+            dbname=db_config["database_name"],
+            user=db_config["user"],
+            password=db_config["password"],
+            host=db_config["host"],
+            port=db_config["port"]
+        )
+        return conn
+    except Exception as e:
+        print(f"Error connecting to database: {e}")
+        return None
+
+# Check repository URLs and Repo ID in the database
+def check_repository_in_db(conn, old_url, new_url, repo_id):
+    with conn.cursor() as cur:
+        results = {
+            "old_url_exists": False,
+            "new_url_exists": False,
+            "repo_id_exists": False,
+            "conflicting_url": None
+        }
+
+        # Check if the old URL exists
+        cur.execute("SELECT COUNT(*) FROM repos WHERE repo_git = %s", (old_url,))
+        results["old_url_exists"] = cur.fetchone()[0] > 0
+
+        # Check if the new URL exists (if applicable)
+        if new_url:
+            cur.execute("SELECT COUNT(*) FROM repos WHERE repo_git = %s", (new_url,))
+            results["new_url_exists"] = cur.fetchone()[0] > 0
+
+        # Check if the Repo ID exists in the database
+        cur.execute("SELECT url FROM repos WHERE repo_src_id = %s", (repo_id,))
+        row = cur.fetchone()
+        if row:
+            results["repo_id_exists"] = True
+            results["conflicting_url"] = row[0]  # The URL that contains the conflicting Repo ID
+
+        return results
+
 # Get GitHub token
 GITHUB_TOKEN = read_github_token()
-
 if not GITHUB_TOKEN:
     print("GitHub API key is missing. Please add it to githubapi.json.")
+    exit(1)
+
+# Read DB config
+DB_CONFIG = read_db_config()
+if not DB_CONFIG:
+    print("Database configuration is missing. Please add it to db_config.json.")
+    exit(1)
+
+# Connect to the database
+conn = connect_to_db(DB_CONFIG)
+if not conn:
+    print("Could not connect to the database. Exiting...")
     exit(1)
 
 # Read repository URLs from a markdown file
@@ -80,7 +144,7 @@ def check_repository_status(url):
     return url, False, False, None, None  # Default case
 
 # Load repositories from markdown file
-md_file = "repos.md"  # Change this to your markdown file path
+md_file = "repos-small.md"  # Change this to your markdown file path
 repo_urls = read_repos_from_markdown(md_file)
 
 if not repo_urls:
@@ -88,23 +152,39 @@ if not repo_urls:
     exit()
 
 # Check all repositories
-results = [check_repository_status(url) for url in repo_urls]
+results = []
+duplicates = []
 
-# Debug print: check if results are generated
-print(f"Results collected: {len(results)} entries")
+for url in repo_urls:
+    old_url, still_there, moved, new_url, repo_id = check_repository_status(url)
 
-# Save to CSV
+    db_results = check_repository_in_db(conn, old_url, new_url, repo_id)
+
+    # Store results
+    results.append((old_url, still_there, moved, new_url, repo_id))
+
+    # Detect duplicate repos
+    if db_results["repo_id_exists"] and db_results["old_url_exists"] and db_results["new_url_exists"]:
+        duplicates.append((old_url, new_url, repo_id, db_results["conflicting_url"]))
+
+# Save main results to CSV
 output_file = "repo_status.csv"
 with open(output_file, "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["URL Searched", "Still There", "Moved", "New URL", "Repo ID"])
     writer.writerows(results)
 
-print(f"Results saved to {output_file}")  # Debug print
+print(f"Results saved to {output_file}")
 
-# Display output using Pandas
-df = pd.DataFrame(results, columns=["URL Searched", "Still There", "Moved", "New URL", "Repo ID"])
-print(df)  # Print results to the screen
+# Save duplicate repos to CSV if any found
+if duplicates:
+    duplicate_file = "duplicate_repos.csv"
+    with open(duplicate_file, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Old URL", "New URL", "Repo ID", "Conflicting URL"])
+        writer.writerows(duplicates)
+    
+    print(f"Duplicate repository report saved to {duplicate_file}")
 
-# Optional: Save the table to a file
-df.to_csv("repo_status2.csv", index=False)
+# Close the database connection
+conn.close()

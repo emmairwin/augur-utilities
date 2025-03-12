@@ -246,7 +246,7 @@ def check_repository_in_db(conn, old_url, new_url, repo_id):
             cur.execute("SELECT COUNT(*) FROM augur_data.repo WHERE repo_git = %s", (new_url,))
             results["new_url_exists"] = cur.fetchone()[0] > 0
 
-        # Check if the Repo ID exists in the database
+        # Check if the Repo (GitHub Source) ID exists in the database
         cur.execute("SELECT repo_git FROM augur_data.repo WHERE repo_src_id = %s", (repo_id,))
         row = cur.fetchone()
         if row:
@@ -290,7 +290,7 @@ if duplicates:
     duplicate_file = "duplicate_repos.csv"
     with open(duplicate_file, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Old URL", "New URL", "Repo ID", "Conflicting URL", "Repo with NULL repo_src_id"])
+        writer.writerow(["Old URL", "New URL", "Repo ID", "URL with repo_src_id", "Augur repo_id with NULL repo_src_id"])
         writer.writerows(duplicates)
     
     print(f"Duplicate repository report saved to {duplicate_file}")

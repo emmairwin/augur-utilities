@@ -102,7 +102,7 @@ def check_repository_status(url):
             json_data = response.json()
             correct_html_url = json_data.get("html_url", url)
             repo_id = json_data.get("id", None)
-            print(f'code: {resopnse.status_code}')
+            print(f'code: {response.status_code}')
             return url, True, False, correct_html_url, repo_id
 
         elif response.status_code in [301, 302]:  # Redirection
@@ -111,7 +111,7 @@ def check_repository_status(url):
                 new_json_data = new_repo_response.json()
                 new_html_url = new_json_data.get("html_url", None)
                 repo_id = new_json_data.get("id", None)
-                print(f'code: {resopnse.status_code}')
+                print(f'code: {response.status_code}')
                 return url, True, True, new_html_url if new_html_url else "Unknown", repo_id
 
         elif response.status_code == 403:
@@ -126,7 +126,7 @@ def check_repository_status(url):
 
             except json.JSONDecodeError:
                 print(f"DEBUG: Failed to decode JSON error message for {url}")
-                print(f'code: {resopnse.status_code}')
+                print(f'code: {response.status_code}')
 
             return url, False, False, None, None  # Generic 403 case
 
@@ -135,7 +135,7 @@ def check_repository_status(url):
 
         elif response.status_code == 429 or handle_rate_limit(response):  # Too Many Requests or Rate Limit
             print(f"Rate limited. Retrying... (Attempt {attempt+1}/5)")
-            print(f'code: {resopnse.status_code}')
+            print(f'code: {response.status_code}')
             continue  # Retry after sleeping
 
         else:

@@ -219,7 +219,7 @@ def read_repos_from_markdown(md_file):
         return []
 
 # Process repositories
-md_file = "repos.md"
+md_file = "repos-small.md"
 repo_urls = read_repos_from_markdown(md_file)
 
 if not repo_urls:
@@ -303,6 +303,83 @@ with open(results_file, "w", newline="") as f:
     writer.writerows(results)
 
 print(f"Results saved to {results_file}")
+
+#build a query
+query_file = "deleter.sql"
+with open(query_file, "w", newline="") as dr: 
+    writer = csv.writer(dr)
+    
+    # Extract repo_ids from duplicates
+    repos_to_delete = [row[4] for row in duplicates]  # Assuming row[4] contains the repo_id
+    print(f"repos to delete {repos_to_delete}")
+
+    # Write delete statements to file
+    writer.writerows([[f"delete from repo where repo_id = {repo_id};"] for repo_id in repos_to_delete])
+
+def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
+    sql_template = """
+        ALTER TABLE "augur_data"."pull_request_message_ref" 
+        DROP CONSTRAINT "fk_pull_request_message_ref_message_1",
+        ADD CONSTRAINT "fk_pull_request_message_ref_message_1" FOREIGN KEY ("msg_id") REFERENCES "augur_data"."message" ("msg_id") ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED;
+
+        SELECT * FROM repo WHERE repo_id IN ({repo_ids});
+        SELECT * FROM augur_operations.collection_status WHERE repo_id IN ({repo_ids});
+
+        DELETE FROM issue_message_ref WHERE repo_id IN ({repo_ids});
+        DELETE FROM pull_request_review_message_ref WHERE repo_id IN ({repo_ids});
+        DELETE FROM pull_request_message_ref WHERE repo_id IN ({repo_ids});
+        COMMIT;
+
+        DELETE FROM repo_info WHERE repo_id IN ({repo_ids});
+        DELETE FROM augur_operations.collection_status WHERE repo_id IN ({repo_ids});
+        DELETE FROM augur_operations.user_repos WHERE repo_id IN ({repo_ids});
+        DELETE FROM issue_assignees WHERE repo_id IN ({repo_ids});
+        DELETE FROM releases WHERE repo_id IN ({repo_ids});
+        DELETE FROM pull_request_reviews WHERE repo_id IN ({repo_ids});
+        DELETE FROM pull_request_files WHERE repo_id IN ({repo_ids});
+        DELETE FROM pull_request_commits WHERE repo_id IN ({repo_ids});
+        DELETE FROM pull_requests WHERE repo_id IN ({repo_ids});
+        DELETE FROM repo_badging WHERE repo_id IN ({repo_ids});
+        DELETE FROM issues WHERE repo_id IN ({repo_ids});
+        DELETE FROM repo_deps_libyear WHERE repo_id IN ({repo_ids});
+        DELETE FROM repo_deps_scorecard WHERE repo_id IN ({repo_ids});
+        DELETE FROM repo_dependencies WHERE repo_id IN ({repo_ids});
+        COMMIT;
+
+        DELETE FROM commits WHERE repo_id IN ({repo_ids});
+        DELETE FROM repo_labor WHERE repo_id IN ({repo_ids});
+        SELECT * FROM pull_request_message_ref WHERE repo_id IN ({repo_ids});
+        DELETE FROM pull_request_message_ref CASCADE WHERE repo_id IN ({repo_ids});
+        COMMIT;
+
+        ALTER TABLE "augur_data"."pull_request_review_message_ref" 
+        DROP CONSTRAINT "fk_pull_request_review_message_ref_message_1",
+        ADD CONSTRAINT "fk_pull_request_review_message_ref_message_1" FOREIGN KEY ("msg_id") REFERENCES "augur_data"."message" ("msg_id") ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED;
+
+        DELETE FROM message CASCADE WHERE repo_id IN ({repo_ids});
+        COMMIT;
+
+        DELETE FROM pull_request_review_message_ref CASCADE WHERE repo_id IN ({repo_ids});
+        DELETE FROM repo CASCADE WHERE repo_id IN ({repo_ids});
+        COMMIT;
+"""
+    
+    repo_id_str = ",".join(map(str, repo_ids))
+    sql_script = sql_template.format(repo_ids=repo_id_str)
+    
+    with open(output_file, "w") as file:
+        file.write(sql_script)
+    
+    print(f"SQL script successfully written to {output_file}")
+
+# Example usage
+#repo_ids = [235219,196224,195980,196007,195987,196185,196178,196186,196099,
+#            196110,196111,196165,196101,196100,196102,196103,196104,196105,
+#            196107,196108,196109,196145,196147,194697]
+
+generate_sql_script(repos_to_delete)
+
+
 
 # Close the database connection
 conn.close()

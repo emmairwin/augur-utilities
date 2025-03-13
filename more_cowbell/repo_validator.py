@@ -121,7 +121,7 @@ def check_repository_status(url):
                 print(f'code: {response.status_code}')
                 return url, True, True, new_html_url if new_html_url else "Unknown", repo_id
 
-        elif response.status_code == 403:
+        elif response.status_code == 403 and handle_rate_limit(response):
             try:
                 error_message = response.json().get("message", "").lower()
                 print(f"DEBUG: 403 Response - Error Message: {error_message}")
@@ -152,49 +152,6 @@ def check_repository_status(url):
 
     return url, False, False, None, None  # Default case after retries
 
-"""
-
-def check_repository_status(url):
-    headers = {
-        "Accept": "application/vnd.github.v3+json",
-        "Authorization": f"token {GITHUB_TOKEN}",
-        "User-Agent": "CHAOSS-GitHubRepoChecker"  # Avoids GitHub blocking requests as suspicious
-    }    
-    repo_path = "/".join(url.split("https://github.com/")[-1].split("/"))
-    api_url = f"https://api.github.com/repos/{repo_path}"
-
-    print(f"Checking: {url}")
-
-    for attempt in range(5):  # Retry up to 5 times if rate limited
-        response = requests.get(api_url, headers=headers, allow_redirects=False)
-
-        if response.status_code == 200:
-            json_data = response.json()
-            correct_html_url = json_data.get("html_url", url)
-            repo_id = json_data.get("id", None)
-            return url, True, False, correct_html_url, repo_id
-
-        elif response.status_code in [301, 302]:  # Redirection
-            new_repo_response = requests.get(api_url, headers=headers, allow_redirects=True)
-            if new_repo_response.status_code == 200:
-                new_json_data = new_repo_response.json()
-                new_html_url = new_json_data.get("html_url", None)
-                repo_id = new_json_data.get("id", None)
-                return url, True, True, new_html_url if new_html_url else "Unknown", repo_id
-
-        elif response.status_code == 404:
-            return url, False, False, None, None
-
-        elif response.status_code == 429 or handle_rate_limit(response):  # Too Many Requests or Rate Limit
-            print(f"Rate limited. Retrying... (Attempt {attempt+1}/5)")
-            continue  # Retry after sleeping
-
-        else:
-            print(f"Unexpected error for {url}: {response.status_code}")
-            break  # Don't retry other errors
-
-    return url, False, False, None, None  # Default case after retries
-"""
 # Get GitHub token
 GITHUB_TOKEN = read_github_token()
 if not GITHUB_TOKEN:
@@ -317,7 +274,8 @@ with open(query_file, "w", newline="") as dr:
     writer = csv.writer(dr)
     
     # Extract repo_ids from duplicates
-    repos_to_delete = [row[4] for row in duplicates]  # Assuming row[4] contains the repo_id
+    #repos_to_delete = [row[4] for row in duplicates]  # Assuming row[4] contains the repo_id
+    repos_to_delete = [row[4] for row in duplicates if row[4] is not None]  
     print(f"repos to delete {repos_to_delete}")
 
     # Write delete statements to file

@@ -218,7 +218,7 @@ def check_repository_in_db(conn, old_url, new_url, repo_id):
             results["conflicting_url"] = row[0]  # The URL that contains the conflicting Repo ID
 
         # If both old and new URLs exist, check for repo_git with NULL repo_src_id
-        if results["old_url_exists"] and results["new_url_exists"]:
+        if results["old_url_exists"] and results["new_url_exists"]: # I think it will work cleaner if we only grab records where repo_src_id exists 
             cur.execute(
                 """
                 SELECT repo_id FROM augur_data.repo

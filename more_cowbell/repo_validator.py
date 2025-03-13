@@ -51,7 +51,6 @@ def handle_rate_limit(response):
     remaining_calls = response.headers.get("X-RateLimit-Remaining", "UNKNOWN")
     reset_time = response.headers.get("X-RateLimit-Reset", None)
 
-    # Convert values to integers where possible
     try:
         remaining_calls = int(remaining_calls)
         rate_limit = int(rate_limit)
@@ -66,21 +65,29 @@ def handle_rate_limit(response):
     print(f"DEBUG: API Calls Remaining: {remaining_calls}")
     print(f"DEBUG: Current Time: {current_time}, Rate Limit Resets At: {reset_time}")
 
-    # If we still have calls remaining, DO NOT sleep
+    # If we still have API calls remaining, we should NOT sleep
     if remaining_calls > 0:
         print("DEBUG: Sufficient API calls remaining. No need to sleep.")
         return False
 
-    # Compute sleep time if no calls remain
-    sleep_time = reset_time - current_time if reset_time else 0
+    # If GitHub response contains "API rate limit exceeded", handle it
+    try:
+        error_message = response.json().get("message", "").lower()
+        if "api rate limit exceeded" in error_message:
+            print(f"DEBUG: Detected API rate limit exceeded: {error_message}")
 
-    if sleep_time > 0:
-        print(f"Rate limit reached. Sleeping for {sleep_time} seconds...")
-        time.sleep(sleep_time)
-        return True  # Indicates rate limit was handled
+            # Compute sleep time
+            sleep_time = (reset_time - current_time) if reset_time else 60  # Default sleep 60s if no reset time
+            if sleep_time > 0:
+                print(f"Rate limit reached. Sleeping for {sleep_time} seconds...")
+                time.sleep(sleep_time)
+                return True  # Indicates rate limit was handled
+
+    except json.JSONDecodeError:
+        print("DEBUG: Failed to decode JSON response for rate limit check.")
 
     print("DEBUG: No valid reset time found. Not sleeping.")
-    return False
+    return False  # No rate limit issue
 
 # Function to check repository status via GitHub API
 def check_repository_status(url):
@@ -219,7 +226,7 @@ def read_repos_from_markdown(md_file):
         return []
 
 # Process repositories
-md_file = "repos-small.md"
+md_file = "repos.md"
 repo_urls = read_repos_from_markdown(md_file)
 
 if not repo_urls:

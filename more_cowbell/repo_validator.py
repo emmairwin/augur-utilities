@@ -235,7 +235,7 @@ def check_repository_in_db(conn, old_url, new_url, repo_id):
 # Check all repositories
 results = []
 duplicates = []
-
+"""
 for url in repo_urls:
     old_url, still_there, moved, new_url, repo_id = check_repository_status(url)
 
@@ -245,9 +245,29 @@ for url in repo_urls:
     results.append((old_url, still_there, moved, new_url, repo_id))
 
     # Detect duplicate repos
+    ## TODO: Make sure no duplicate repo ids are included. 
     if db_results["repo_id_exists"] and db_results["old_url_exists"] and db_results["new_url_exists"]:
         duplicates.append((old_url, new_url, repo_id, db_results["conflicting_url"], db_results["repo_git_with_null_src_id"]))
+"""
 
+# Loop through the list of repository URLs
+for url in repo_urls:
+    # Check the repository status: old URL, new URL, and repo ID
+    old_url, still_there, moved, new_url, repo_id = check_repository_status(url)
+
+    # Check the repository existence in the database
+    db_results = check_repository_in_db(conn, old_url, new_url, repo_id)
+
+    # Detect if repo_id is already in duplicates
+    if repo_id in [dup[2] for dup in duplicates]:  # Dup[2] is where the repo_id is stored in the duplicates list
+        continue  # Skip this iteration if repo_id is already in duplicates
+
+    # Store results if the repository is not a duplicate
+    results.append((old_url, still_there, moved, new_url, repo_id))
+
+    # Detect duplicate repos based on database checks
+    if db_results["repo_id_exists"] and db_results["old_url_exists"] and db_results["new_url_exists"]:
+        duplicates.append((old_url, new_url, repo_id, db_results["conflicting_url"], db_results["repo_git_with_null_src_id"]))
 
 # Save duplicate repos to CSV if any found
 if duplicates:

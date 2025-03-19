@@ -320,6 +320,14 @@ def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
         DELETE FROM augur_operations.user_repos WHERE repo_id IN ({repo_ids});
         DELETE FROM issue_assignees WHERE repo_id IN ({repo_ids});
         DELETE FROM releases WHERE repo_id IN ({repo_ids});
+        
+        CREATE INDEX "pr_rev_cntrb" ON "augur_data"."pull_request_reviews" USING btree (
+            "cntrb_id"
+            );
+        CREATE INDEX "pr_repo_id_idx" ON "augur_data"."pull_request_reviews" USING btree (
+            "repo_id"
+            );
+
         DELETE FROM pull_request_reviews WHERE repo_id IN ({repo_ids});
         DELETE FROM pull_request_files WHERE repo_id IN ({repo_ids});
         DELETE FROM pull_request_commits WHERE repo_id IN ({repo_ids});

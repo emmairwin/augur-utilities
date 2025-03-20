@@ -302,61 +302,86 @@ with open(query_file, "w", newline="") as dr:
     writer.writerows([[f"delete from repo where repo_id = {repo_id};"] for repo_id in repos_to_delete])
 
 def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
-    sql_template = """
+    # Deduplicate repo_ids
+    unique_repo_ids = sorted(set(repo_ids))  
+
+    # Define the SQL template
+    sql_statements = []
+
+    # Alter table constraints
+    sql_statements.append("""
         ALTER TABLE "augur_data"."pull_request_message_ref" 
         DROP CONSTRAINT "fk_pull_request_message_ref_message_1",
         ADD CONSTRAINT "fk_pull_request_message_ref_message_1" FOREIGN KEY ("msg_id") REFERENCES "augur_data"."message" ("msg_id") ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED;
+    """)
 
-        SELECT * FROM repo WHERE repo_id IN ({repo_ids});
-        SELECT * FROM augur_operations.collection_status WHERE repo_id IN ({repo_ids});
+    # Select statements
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"SELECT * FROM repo WHERE repo_id = {repo_id};")
+        sql_statements.append(f"SELECT * FROM augur_operations.collection_status WHERE repo_id = {repo_id};")
 
-        DELETE FROM issue_message_ref WHERE repo_id IN ({repo_ids});
-        DELETE FROM pull_request_review_message_ref WHERE repo_id IN ({repo_ids});
-        DELETE FROM pull_request_message_ref WHERE repo_id IN ({repo_ids});
-        COMMIT;
+    # Delete statements per repo_id
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM issue_message_ref WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_review_message_ref WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_message_ref WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
+    
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM repo_info WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM augur_operations.collection_status WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM augur_operations.user_repos WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM issue_assignees WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM releases WHERE repo_id = {repo_id};")
 
-        DELETE FROM repo_info WHERE repo_id IN ({repo_ids});
-        DELETE FROM augur_operations.collection_status WHERE repo_id IN ({repo_ids});
-        DELETE FROM augur_operations.user_repos WHERE repo_id IN ({repo_ids});
-        DELETE FROM issue_assignees WHERE repo_id IN ({repo_ids});
-        DELETE FROM releases WHERE repo_id IN ({repo_ids});
-        
-        CREATE INDEX "pr_rev_cntrb" ON "augur_data"."pull_request_reviews" USING btree (
-            "cntrb_id"
-            );
-        CREATE INDEX "pr_repo_id_idx" ON "augur_data"."pull_request_reviews" USING btree (
-            "repo_id"
-            );
+    # Index creation
+    sql_statements.append("""
+        CREATE INDEX "pr_rev_cntrb" ON "augur_data"."pull_request_reviews" USING btree ("cntrb_id");
+        CREATE INDEX "pr_repo_id_idx" ON "augur_data"."pull_request_reviews" USING btree ("repo_id");
+    """)
 
-        DELETE FROM pull_request_reviews WHERE repo_id IN ({repo_ids});
-        DELETE FROM pull_request_files WHERE repo_id IN ({repo_ids});
-        DELETE FROM pull_request_commits WHERE repo_id IN ({repo_ids});
-        DELETE FROM pull_requests WHERE repo_id IN ({repo_ids});
-        DELETE FROM repo_badging WHERE repo_id IN ({repo_ids});
-        DELETE FROM issues WHERE repo_id IN ({repo_ids});
-        DELETE FROM repo_deps_libyear WHERE repo_id IN ({repo_ids});
-        DELETE FROM repo_deps_scorecard WHERE repo_id IN ({repo_ids});
-        DELETE FROM repo_dependencies WHERE repo_id IN ({repo_ids});
-        COMMIT;
+    # More delete statements per repo_id
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM pull_request_reviews WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_files WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_commits WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_requests WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_badging WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM issues WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_deps_libyear WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_deps_scorecard WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_dependencies WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
 
-        DELETE FROM commits WHERE repo_id IN ({repo_ids});
-        DELETE FROM repo_labor WHERE repo_id IN ({repo_ids});
-        SELECT * FROM pull_request_message_ref WHERE repo_id IN ({repo_ids});
-        DELETE FROM pull_request_message_ref CASCADE WHERE repo_id IN ({repo_ids});
-        COMMIT;
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM commits WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_labor WHERE repo_id = {repo_id};")
+        sql_statements.append(f"SELECT * FROM pull_request_message_ref WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_message_ref CASCADE WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
 
+    # Alter table constraints again
+    sql_statements.append("""
         ALTER TABLE "augur_data"."pull_request_review_message_ref" 
         DROP CONSTRAINT "fk_pull_request_review_message_ref_message_1",
         ADD CONSTRAINT "fk_pull_request_review_message_ref_message_1" FOREIGN KEY ("msg_id") REFERENCES "augur_data"."message" ("msg_id") ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED;
+    """)
 
-        DELETE FROM message CASCADE WHERE repo_id IN ({repo_ids});
-        COMMIT;
-
-        DELETE FROM pull_request_review_message_ref CASCADE WHERE repo_id IN ({repo_ids});
-        DELETE FROM repo CASCADE WHERE repo_id IN ({repo_ids});
-        COMMIT;
-"""
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM message CASCADE WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
     
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM pull_request_review_message_ref CASCADE WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo CASCADE WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
+
+    # Write to the output file
+    with open(output_file, "w") as f:
+        f.write("\n".join(sql_statements))
+
+    print(f"SQL script generated and saved as {output_file}.")
+    """
     repo_id_str = ",".join(map(str, repo_ids))
     sql_script = sql_template.format(repo_ids=repo_id_str)
     
@@ -364,7 +389,7 @@ def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
         file.write(sql_script)
     
     print(f"SQL script successfully written to {output_file}")
-
+"""
 # Example usage
 #repo_ids = [235219,196224,195980,196007,195987,196185,196178,196186,196099,
 #            196110,196111,196165,196101,196100,196102,196103,196104,196105,

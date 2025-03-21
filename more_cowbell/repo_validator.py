@@ -353,7 +353,7 @@ def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
                 SELECT ctid
                 FROM pull_request_reviews
                 WHERE repo_id = {repo_id}
-                LIMIT 10
+                LIMIT 100
                 );
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;

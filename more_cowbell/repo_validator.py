@@ -361,6 +361,8 @@ def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
                 RAISE NOTICE 'At %: Deleted % rows in this batch for repo {repo_id}; Total deleted so far: %', 
                  clock_timestamp(), rows_deleted, total_deleted;
                 
+                COMMIT; 
+                
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
             END

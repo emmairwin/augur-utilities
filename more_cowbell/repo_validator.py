@@ -340,9 +340,34 @@ def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
         CREATE INDEX "pr_repo_id_idx" ON "augur_data"."pull_request_reviews" USING btree ("repo_id");
     """)
 
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"""
+            DO $$
+            DECLARE
+            rows_deleted INTEGER;
+            total_deleted INTEGER := 0;
+            BEGIN
+            LOOP
+                DELETE FROM pull_request_reviews
+                WHERE ctid IN (
+                SELECT ctid
+                FROM pull_request_reviews
+                WHERE repo_id = {repo_id}
+                LIMIT 10
+                );
+                GET DIAGNOSTICS rows_deleted = ROW_COUNT;
+                total_deleted := total_deleted + rows_deleted;
+                
+                RAISE NOTICE 'Deleted % rows in this batch for repo {repo_id}. Total deleted so far: %', rows_deleted, total_deleted;
+                
+                EXIT WHEN rows_deleted = 0;
+            END LOOP;
+            END
+            $$;
+            """)
+
     # More delete statements per repo_id
     for repo_id in unique_repo_ids:
-        sql_statements.append(f"DELETE FROM pull_request_reviews WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM pull_request_files WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM pull_request_commits WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM pull_requests WHERE repo_id = {repo_id};")

@@ -3082,7 +3082,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 25430. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 25430; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3106,7 +3109,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 36022. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 36022; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3130,7 +3136,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 36032. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 36032; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3154,7 +3163,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 36528. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 36528; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3178,7 +3190,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 36540. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 36540; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3202,7 +3217,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 36649. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 36649; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3226,7 +3244,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 36775. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 36775; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3250,7 +3271,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 39149. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 39149; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3274,7 +3298,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 39266. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 39266; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3298,7 +3325,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 39474. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 39474; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3322,7 +3352,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 39485. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 39485; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3346,7 +3379,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 40747. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 40747; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3370,7 +3406,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 40752. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 40752; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3394,7 +3433,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 40880. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 40880; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3418,7 +3460,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 47542. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 47542; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3442,7 +3487,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 48477. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 48477; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3466,7 +3514,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 49981. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 49981; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3490,7 +3541,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 50998. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 50998; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3514,7 +3568,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 51297. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 51297; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3538,7 +3595,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 51367. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 51367; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3562,7 +3622,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 52630. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 52630; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3586,7 +3649,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 52632. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 52632; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3610,7 +3676,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 52691. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 52691; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3634,7 +3703,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 52825. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 52825; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3658,7 +3730,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 53180. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 53180; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3682,7 +3757,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 53189. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 53189; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3706,7 +3784,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 53204. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 53204; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3730,7 +3811,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 53216. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 53216; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3754,7 +3838,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 53553. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 53553; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3778,7 +3865,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 54041. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 54041; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3802,7 +3892,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 57754. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 57754; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3826,7 +3919,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 57782. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 57782; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3850,7 +3946,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 126415. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 126415; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3874,7 +3973,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 128659. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 128659; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3898,7 +4000,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 131491. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 131491; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3922,7 +4027,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 131560. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 131560; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3946,7 +4054,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 132142. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 132142; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3970,7 +4081,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138636. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138636; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -3994,7 +4108,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138639. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138639; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4018,7 +4135,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138641. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138641; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4042,7 +4162,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138663. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138663; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4066,7 +4189,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138670. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138670; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4090,7 +4216,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138678. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138678; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4114,7 +4243,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138684. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138684; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4138,7 +4270,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138685. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138685; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4162,7 +4297,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138687. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138687; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4186,7 +4324,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138692. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138692; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4210,7 +4351,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138694. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138694; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4234,7 +4378,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138704. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138704; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4258,7 +4405,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138707. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138707; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4282,7 +4432,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138708. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138708; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4306,7 +4459,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138710. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138710; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4330,7 +4486,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138711. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138711; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4354,7 +4513,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138712. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138712; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4378,7 +4540,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138720. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138720; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4402,7 +4567,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138724. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138724; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4426,7 +4594,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138731. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138731; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4450,7 +4621,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138741. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138741; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4474,7 +4648,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138744. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138744; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4498,7 +4675,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138746. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138746; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4522,7 +4702,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138754. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138754; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4546,7 +4729,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138768. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138768; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4570,7 +4756,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138770. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138770; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4594,7 +4783,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138772. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138772; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4618,7 +4810,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138779. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138779; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4642,7 +4837,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138797. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138797; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4666,7 +4864,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138801. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138801; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4690,7 +4891,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138807. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138807; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4714,7 +4918,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138816. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138816; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4738,7 +4945,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 138830. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 138830; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4762,7 +4972,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139026. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139026; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4786,7 +4999,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139028. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139028; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4810,7 +5026,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139031. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139031; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4834,7 +5053,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139038. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139038; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4858,7 +5080,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139042. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139042; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4882,7 +5107,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139050. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139050; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4906,7 +5134,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139261. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139261; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4930,7 +5161,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139262. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139262; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4954,7 +5188,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139273. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139273; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -4978,7 +5215,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139278. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139278; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5002,7 +5242,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139288. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139288; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5026,7 +5269,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139289. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139289; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5050,7 +5296,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139311. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139311; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5074,7 +5323,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 139871. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 139871; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5098,7 +5350,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 140424. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 140424; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5122,7 +5377,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 150633. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 150633; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5146,7 +5404,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 151339. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 151339; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5170,7 +5431,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 151354. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 151354; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5194,7 +5458,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 151370. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 151370; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5218,7 +5485,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 151401. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 151401; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5242,7 +5512,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 157020. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 157020; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5266,7 +5539,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 162160. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 162160; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5290,7 +5566,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 162996. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 162996; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5314,7 +5593,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 163211. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 163211; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5338,7 +5620,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 163218. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 163218; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5362,7 +5647,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 163331. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 163331; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5386,7 +5674,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 165423. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 165423; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5410,7 +5701,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 165440. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 165440; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5434,7 +5728,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 166067. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 166067; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5458,7 +5755,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 189828. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 189828; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5482,7 +5782,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 189850. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 189850; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5506,7 +5809,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 190320. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 190320; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5530,7 +5836,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 190485. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 190485; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5554,7 +5863,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191131. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191131; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5578,7 +5890,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191138. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191138; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5602,7 +5917,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191139. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191139; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5626,7 +5944,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191147. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191147; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5650,7 +5971,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191156. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191156; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5674,7 +5998,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191158. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191158; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5698,7 +6025,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191164. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191164; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5722,7 +6052,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191165. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191165; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5746,7 +6079,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191167. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191167; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5770,7 +6106,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191168. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191168; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5794,7 +6133,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191176. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191176; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5818,7 +6160,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191177. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191177; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5842,7 +6187,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191180. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191180; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5866,7 +6214,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191185. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191185; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5890,7 +6241,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191192. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191192; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5914,7 +6268,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191198. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191198; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5938,7 +6295,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191211. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191211; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5962,7 +6322,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191232. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191232; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -5986,7 +6349,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191234. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191234; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6010,7 +6376,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191261. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191261; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6034,7 +6403,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191267. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191267; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6058,7 +6430,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191273. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191273; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6082,7 +6457,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191285. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191285; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6106,7 +6484,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191506. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191506; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6130,7 +6511,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191510. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191510; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6154,7 +6538,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 191517. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 191517; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6178,7 +6565,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 195334. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 195334; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6202,7 +6592,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 195519. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 195519; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6226,7 +6619,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 195981. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 195981; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6250,7 +6646,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196032. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196032; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6274,7 +6673,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196042. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196042; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6298,7 +6700,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196046. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196046; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6322,7 +6727,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196078. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196078; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6346,7 +6754,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196085. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196085; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6370,7 +6781,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196149. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196149; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6394,7 +6808,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196169. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196169; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6418,7 +6835,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196170. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196170; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6442,7 +6862,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196171. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196171; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6466,7 +6889,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196172. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196172; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6490,7 +6916,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196175. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196175; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6514,7 +6943,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196176. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196176; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6538,7 +6970,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 196177. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 196177; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6562,7 +6997,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 201974. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 201974; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6586,7 +7024,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 201976. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 201976; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6610,7 +7051,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 202148. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 202148; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6634,7 +7078,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 202231. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 202231; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6658,7 +7105,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 202303. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 202303; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6682,7 +7132,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 202824. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 202824; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6706,7 +7159,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 202828. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 202828; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6730,7 +7186,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 203684. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 203684; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6754,7 +7213,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 203692. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 203692; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6778,7 +7240,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 203878. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 203878; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6802,7 +7267,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 203893. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 203893; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6826,7 +7294,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 203988. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 203988; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6850,7 +7321,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 204113. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 204113; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6874,7 +7348,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 204643. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 204643; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6898,7 +7375,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 204759. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 204759; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6922,7 +7402,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 204764. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 204764; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6946,7 +7429,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 205069. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 205069; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6970,7 +7456,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 205073. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 205073; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -6994,7 +7483,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 205078. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 205078; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7018,7 +7510,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209162. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209162; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7042,7 +7537,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209168. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209168; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7066,7 +7564,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209169. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209169; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7090,7 +7591,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209172. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209172; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7114,7 +7618,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209173. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209173; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7138,7 +7645,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209175. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209175; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7162,7 +7672,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209179. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209179; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7186,7 +7699,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209180. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209180; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7210,7 +7726,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209181. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209181; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7234,7 +7753,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209182. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209182; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7258,7 +7780,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209183. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209183; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7282,7 +7807,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209184. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209184; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7306,7 +7834,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209188. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209188; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7330,7 +7861,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209189. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209189; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7354,7 +7888,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209190. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209190; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7378,7 +7915,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209191. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209191; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7402,7 +7942,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209192. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209192; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7426,7 +7969,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209195. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209195; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7450,7 +7996,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 209196. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 209196; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7474,7 +8023,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 211360. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 211360; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7498,7 +8050,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 227659. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 227659; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7522,7 +8077,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 227661. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 227661; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7546,7 +8104,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 228890. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 228890; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7570,7 +8131,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 229433. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 229433; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7594,7 +8158,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 229852. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 229852; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7618,7 +8185,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 231278. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 231278; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7642,7 +8212,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 231781. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 231781; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7666,7 +8239,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 231941. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 231941; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7690,7 +8266,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 231946. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 231946; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7714,7 +8293,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 231995. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 231995; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7738,7 +8320,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232079. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232079; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7762,7 +8347,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232085. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232085; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7786,7 +8374,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232139. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232139; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7810,7 +8401,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232184. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232184; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7834,7 +8428,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232199. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232199; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7858,7 +8455,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232235. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232235; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7882,7 +8482,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232269. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232269; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7906,7 +8509,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232296. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232296; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7930,7 +8536,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232343. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232343; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7954,7 +8563,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232424. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232424; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -7978,7 +8590,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232425. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232425; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8002,7 +8617,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232426. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232426; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8026,7 +8644,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232435. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232435; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8050,7 +8671,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232439. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232439; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8074,7 +8698,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232452. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232452; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8098,7 +8725,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232457. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232457; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8122,7 +8752,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232465. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232465; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8146,7 +8779,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 232468. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 232468; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8170,7 +8806,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 244399. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 244399; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8194,7 +8833,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 251456. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 251456; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8218,7 +8860,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 251803. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 251803; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8242,7 +8887,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 253014. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 253014; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8266,7 +8914,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 254070. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 254070; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8290,7 +8941,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 254071. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 254071; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8314,7 +8968,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 254072. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 254072; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8338,7 +8995,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 256625. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 256625; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8362,7 +9022,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 273633. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 273633; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8386,7 +9049,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 273785. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 273785; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8410,7 +9076,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 284978. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 284978; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8434,7 +9103,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 285785. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 285785; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8458,7 +9130,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 286977. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 286977; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8482,7 +9157,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 286984. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 286984; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8506,7 +9184,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288054. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288054; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8530,7 +9211,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288090. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288090; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8554,7 +9238,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288221. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288221; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8578,7 +9265,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288232. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288232; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8602,7 +9292,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288320. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288320; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8626,7 +9319,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288340. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288340; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8650,7 +9346,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288438. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288438; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8674,7 +9373,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288503. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288503; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8698,7 +9400,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288562. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288562; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8722,7 +9427,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288571. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288571; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8746,7 +9454,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288575. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288575; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8770,7 +9481,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288627. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288627; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8794,7 +9508,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288659. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288659; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8818,7 +9535,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288678. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288678; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8842,7 +9562,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 288842. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 288842; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8866,7 +9589,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 289050. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 289050; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8890,7 +9616,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 289154. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 289154; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8914,7 +9643,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 289378. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 289378; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8938,7 +9670,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 289525. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 289525; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8962,7 +9697,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 289758. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 289758; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -8986,7 +9724,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 289811. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 289811; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9010,7 +9751,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 289926. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 289926; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9034,7 +9778,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290043. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290043; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9058,7 +9805,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290127. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290127; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9082,7 +9832,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290182. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290182; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9106,7 +9859,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290239. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290239; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9130,7 +9886,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290357. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290357; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9154,7 +9913,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290360. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290360; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9178,7 +9940,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290554. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290554; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9202,7 +9967,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290581. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290581; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9226,7 +9994,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290690. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290690; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9250,7 +10021,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 290928. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 290928; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9274,7 +10048,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291106. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291106; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9298,7 +10075,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291375. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291375; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9322,7 +10102,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291405. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291405; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9346,7 +10129,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291609. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291609; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9370,7 +10156,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291667. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291667; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9394,7 +10183,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291689. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291689; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9418,7 +10210,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291774. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291774; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9442,7 +10237,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291816. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291816; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9466,7 +10264,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 291886. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 291886; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9490,7 +10291,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 292092. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 292092; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9514,7 +10318,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 292409. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 292409; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9538,7 +10345,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 292519. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 292519; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9562,7 +10372,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 292586. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 292586; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9586,7 +10399,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 292642. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 292642; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9610,7 +10426,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 292833. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 292833; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9634,7 +10453,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 292871. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 292871; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9658,7 +10480,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 293143. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 293143; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9682,7 +10507,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 293184. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 293184; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9706,7 +10534,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 293755. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 293755; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;
@@ -9730,7 +10561,10 @@ DELETE FROM releases WHERE repo_id = 294510;
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo 294510. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo 294510; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;

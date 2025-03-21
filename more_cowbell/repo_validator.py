@@ -358,7 +358,8 @@ def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
                 GET DIAGNOSTICS rows_deleted = ROW_COUNT;
                 total_deleted := total_deleted + rows_deleted;
                 
-                RAISE NOTICE 'Deleted % rows in this batch for repo {repo_id}. Total deleted so far: %', rows_deleted, total_deleted;
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo {repo_id}; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
                 
                 EXIT WHEN rows_deleted = 0;
             END LOOP;

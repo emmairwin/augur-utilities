@@ -433,7 +433,12 @@ def generate_berkhus_script(repo_ids, output_file="generated_berkhus_script.sql"
     # Define the SQL template
     sql_statements = []
     
-    """Here is where we need to alter the deletes to do an update on the rows for Augur repo_ids that have a NULL value in the repo_src_id column, and have been determined to be in the duplicates list."""
+    """Here is where we need to alter the deletes to do an update on the rows for Augur repo_ids that have a NULL value in the repo_src_id column, and have been determined to be in the duplicates list.
+    
+    It will be Pull a list from duplicate_repos list.
+    
+    #TODO : Really need to decide how these might be constructed
+    # ## FINIAHED here."""
 
     # Delete statements per repo_id
     for repo_id in unique_repo_ids:

@@ -250,7 +250,7 @@ for url in repo_urls:
     results.append((old_url, still_there, moved, new_url, repo_id))
 
     # Detect duplicate repos
-    ## TODO: Make sure no duplicate repo ids are included. 
+    ## -- #DONE TODO: Make sure no duplicate repo ids are included. 
     if db_results["repo_id_exists"] and db_results["old_url_exists"] and db_results["new_url_exists"]:
         duplicates.append((old_url, new_url, repo_id, db_results["conflicting_url"], db_results["repo_git_with_null_src_id"]))
 """
@@ -426,15 +426,10 @@ def generate_delete_script(repo_ids, output_file="generated_delete_script.sql"):
 
 def generate_berkhus_script(repo_ids, output_file="generated_berkhus_script.sql"):
     # Deduplicate repo_ids
-    unique_repo_ids = sorted(set(repo_ids))  
-    
+    unique_repo_ids = sorted(set(repo_ids))    
     """Here we need to read the full `duplicate_repos.csv` file to accomplish the development of an update script. 
     The approximate logic is : 
-    
-    
-    
     """
-
     # Define the SQL template
     sql_statements = []
     
@@ -446,19 +441,11 @@ def generate_berkhus_script(repo_ids, output_file="generated_berkhus_script.sql"
         sql_statements.append(f"DELETE FROM pull_request_review_message_ref WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM pull_request_message_ref WHERE repo_id = {repo_id};")
         sql_statements.append("COMMIT;")
-    
-    for repo_id in unique_repo_ids:
         sql_statements.append(f"DELETE FROM repo_info WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM augur_operations.collection_status WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM augur_operations.user_repos WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM issue_assignees WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM releases WHERE repo_id = {repo_id};")
-
-    # Index creation
-    sql_statements.append("""
-        CREATE INDEX "pr_rev_cntrb" ON "augur_data"."pull_request_reviews" USING btree ("cntrb_id");
-        CREATE INDEX "pr_repo_id_idx" ON "augur_data"."pull_request_reviews" USING btree ("repo_id");
-    """)
 
     for repo_id in unique_repo_ids:
         sql_statements.append(f"""
@@ -489,8 +476,6 @@ def generate_berkhus_script(repo_ids, output_file="generated_berkhus_script.sql"
             $$;
             """)
 
-    # More delete statements per repo_id
-    for repo_id in unique_repo_ids:
         sql_statements.append(f"DELETE FROM pull_request_files WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM pull_request_commits WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM pull_requests WHERE repo_id = {repo_id};")
@@ -500,26 +485,13 @@ def generate_berkhus_script(repo_ids, output_file="generated_berkhus_script.sql"
         sql_statements.append(f"DELETE FROM repo_deps_scorecard WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM repo_dependencies WHERE repo_id = {repo_id};")
         sql_statements.append("COMMIT;")
-
-    for repo_id in unique_repo_ids:
         sql_statements.append(f"DELETE FROM commits WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM repo_labor WHERE repo_id = {repo_id};")
         sql_statements.append(f"SELECT * FROM pull_request_message_ref WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM pull_request_message_ref CASCADE WHERE repo_id = {repo_id};")
         sql_statements.append("COMMIT;")
-
-    # Alter table constraints again
-    sql_statements.append("""
-        ALTER TABLE "augur_data"."pull_request_review_message_ref" 
-        DROP CONSTRAINT "fk_pull_request_review_message_ref_message_1",
-        ADD CONSTRAINT "fk_pull_request_review_message_ref_message_1" FOREIGN KEY ("msg_id") REFERENCES "augur_data"."message" ("msg_id") ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED;
-    """)
-
-    for repo_id in unique_repo_ids:
         sql_statements.append(f"DELETE FROM message CASCADE WHERE repo_id = {repo_id};")
         sql_statements.append("COMMIT;")
-    
-    for repo_id in unique_repo_ids:
         sql_statements.append(f"DELETE FROM pull_request_review_message_ref CASCADE WHERE repo_id = {repo_id};")
         sql_statements.append(f"DELETE FROM repo CASCADE WHERE repo_id = {repo_id};")
         sql_statements.append("COMMIT;")

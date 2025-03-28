@@ -306,7 +306,7 @@ with open(query_file, "w", newline="") as dr:
     # Write delete statements to file
     writer.writerows([[f"delete from repo where repo_id = {repo_id};"] for repo_id in repos_to_delete])
 
-def generate_delete_script(repo_ids, output_file="generated_sql_script.sql"):
+def generate_delete_script(repo_ids, output_file="generated_delete_script.sql"):
     # Deduplicate repo_ids
     unique_repo_ids = sorted(set(repo_ids))  
 
@@ -324,6 +324,121 @@ def generate_delete_script(repo_ids, output_file="generated_sql_script.sql"):
     for repo_id in unique_repo_ids:
         sql_statements.append(f"SELECT * FROM repo WHERE repo_id = {repo_id};")
         sql_statements.append(f"SELECT * FROM augur_operations.collection_status WHERE repo_id = {repo_id};")
+
+    # Delete statements per repo_id
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM issue_message_ref WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_review_message_ref WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_message_ref WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
+    
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM repo_info WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM augur_operations.collection_status WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM augur_operations.user_repos WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM issue_assignees WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM releases WHERE repo_id = {repo_id};")
+
+    # Index creation
+    sql_statements.append("""
+        CREATE INDEX "pr_rev_cntrb" ON "augur_data"."pull_request_reviews" USING btree ("cntrb_id");
+        CREATE INDEX "pr_repo_id_idx" ON "augur_data"."pull_request_reviews" USING btree ("repo_id");
+    """)
+
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"""
+            DO $$
+            DECLARE
+            rows_deleted INTEGER;
+            total_deleted INTEGER := 0;
+            BEGIN
+            LOOP
+                DELETE FROM pull_request_reviews
+                WHERE ctid IN (
+                SELECT ctid
+                FROM pull_request_reviews
+                WHERE repo_id = {repo_id}
+                LIMIT 100
+                );
+                GET DIAGNOSTICS rows_deleted = ROW_COUNT;
+                total_deleted := total_deleted + rows_deleted;
+                
+                RAISE NOTICE 'At %: Deleted % rows in this batch for repo {repo_id}; Total deleted so far: %', 
+                 clock_timestamp(), rows_deleted, total_deleted;
+                
+                COMMIT; 
+                
+                EXIT WHEN rows_deleted = 0;
+            END LOOP;
+            END
+            $$;
+            """)
+
+    # More delete statements per repo_id
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM pull_request_files WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_commits WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_requests WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_badging WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM issues WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_deps_libyear WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_deps_scorecard WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_dependencies WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
+
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM commits WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo_labor WHERE repo_id = {repo_id};")
+        sql_statements.append(f"SELECT * FROM pull_request_message_ref WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM pull_request_message_ref CASCADE WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
+
+    # Alter table constraints again
+    sql_statements.append("""
+        ALTER TABLE "augur_data"."pull_request_review_message_ref" 
+        DROP CONSTRAINT "fk_pull_request_review_message_ref_message_1",
+        ADD CONSTRAINT "fk_pull_request_review_message_ref_message_1" FOREIGN KEY ("msg_id") REFERENCES "augur_data"."message" ("msg_id") ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED;
+    """)
+
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM message CASCADE WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
+    
+    for repo_id in unique_repo_ids:
+        sql_statements.append(f"DELETE FROM pull_request_review_message_ref CASCADE WHERE repo_id = {repo_id};")
+        sql_statements.append(f"DELETE FROM repo CASCADE WHERE repo_id = {repo_id};")
+        sql_statements.append("COMMIT;")
+
+    # Write to the output file
+    with open(output_file, "w") as f:
+        f.write("\n".join(sql_statements))
+
+    print(f"SQL script generated and saved as {output_file}.")
+    """
+    repo_id_str = ",".join(map(str, repo_ids))
+    sql_script = sql_template.format(repo_ids=repo_id_str)
+    
+    with open(output_file, "w") as file:
+        file.write(sql_script)
+    
+    print(f"SQL script successfully written to {output_file}")
+"""
+
+def generate_berkhus_script(repo_ids, output_file="generated_berkhus_script.sql"):
+    # Deduplicate repo_ids
+    unique_repo_ids = sorted(set(repo_ids))  
+    
+    """Here we need to read the full `duplicate_repos.csv` file to accomplish the development of an update script. 
+    The approximate logic is : 
+    
+    
+    
+    """
+
+    # Define the SQL template
+    sql_statements = []
+    
+    """Here is where we need to alter the deletes to do an update on the rows for Augur repo_ids that have a NULL value in the repo_src_id column, and have been determined to be in the duplicates list."""
 
     # Delete statements per repo_id
     for repo_id in unique_repo_ids:

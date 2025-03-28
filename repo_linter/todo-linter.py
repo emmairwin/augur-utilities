@@ -1,3 +1,4 @@
+#SPDX-License-Identifier: MIT
 import psycopg2
 import json
 import subprocess

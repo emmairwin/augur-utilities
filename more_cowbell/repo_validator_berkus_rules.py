@@ -1,4 +1,8 @@
 #SPDX-License-Identifier: MIT
+"""
+This modification replaces the original's intention to delete duplicate repositories by updating the repository ID's in each table a method to update those repositories without a platform controled identifier with the Augur repo_id, identified as the duplicate pair, with the Augur repo_id that has a platform identifier. This strategy gets around the issue of trying to delete records from the pull_request_reviews table, which, among the tables we were cleaning, was taking an extraordinary amount of time. The time cost for this operation is a non-linear function of the number of repositories being collected in the cleaned Augur repository. Keep in mind this only applies to Augur instnaces launched before May, 2024. 
+"""
+
 import requests
 import csv
 import time
@@ -302,7 +306,7 @@ with open(query_file, "w", newline="") as dr:
     # Write delete statements to file
     writer.writerows([[f"delete from repo where repo_id = {repo_id};"] for repo_id in repos_to_delete])
 
-def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
+def generate_delete_script(repo_ids, output_file="generated_sql_script.sql"):
     # Deduplicate repo_ids
     unique_repo_ids = sorted(set(repo_ids))  
 
@@ -419,12 +423,10 @@ def generate_sql_script(repo_ids, output_file="generated_sql_script.sql"):
     
     print(f"SQL script successfully written to {output_file}")
 """
-# Example usage
-#repo_ids = [235219,196224,195980,196007,195987,196185,196178,196186,196099,
-#            196110,196111,196165,196101,196100,196102,196103,196104,196105,
-#            196107,196108,196109,196145,196147,194697]
 
-generate_sql_script(repos_to_delete)
+
+
+generate_delete_script(repos_to_delete)
 
 
 

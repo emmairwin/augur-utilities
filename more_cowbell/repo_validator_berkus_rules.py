@@ -1,6 +1,6 @@
 #SPDX-License-Identifier: MIT
 """
-This modification replaces the original's intention to delete duplicate repositories by updating the repository ID's in each table a method to update those repositories without a platform controled identifier with the Augur repo_id, identified as the duplicate pair, with the Augur repo_id that has a platform identifier. This strategy gets around the issue of trying to delete records from the pull_request_reviews table, which, among the tables we were cleaning, was taking an extraordinary amount of time. The time cost for this operation is a non-linear function of the number of repositories being collected in the cleaned Augur repository. Keep in mind this only applies to Augur instnaces launched before May, 2024. 
+This modification replaces the original's intention to delete duplicate repositories by updating the repository ID's in each table a method to update those repositories without a platform controled identifier with the Augur repo_id, identified as the duplicate pair, with the Augur repo_id that has a platform identifier. This strategy gets around the issue of trying to delete records from the pull_request_reviews table, which, among the tables we were cleaning, was taking an extraordinary amount of time. The time cost for this operation is a non-linear function of the number of repositories being collected in the cleaned Augur repository. Keep in mind this only applies to Augur instnaces launched before May, 2024. Instances launched since then do not require this utility. 
 """
 
 import requests

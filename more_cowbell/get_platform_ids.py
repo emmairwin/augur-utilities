@@ -2,6 +2,7 @@ import psycopg2
 import requests
 import json
 import time
+from urllib.parse import urlparse
 
 # Read GitHub API token from JSON file
 def read_github_token(file_path="githubapi.json"):
@@ -82,8 +83,28 @@ def handle_rate_limit(response):
     print("DEBUG: No valid reset time found. Not sleeping.")
     return False
 
+# Extract owner and repo_name from the repo_git URL
+def extract_owner_repo(repo_git):
+    try:
+        parsed_url = urlparse(repo_git)
+        path_parts = parsed_url.path.strip("/").split("/")
+        if len(path_parts) >= 2:
+            owner = path_parts[0]
+            repo_name = path_parts[1]
+            return owner, repo_name
+        else:
+            print(f"Error: URL {repo_git} does not contain enough parts.")
+            return None, None
+    except Exception as e:
+        print(f"Error extracting owner and repo_name from {repo_git}: {e}")
+        return None, None
+
 # Query GitHub API to retrieve the repository source id using the provided token
-def get_github_repo_src_id(owner, repo_name, token):
+def get_github_repo_src_id(repo_git, token):
+    owner, repo_name = extract_owner_repo(repo_git)
+    if not owner or not repo_name:
+        return None
+
     url = f"https://api.github.com/repos/{owner}/{repo_name}"
     headers = {}
     if token:
@@ -98,7 +119,7 @@ def get_github_repo_src_id(owner, repo_name, token):
         data = response.json()
         return data.get('id')
     else:
-        print(f"Failed to fetch GitHub data for {owner}/{repo_name}. Status code: {response.status_code}")
+        print(f"Failed to fetch GitHub data for {repo_git}. Status code: {response.status_code}")
         return None
 
 def main():
@@ -119,7 +140,8 @@ def main():
 
     cursor = conn.cursor()
 
-    select_query = "SELECT repo_id, owner, repo_name FROM augur_data.repo WHERE repo_src_id IS NULL;"
+    # Updated query with schema and new field (repo_git)
+    select_query = "SELECT repo_id, repo_git FROM augur_data.repo WHERE repo_src_id IS NULL;"
     try:
         cursor.execute(select_query)
         rows = cursor.fetchall()
@@ -131,10 +153,10 @@ def main():
     DUPLICATE_LOG_FILE = "duplicate_repos.txt"
     with open(DUPLICATE_LOG_FILE, "a") as log_file:
         for row in rows:
-            repo_id, owner, repo_name = row
-            print(f"Processing repo_id: {repo_id}, {owner}/{repo_name}")
+            repo_id, repo_git = row
+            print(f"Processing repo_id: {repo_id}, {repo_git}")
 
-            repo_src_id = get_github_repo_src_id(owner, repo_name, github_token)
+            repo_src_id = get_github_repo_src_id(repo_git, github_token)
             if not repo_src_id:
                 print(f"Skipping repo_id {repo_id} due to API error.")
                 continue

@@ -143,36 +143,36 @@ def generate_duplicate_sql_script(duplicate_log_file="duplicate_repos.txt", outp
             for repo_src_id, repo_id, duplicate_repo_id in duplicate_pairs:
                 f.write(f"-- Duplicate pair: repo_src_id = {repo_src_id}\n")
                 f.write("BEGIN;\n")
-                f.write(f"UPDATE issue_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_review_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE repo_info SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE issue_assignees SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE releases SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_reviews SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_files SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_commits SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_requests SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE repo_badging SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE issues SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE repo_deps_libyear SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE repo_deps_scorecard SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE repo_dependencies SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE commits SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE repo_labor SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE message SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.issue_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_review_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.repo_info SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.issue_assignees SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.releases SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_reviews SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_files SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_commits SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_requests SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.repo_badging SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.issues SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.repo_deps_libyear SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.repo_deps_scorecard SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.repo_dependencies SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.commits SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.repo_labor SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.message SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
                 f.write("--\n")
                 f.write(f"delete from augur_operations.user_repos where repo_id = {repo_id};\n")
                 f.write(f"delete from augur_operations.collection_status where repo_id = {repo_id};\n")
-                f.write(f"delete from commit_messages where repo_id = {repo_id};\n")
-                f.write(f"UPDATE issue_events SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE issue_labels SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_labels SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_events SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_meta SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_reviewers SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"UPDATE pull_request_assignees SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
-                f.write(f"delete from repo where repo_id = {repo_id};\n")
+                f.write(f"delete from augur_data.commit_messages where repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.issue_events SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.issue_labels SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_labels SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_events SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_meta SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_reviewers SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE augur_data.pull_request_assignees SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"delete from augur_data.repo where repo_id = {repo_id};\n")
                 f.write("COMMIT;\n\n")
         print(f"SQL script generated successfully and saved to {output_sql_file}")
     except Exception as e:
@@ -196,45 +196,51 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
 
     # List of statements to execute for each duplicate pair.
     stmts = [
-        ("UPDATE issue_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "issue_message_ref"),
-        ("UPDATE pull_request_review_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_review_message_ref"),
-        ("UPDATE pull_request_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_message_ref"),
-        ("UPDATE repo_info SET repo_id = {dup} WHERE repo_id = {rid};", "repo_info"),
-        ("UPDATE issue_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "issue_assignees"),
-        ("UPDATE releases SET repo_id = {dup} WHERE repo_id = {rid};", "releases"),
-        ("UPDATE pull_request_reviews SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_reviews"),
-        ("UPDATE pull_request_files SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_files"),
-        ("UPDATE pull_request_commits SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_commits"),
-        ("UPDATE pull_requests SET repo_id = {dup} WHERE repo_id = {rid};", "pull_requests"),
-        ("UPDATE repo_badging SET repo_id = {dup} WHERE repo_id = {rid};", "repo_badging"),
-        ("UPDATE issues SET repo_id = {dup} WHERE repo_id = {rid};", "issues"),
-        ("UPDATE repo_deps_libyear SET repo_id = {dup} WHERE repo_id = {rid};", "repo_deps_libyear"),
-        ("UPDATE repo_deps_scorecard SET repo_id = {dup} WHERE repo_id = {rid};", "repo_deps_scorecard"),
-        ("UPDATE repo_dependencies SET repo_id = {dup} WHERE repo_id = {rid};", "repo_dependencies"),
-        ("UPDATE commits SET repo_id = {dup} WHERE repo_id = {rid};", "commits"),
-        ("UPDATE repo_labor SET repo_id = {dup} WHERE repo_id = {rid};", "repo_labor"),
-        ("UPDATE message SET repo_id = {dup} WHERE repo_id = {rid};", "message"),
+        ("UPDATE augur_data.issue_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_message_ref"),
+        ("UPDATE augur_data.pull_request_review_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_review_message_ref"),
+        ("UPDATE augur_data.pull_request_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_message_ref"),
+        ("UPDATE augur_data.repo_info SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.repo_info"),
+        ("UPDATE augur_data.issue_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_assignees"),
+        ("UPDATE augur_data.releases SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.releases"),
+        ("UPDATE augur_data.pull_request_reviews SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_reviews"),
+        ("UPDATE augur_data.pull_request_files SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_files"),
+        ("UPDATE augur_data.pull_request_commits SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_commits"),
+        ("UPDATE augur_data.pull_requests SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_requests"),
+        ("UPDATE augur_data.repo_badging SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.repo_badging"),
+        ("UPDATE augur_data.issues SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issues"),
+        ("UPDATE augur_data.repo_deps_libyear SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.repo_deps_libyear"),
+        ("UPDATE augur_data.repo_deps_scorecard SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.repo_deps_scorecard"),
+        ("UPDATE augur_data.repo_dependencies SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.repo_dependencies"),
+        ("UPDATE augur_data.commits SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.commits"),
+        ("UPDATE augur_data.repo_labor SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.repo_labor"),
+        ("UPDATE augur_data.message SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.message"),
         ("delete from augur_operations.user_repos where repo_id = {rid};", "augur_operations.user_repos"),
         ("delete from augur_operations.collection_status where repo_id = {rid};", "augur_operations.collection_status"),
-        ("delete from commit_messages where repo_id = {rid};", "commit_messages"),
-        ("UPDATE issue_events SET repo_id = {dup} WHERE repo_id = {rid};", "issue_events"),
-        ("UPDATE issue_labels SET repo_id = {dup} WHERE repo_id = {rid};", "issue_labels"),
-        ("UPDATE pull_request_labels SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_labels"),
-        ("UPDATE pull_request_events SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_events"),
-        ("UPDATE pull_request_meta SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_meta"),
-        ("UPDATE pull_request_reviewers SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_reviewers"),
-        ("UPDATE pull_request_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_assignees"),
-        ("delete from repo where repo_id = {rid};", "repo")
+        ("delete from augur_data.commit_messages where repo_id = {rid};", "augur_data.commit_messages"),
+        ("UPDATE augur_data.issue_events SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_events"),
+        ("UPDATE augur_data.issue_labels SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_labels"),
+        ("UPDATE augur_data.pull_request_labels SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_labels"),
+        ("UPDATE augur_data.pull_request_events SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_events"),
+        ("UPDATE augur_data.pull_request_meta SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_meta"),
+        ("UPDATE augur_data.pull_request_reviewers SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_reviewers"),
+        ("UPDATE augur_data.pull_request_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_assignees"),
+        ("delete from augur_data.repo where repo_id = {rid};", "augur_data.repo")
     ]
 
     def wrap_statement(stmt, table_label, rid):
         # Wrap the given statement in a DO block that catches unique_violation and foreign_key_violation.
+        # If such an error occurs, it attempts to delete from table_label where repo_id = {rid}.
         return (
             "DO $$\n"
             "BEGIN\n"
             f"    {stmt}\n"
             "EXCEPTION WHEN unique_violation OR foreign_key_violation THEN\n"
-            f"    RAISE NOTICE 'Ignoring duplicate/foreign key error in {table_label} for repo_id {rid}';\n"
+            "    BEGIN\n"
+            f"         DELETE FROM {table_label} WHERE repo_id = {rid};\n"
+            "    EXCEPTION WHEN OTHERS THEN\n"
+            f"         RAISE NOTICE 'Fallback delete from {table_label} for repo_id {rid} failed.';\n"
+            "    END;\n"
+            f"    RAISE NOTICE 'Handled error in {table_label} for repo_id {rid}.';\n"
             "END $$;\n"
         )
 

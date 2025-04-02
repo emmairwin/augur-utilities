@@ -228,19 +228,20 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
     ]
 
     def wrap_statement(stmt, table_label, rid):
-        # Wrap the given statement in a DO block that catches unique_violation and foreign_key_violation.
-        # If such an error occurs, it attempts to delete from table_label where repo_id = {rid}.
         return (
             "DO $$\n"
+            "DECLARE\n"
+            "  original_error TEXT;\n"
             "BEGIN\n"
             f"    {stmt}\n"
             "EXCEPTION WHEN unique_violation OR foreign_key_violation THEN\n"
+            "    original_error := SQLERRM;\n"
             "    BEGIN\n"
             f"         DELETE FROM {table_label} WHERE repo_id = {rid};\n"
             "    EXCEPTION WHEN OTHERS THEN\n"
-            f"         RAISE NOTICE 'Fallback delete from {table_label} for repo_id {rid} failed.';\n"
+            "         RAISE NOTICE 'Fallback delete from {table_label} for repo_id {rid} failed: %', SQLERRM;\n"
             "    END;\n"
-            f"    RAISE NOTICE 'Handled error in {table_label} for repo_id {rid}.';\n"
+            "    RAISE NOTICE 'Handled error in {table_label} for repo_id {rid}: %', original_error;\n"
             "END $$;\n"
         )
 

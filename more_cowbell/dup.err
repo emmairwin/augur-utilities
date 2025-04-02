@@ -1,6 +1,0 @@
-NOTICE:  Handled error in augur_data.pull_requests for repo_id 151002.
-NOTICE:  Fallback delete from augur_data.issues for repo_id 151002 failed.
-NOTICE:  Handled error in augur_data.issues for repo_id 151002.
-NOTICE:  Handled error in augur_data.repo_deps_scorecard for repo_id 151002.
-NOTICE:  Fallback delete from augur_data.repo for repo_id 151002 failed.
-NOTICE:  Handled error in augur_data.repo for repo_id 151002.

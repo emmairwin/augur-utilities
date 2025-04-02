@@ -1,0 +1,6 @@
+ALTER TABLE "augur_data"."issue_assignees" 
+  DROP CONSTRAINT "fk_issue_assignees_issues_1",
+  DROP CONSTRAINT "issue_assignees_cntrb_id_fkey",
+  ADD CONSTRAINT "fk_issue_assignees_issues_1" FOREIGN KEY ("issue_id") REFERENCES "augur_data"."issues" ("issue_id") ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT "issue_assignees_cntrb_id_fkey" FOREIGN KEY ("cntrb_id") REFERENCES "augur_data"."contributors" ("cntrb_id") ON DELETE RESTRICT ON UPDATE CASCADE;
+

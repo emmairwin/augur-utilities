@@ -195,6 +195,7 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
 
     # List of statements to execute for each duplicate pair.
     stmts = [
+        ("ALTER USER augur SET SEARCH_PATH = 'augur_data'"), 
         ("UPDATE issue_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "issue_message_ref"),
         ("UPDATE pull_request_review_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_review_message_ref"),
         ("UPDATE pull_request_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_message_ref"),

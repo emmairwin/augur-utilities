@@ -1,0 +1,173 @@
+import psycopg2
+import requests
+import json
+import time
+
+# Read GitHub API token from JSON file
+def read_github_token(file_path="githubapi.json"):
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data.get("GITHUB_TOKEN", None)
+    except Exception as e:
+        print(f"Error reading GitHub API key from {file_path}: {e}")
+        return None
+
+# Read database connection details from JSON file
+def read_db_config(file_path="db.config.json"):
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error reading database config from {file_path}: {e}")
+        return None
+
+# Connect to PostgreSQL database
+def connect_to_db(db_config):
+    try:
+        conn = psycopg2.connect(
+            dbname=db_config["database_name"],
+            user=db_config["user"],
+            password=db_config["password"],
+            host=db_config["host"],
+            port=db_config["port"]
+        )
+        return conn
+    except Exception as e:
+        print(f"Error connecting to database: {e}")
+        return None
+
+# Function to handle GitHub rate limits
+def handle_rate_limit(response):
+    """
+    Handles GitHub API rate limiting.
+    Sleeps until the reset time if the limit is exceeded.
+    """
+    rate_limit = response.headers.get("X-RateLimit-Limit", "UNKNOWN")
+    remaining_calls = response.headers.get("X-RateLimit-Remaining", "UNKNOWN")
+    reset_time = response.headers.get("X-RateLimit-Reset", None)
+
+    try:
+        remaining_calls = int(remaining_calls)
+        rate_limit = int(rate_limit)
+        reset_time = int(reset_time) if reset_time else None
+    except ValueError:
+        print("DEBUG: Error converting rate limit headers to integers. Skipping rate limit handling.")
+        return False
+
+    current_time = int(time.time())
+
+    print(f"DEBUG: API Rate Limit: {rate_limit}")
+    print(f"DEBUG: API Calls Remaining: {remaining_calls}")
+    print(f"DEBUG: Current Time: {current_time}, Rate Limit Resets At: {reset_time}")
+
+    # If we still have API calls remaining, no need to sleep
+    if remaining_calls > 0:
+        print("DEBUG: Sufficient API calls remaining. No need to sleep.")
+        return False
+
+    # If GitHub response contains "API rate limit exceeded", handle it
+    try:
+        error_message = response.json().get("message", "").lower()
+        if "api rate limit exceeded" in error_message:
+            print(f"DEBUG: Detected API rate limit exceeded: {error_message}")
+            sleep_time = (reset_time - current_time) if reset_time else 60  # Default sleep 60s if no reset time
+            if sleep_time > 0:
+                print(f"Rate limit reached. Sleeping for {sleep_time} seconds...")
+                time.sleep(sleep_time)
+                return True  # Indicates rate limit was handled
+    except json.JSONDecodeError:
+        print("DEBUG: Failed to decode JSON response for rate limit check.")
+
+    print("DEBUG: No valid reset time found. Not sleeping.")
+    return False
+
+# Query GitHub API to retrieve the repository source id using the provided token
+def get_github_repo_src_id(owner, repo_name, token):
+    url = f"https://api.github.com/repos/{owner}/{repo_name}"
+    headers = {}
+    if token:
+        headers["Authorization"] = f"token {token}"
+    response = requests.get(url, headers=headers)
+    
+    # Check for rate limit issues
+    if handle_rate_limit(response):
+        response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        data = response.json()
+        return data.get('id')
+    else:
+        print(f"Failed to fetch GitHub data for {owner}/{repo_name}. Status code: {response.status_code}")
+        return None
+
+def main():
+    github_token = read_github_token()
+    if not github_token:
+        print("No GitHub token available. Exiting.")
+        return
+
+    db_config = read_db_config()
+    if not db_config:
+        print("No database configuration available. Exiting.")
+        return
+
+    conn = connect_to_db(db_config)
+    if not conn:
+        print("Database connection failed. Exiting.")
+        return
+
+    cursor = conn.cursor()
+
+    select_query = "SELECT repo_id, owner, repo_name FROM repo WHERE repo_src_id IS NULL;"
+    try:
+        cursor.execute(select_query)
+        rows = cursor.fetchall()
+    except Exception as e:
+        print(f"Error running select query: {e}")
+        conn.close()
+        return
+
+    DUPLICATE_LOG_FILE = "duplicate_repos.txt"
+    with open(DUPLICATE_LOG_FILE, "a") as log_file:
+        for row in rows:
+            repo_id, owner, repo_name = row
+            print(f"Processing repo_id: {repo_id}, {owner}/{repo_name}")
+
+            repo_src_id = get_github_repo_src_id(owner, repo_name, github_token)
+            if not repo_src_id:
+                print(f"Skipping repo_id {repo_id} due to API error.")
+                continue
+
+            update_query = "UPDATE repo SET repo_src_id = %s WHERE repo_id = %s;"
+            try:
+                cursor.execute(update_query, (repo_src_id, repo_id))
+                conn.commit()
+                print(f"Updated repo_id {repo_id} with repo_src_id {repo_src_id}.")
+            except Exception as e:
+                conn.rollback()
+                error_message = str(e)
+                # Check for duplicate error message
+                if "value already exists" in error_message or "duplicate key" in error_message.lower():
+                    print(f"Duplicate detected for repo_src_id {repo_src_id} on repo_id {repo_id}.")
+                    select_duplicate_query = "SELECT repo_id FROM repo WHERE repo_src_id = %s;"
+                    try:
+                        cursor.execute(select_duplicate_query, (repo_src_id,))
+                        duplicate_row = cursor.fetchone()
+                        if duplicate_row:
+                            duplicate_repo_id = duplicate_row[0]
+                            log_line = f"{repo_src_id}, {repo_id}, {duplicate_repo_id}\n"
+                            log_file.write(log_line)
+                            print(f"Logged duplicate: {log_line.strip()}")
+                        else:
+                            print(f"No existing row found for repo_src_id {repo_src_id}.")
+                    except Exception as dup_e:
+                        print(f"Error checking duplicate for repo_src_id {repo_src_id}: {dup_e}")
+                else:
+                    print(f"Unexpected error updating repo_id {repo_id}: {e}")
+
+    cursor.close()
+    conn.close()
+
+if __name__ == "__main__":
+    main()

@@ -1,6 +1,6 @@
-NOTICE:  Ignoring duplicate/foreign key error in pull_requests for repo_id 151002
-NOTICE:  Ignoring duplicate/foreign key error in issues for repo_id 151002
-NOTICE:  Ignoring duplicate/foreign key error in repo_deps_scorecard for repo_id 151002
-NOTICE:  Ignoring duplicate/foreign key error in repo for repo_id 151002
-NOTICE:  Ignoring duplicate/foreign key error in repo_deps_scorecard for repo_id 39032
-NOTICE:  Ignoring duplicate/foreign key error in repo_dependencies for repo_id 39032
+NOTICE:  Handled error in augur_data.pull_requests for repo_id 151002.
+NOTICE:  Fallback delete from augur_data.issues for repo_id 151002 failed.
+NOTICE:  Handled error in augur_data.issues for repo_id 151002.
+NOTICE:  Handled error in augur_data.repo_deps_scorecard for repo_id 151002.
+NOTICE:  Fallback delete from augur_data.repo for repo_id 151002 failed.
+NOTICE:  Handled error in augur_data.repo for repo_id 151002.

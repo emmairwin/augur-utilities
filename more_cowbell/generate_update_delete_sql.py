@@ -200,6 +200,13 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
         ("UPDATE augur_data.pull_request_review_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_review_message_ref"),
         ("UPDATE augur_data.pull_request_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_message_ref"),
         ("UPDATE augur_data.repo_info SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.repo_info"),
+        ("UPDATE augur_data.issue_events SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_events"),
+        ("UPDATE augur_data.issue_labels SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_labels"),
+        ("UPDATE augur_data.pull_request_labels SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_labels"),
+        ("UPDATE augur_data.pull_request_events SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_events"),
+        ("UPDATE augur_data.pull_request_meta SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_meta"),
+        ("UPDATE augur_data.pull_request_reviewers SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_reviewers"),
+        ("UPDATE augur_data.pull_request_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_assignees"),
         ("UPDATE augur_data.issue_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_assignees"),
         ("UPDATE augur_data.releases SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.releases"),
         ("UPDATE augur_data.pull_request_reviews SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_reviews"),
@@ -217,13 +224,6 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
         ("delete from augur_operations.user_repos where repo_id = {rid};", "augur_operations.user_repos"),
         ("delete from augur_operations.collection_status where repo_id = {rid};", "augur_operations.collection_status"),
         ("delete from augur_data.commit_messages where repo_id = {rid};", "augur_data.commit_messages"),
-        ("UPDATE augur_data.issue_events SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_events"),
-        ("UPDATE augur_data.issue_labels SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.issue_labels"),
-        ("UPDATE augur_data.pull_request_labels SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_labels"),
-        ("UPDATE augur_data.pull_request_events SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_events"),
-        ("UPDATE augur_data.pull_request_meta SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_meta"),
-        ("UPDATE augur_data.pull_request_reviewers SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_reviewers"),
-        ("UPDATE augur_data.pull_request_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "augur_data.pull_request_assignees"),
         ("delete from augur_data.repo where repo_id = {rid};", "augur_data.repo")
     ]
 

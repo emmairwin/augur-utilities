@@ -1,6 +1,8 @@
 # More Cowbell: The Utility
 **origins**: This utility is effectively a reaper for repositories that are not being collected. It is "The Reaper". "Don't Fear the Reaper" is a Blue Oyster Cult Song. In a famous episode of Saturday Night Live Christopher Walken played the musical producer of that song, and Will Ferrel played the cowbell. Walken made famous assertions like, "I got a fever. And the only cure is more cowbell". So, that's why the name. 
 
+**CURRENT STATUS**: Repo deletion is turning out to be problematic from a performance perspective on very large instances. Well, at least the largest of Augur instances. Working now on a method that is more robust, and will update rows to the correct repo_id instead of deleting rows. This is _in progress_. 
+
 ## This utility: 
 1. Reads a markdown file like the examples provided and checks the GitHub API to determine if 
     * The repository still exists

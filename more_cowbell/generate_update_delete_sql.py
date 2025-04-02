@@ -229,6 +229,7 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
 
     def wrap_statement(stmt, table_label, rid):
         return (
+            f"-- Executing statement for table: {table_label}\n"
             "DO $$\n"
             "DECLARE\n"
             "  original_error TEXT;\n"
@@ -239,9 +240,9 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
             "    BEGIN\n"
             f"         DELETE FROM {table_label} WHERE repo_id = {rid};\n"
             "    EXCEPTION WHEN OTHERS THEN\n"
-            "         RAISE NOTICE 'Fallback delete from {table_label} for repo_id {rid} failed: %', SQLERRM;\n"
+            f"         RAISE NOTICE 'Fallback delete from {table_label} for repo_id {rid} failed: %', SQLERRM;\n"
             "    END;\n"
-            "    RAISE NOTICE 'Handled error in {table_label} for repo_id {rid}: %', original_error;\n"
+            f"    RAISE NOTICE 'Handled error in {table_label} for repo_id {rid}: %', original_error;\n"
             "END $$;\n"
         )
 

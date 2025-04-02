@@ -177,6 +177,79 @@ def generate_duplicate_sql_script(duplicate_log_file="duplicate_repos.txt", outp
     except Exception as e:
         print(f"Error writing SQL script: {e}")
         
+def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate_repos.txt", output_sql_file="duplicate_update_error_checking.sql"):
+    duplicate_pairs = []
+    try:
+        with open(duplicate_log_file, "r") as f:
+            for line in f:
+                # Expect each line to have: repo_src_id, repo_id, duplicate_repo_id
+                parts = line.strip().split(",")
+                if len(parts) == 3:
+                    repo_src_id = parts[0].strip()
+                    repo_id = parts[1].strip()
+                    duplicate_repo_id = parts[2].strip()
+                    duplicate_pairs.append((repo_src_id, repo_id, duplicate_repo_id))
+    except Exception as e:
+        print(f"Error reading duplicate log file: {e}")
+        return
+
+    # List of statements to execute for each duplicate pair.
+    stmts = [
+        ("UPDATE issue_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "issue_message_ref"),
+        ("UPDATE pull_request_review_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_review_message_ref"),
+        ("UPDATE pull_request_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_message_ref"),
+        ("UPDATE repo_info SET repo_id = {dup} WHERE repo_id = {rid};", "repo_info"),
+        ("UPDATE issue_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "issue_assignees"),
+        ("UPDATE releases SET repo_id = {dup} WHERE repo_id = {rid};", "releases"),
+        ("UPDATE pull_request_reviews SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_reviews"),
+        ("UPDATE pull_request_files SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_files"),
+        ("UPDATE pull_request_commits SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_commits"),
+        ("UPDATE pull_requests SET repo_id = {dup} WHERE repo_id = {rid};", "pull_requests"),
+        ("UPDATE repo_badging SET repo_id = {dup} WHERE repo_id = {rid};", "repo_badging"),
+        ("UPDATE issues SET repo_id = {dup} WHERE repo_id = {rid};", "issues"),
+        ("UPDATE repo_deps_libyear SET repo_id = {dup} WHERE repo_id = {rid};", "repo_deps_libyear"),
+        ("UPDATE repo_deps_scorecard SET repo_id = {dup} WHERE repo_id = {rid};", "repo_deps_scorecard"),
+        ("UPDATE repo_dependencies SET repo_id = {dup} WHERE repo_id = {rid};", "repo_dependencies"),
+        ("UPDATE commits SET repo_id = {dup} WHERE repo_id = {rid};", "commits"),
+        ("UPDATE repo_labor SET repo_id = {dup} WHERE repo_id = {rid};", "repo_labor"),
+        ("UPDATE message SET repo_id = {dup} WHERE repo_id = {rid};", "message"),
+        ("delete from augur_operations.user_repos where repo_id = {rid};", "augur_operations.user_repos"),
+        ("delete from augur_operations.collection_status where repo_id = {rid};", "augur_operations.collection_status"),
+        ("delete from commit_messages where repo_id = {rid};", "commit_messages"),
+        ("UPDATE issue_events SET repo_id = {dup} WHERE repo_id = {rid};", "issue_events"),
+        ("UPDATE issue_labels SET repo_id = {dup} WHERE repo_id = {rid};", "issue_labels"),
+        ("UPDATE pull_request_labels SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_labels"),
+        ("UPDATE pull_request_events SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_events"),
+        ("UPDATE pull_request_meta SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_meta"),
+        ("UPDATE pull_request_reviewers SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_reviewers"),
+        ("delete from repo where repo_id = {rid};", "repo")
+    ]
+
+    def wrap_statement(stmt, table_label, rid):
+        # Wrap the given statement in a DO block that catches unique_violation.
+        return (
+            "DO $$\n"
+            "BEGIN\n"
+            f"    {stmt}\n"
+            "EXCEPTION WHEN unique_violation THEN\n"
+            f"    RAISE NOTICE 'Ignoring duplicate error in {table_label} for repo_id {rid}';\n"
+            "END $$;\n"
+        )
+
+    try:
+        with open(output_sql_file, "w") as f:
+            for repo_src_id, repo_id, duplicate_repo_id in duplicate_pairs:
+                f.write(f"-- Duplicate pair: repo_src_id = {repo_src_id}\n")
+                f.write("BEGIN;\n")
+                for stmt_tpl, table_label in stmts:
+                    stmt = stmt_tpl.format(dup=duplicate_repo_id, rid=repo_id)
+                    safe_stmt = wrap_statement(stmt, table_label, repo_id)
+                    f.write(safe_stmt)
+                f.write("COMMIT;\n\n")
+        print(f"SQL script generated successfully and saved to {output_sql_file}")
+    except Exception as e:
+        print(f"Error writing SQL script: {e}")
+        
 def main():
     github_token = read_github_token()
     if not github_token:

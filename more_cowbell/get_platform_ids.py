@@ -119,7 +119,7 @@ def main():
 
     cursor = conn.cursor()
 
-    select_query = "SELECT repo_id, owner, repo_name FROM repo WHERE repo_src_id IS NULL;"
+    select_query = "SELECT repo_id, owner, repo_name FROM augur_data.repo WHERE repo_src_id IS NULL;"
     try:
         cursor.execute(select_query)
         rows = cursor.fetchall()
@@ -139,7 +139,7 @@ def main():
                 print(f"Skipping repo_id {repo_id} due to API error.")
                 continue
 
-            update_query = "UPDATE repo SET repo_src_id = %s WHERE repo_id = %s;"
+            update_query = "UPDATE augur_data.repo SET repo_src_id = %s WHERE repo_id = %s;"
             try:
                 cursor.execute(update_query, (repo_src_id, repo_id))
                 conn.commit()
@@ -150,7 +150,7 @@ def main():
                 # Check for duplicate error message
                 if "value already exists" in error_message or "duplicate key" in error_message.lower():
                     print(f"Duplicate detected for repo_src_id {repo_src_id} on repo_id {repo_id}.")
-                    select_duplicate_query = "SELECT repo_id FROM repo WHERE repo_src_id = %s;"
+                    select_duplicate_query = "SELECT repo_id FROM augur_data.repo WHERE repo_src_id = %s;"
                     try:
                         cursor.execute(select_duplicate_query, (repo_src_id,))
                         duplicate_row = cursor.fetchone()

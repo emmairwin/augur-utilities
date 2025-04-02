@@ -171,6 +171,7 @@ def generate_duplicate_sql_script(duplicate_log_file="duplicate_repos.txt", outp
                 f.write(f"UPDATE pull_request_events SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
                 f.write(f"UPDATE pull_request_meta SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
                 f.write(f"UPDATE pull_request_reviewers SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_assignees SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
                 f.write(f"delete from repo where repo_id = {repo_id};\n")
                 f.write("COMMIT;\n\n")
         print(f"SQL script generated successfully and saved to {output_sql_file}")
@@ -195,7 +196,6 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
 
     # List of statements to execute for each duplicate pair.
     stmts = [
-        ("ALTER USER augur SET SEARCH_PATH = 'augur_data'"), 
         ("UPDATE issue_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "issue_message_ref"),
         ("UPDATE pull_request_review_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_review_message_ref"),
         ("UPDATE pull_request_message_ref SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_message_ref"),
@@ -223,6 +223,7 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
         ("UPDATE pull_request_events SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_events"),
         ("UPDATE pull_request_meta SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_meta"),
         ("UPDATE pull_request_reviewers SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_reviewers"),
+        ("UPDATE pull_request_assignees SET repo_id = {dup} WHERE repo_id = {rid};", "pull_request_assignees"),
         ("delete from repo where repo_id = {rid};", "repo")
     ]
 

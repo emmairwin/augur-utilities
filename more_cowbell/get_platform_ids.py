@@ -228,13 +228,13 @@ def generate_duplicate_sql_script_with_error_check(duplicate_log_file="duplicate
     ]
 
     def wrap_statement(stmt, table_label, rid):
-        # Wrap the given statement in a DO block that catches unique_violation.
+        # Wrap the given statement in a DO block that catches unique_violation and foreign_key_violation.
         return (
             "DO $$\n"
             "BEGIN\n"
             f"    {stmt}\n"
-            "EXCEPTION WHEN unique_violation THEN\n"
-            f"    RAISE NOTICE 'Ignoring duplicate error in {table_label} for repo_id {rid}';\n"
+            "EXCEPTION WHEN unique_violation OR foreign_key_violation THEN\n"
+            f"    RAISE NOTICE 'Ignoring duplicate/foreign key error in {table_label} for repo_id {rid}';\n"
             "END $$;\n"
         )
 

@@ -3,6 +3,7 @@ import requests
 import json
 import time
 from urllib.parse import urlparse
+import sys 
 
 # Read GitHub API token from JSON file
 def read_github_token(file_path="githubapi.json"):

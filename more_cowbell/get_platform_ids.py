@@ -321,6 +321,7 @@ def main():
 
     # Final step: Generate the SQL script from the duplicate log file.
     generate_duplicate_sql_script()
+    generate_duplicate_sql_script_with_error_check()
 
 if __name__ == "__main__":
     main()

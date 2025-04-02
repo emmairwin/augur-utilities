@@ -122,7 +122,61 @@ def get_github_repo_src_id(repo_git, token):
     else:
         print(f"Failed to fetch GitHub data for {repo_git}. Status code: {response.status_code}")
         return None
+def generate_duplicate_sql_script(duplicate_log_file="duplicate_repos.txt", output_sql_file="duplicate_update.sql"):
+    duplicate_pairs = []
+    try:
+        with open(duplicate_log_file, "r") as f:
+            for line in f:
+                # Expect each line to have: repo_src_id, repo_id, duplicate_repo_id
+                parts = line.strip().split(",")
+                if len(parts) == 3:
+                    repo_src_id = parts[0].strip()
+                    repo_id = parts[1].strip()
+                    duplicate_repo_id = parts[2].strip()
+                    duplicate_pairs.append((repo_src_id, repo_id, duplicate_repo_id))
+    except Exception as e:
+        print(f"Error reading duplicate log file: {e}")
+        return
 
+    try:
+        with open(output_sql_file, "w") as f:
+            for repo_src_id, repo_id, duplicate_repo_id in duplicate_pairs:
+                f.write(f"-- Duplicate pair: repo_src_id = {repo_src_id}\n")
+                f.write("BEGIN;\n")
+                f.write(f"UPDATE issue_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_review_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_message_ref SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE repo_info SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE issue_assignees SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE releases SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_reviews SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_files SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_commits SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_requests SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE repo_badging SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE issues SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE repo_deps_libyear SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE repo_deps_scorecard SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE repo_dependencies SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE commits SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE repo_labor SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE message SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write("--\n")
+                f.write(f"delete from augur_operations.user_repos where repo_id = {repo_id};\n")
+                f.write(f"delete from augur_operations.collection_status where repo_id = {repo_id};\n")
+                f.write(f"delete from commit_messages where repo_id = {repo_id};\n")
+                f.write(f"UPDATE issue_events SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE issue_labels SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_labels SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_events SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_meta SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"UPDATE pull_request_reviewers SET repo_id = {duplicate_repo_id} WHERE repo_id = {repo_id};\n")
+                f.write(f"delete from repo where repo_id = {repo_id};\n")
+                f.write("COMMIT;\n\n")
+        print(f"SQL script generated successfully and saved to {output_sql_file}")
+    except Exception as e:
+        print(f"Error writing SQL script: {e}")
+        
 def main():
     github_token = read_github_token()
     if not github_token:
@@ -191,6 +245,9 @@ def main():
 
     cursor.close()
     conn.close()
+
+    # Final step: Generate the SQL script from the duplicate log file.
+    generate_duplicate_sql_script()
 
 if __name__ == "__main__":
     main()

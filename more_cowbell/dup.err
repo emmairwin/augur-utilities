@@ -1,0 +1,3 @@
+NOTICE:  Handled error in augur_data.issues for repo_id 151002: duplicate key value violates unique constraint "unique-issue"
+NOTICE:  Handled error in augur_data.repo_deps_scorecard for repo_id 39032: duplicate key value violates unique constraint "deps-scorecard-insert-unique"
+NOTICE:  Handled error in augur_data.repo_dependencies for repo_id 39032: duplicate key value violates unique constraint "deps-insert-unique"

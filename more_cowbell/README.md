@@ -1,19 +1,37 @@
 # More Cowbell: The Utility
-**origins**: This utility is effectively a reaper for repositories that are not being collected. It is "The Reaper". "Don't Fear the Reaper" is a Blue Oyster Cult Song. In a famous episode of Saturday Night Live Christopher Walken played the musical producer of that song, and Will Ferrel played the cowbell. Walken made famous assertions like, "I got a fever. And the only cure is more cowbell". So, that's why the name. 
-
-**CURRENT STATUS**: Repo deletion is turning out to be problematic from a performance perspective on very large instances. Well, at least the largest of Augur instances. Working now on a method that is more robust, and will update rows to the correct repo_id instead of deleting rows. This is _in progress_. 
+**origins**: This utility is effectively a reaper for repositories that are not being collected. It is "The Reaper". "Don't Fear the Reaper" is a Blue Oyster Cult Song. In a famous episode of Saturday Night Live Christopher Walken played the musical producer of that song, and Will Ferrel played the cowbell. Walken made famous assertions like, "I got a fever. And the only cure is more cowbell". So, that's why the name. These scripts will delete any duplicate repositories that emerged in Augur instances from before May, 2024. For these older instances there is a possibility for duplicate repositories to be introduced into the system when a platform organization is added if that organization identifies repo url's not in the database already *and* (the important part) some of those repositories that appeared "new" were actually in existance with an older, redirected URL. Augur has auto updated URLs for over four years, but the timing of when things run did not account for the possibility of that issue. The fix introduced in 2024 ensures that the platform numeric identifier for a repository, which remains unchanged when the repository is moved or renamed, is also checked prior to insertion. 
 
 ## This utility: 
-1. Reads a markdown file like the examples provided and checks the GitHub API to determine if 
-    * The repository still exists
-    * If the repository, still existing, has moved
-    * What the new URL for the repository "is" and 
-    * The GitHub identifier for that repository, which could be especially useful for evolving this script into checking an Augur instance for duplicate repositories. 
-2. Outputs a file with a structure of "url checked", "still exists", moved, "new repo URL or repo URL", and GitHub identifier. 
-3. Generates an SQL script called `generated_sql_script.sql`. This script will delete any duplicate repositories that emerged in Augur instances from before May, 2024. For these older instances there is a possibility for duplicate repositories to be introduced into the system when a platform organization is added if that organization identifies repo url's not in the database already *and* (the important part) some of those repositories that appeared "new" were actually in existance with an older, redirected URL. Augur has auto updated URLs for over four years, but the timing of when things run did not account for the possibility of that issue. The fix introduced in 2024 ensures that the platform numeric identifier for a repository, which remains unchanged when the repository is moved or renamed, is also checked prior to insertion. 
+There are a few different subprograms that are part of this utility, and which serve specific purposes. 
+
+Components of configuration are common for `generate_update_delete_sql.py` and `repo_validator.py`, as both require a GitHub API key and a database connection to an augur database. 
 
 ## Configuration
 1. This script was tested with Python 3.13.2 running on OSX, and installed using brew. 
 2. The `githubapi.json.example` file should be copied to a local file `githubapi.json`, and a GitHub API key should be added in the specified location
 3. Create a python virtual environment `python3 -m venv .venv`, for example. 
 4. `pip install -r requirements.txt` will install the libraries this utility leverages from the Python ecosystem. 
+
+### Using `generate_update_delete_sql.py`: 
+1. Reads through an Augur database as it exists. No parameters required once configuration is complete. _Context and Description of the Intermediate Files:_ It will generate a file called `duplicate_repos.txt`, containing the `repo_src_id`, and the `repo_id` of the two duplicate repos for that `repo_src_id` on a single line. The first of these two is the Augur `repo_id` that does not have a `repo_src_id` and will have its data moved over to the third value, which is the Augur `repo_id` that already has the `repo_src_id` populated. 
+2. Performs two core tasks: 
+    * Inspects each `augur_data.repo` row that does not have a `repo_src_id` value (i.e., column is NULL)
+    * Attempts to populate `repo_src_id` through a call to the GitHub API
+    * If population fails because the repository no longer exists, execution continues (future TODO: Write these IDs out to a file)
+    * If population fails because the repository's `repo_src_id` exists on another row in `augur_data.repo`, it adds the repo to two SQL Files that first try to move the data from the repository without a `repo_src_id` to the identical repository *with* a `repo_src_id`. If the update fails because of duplicate records on a table, it then deletes those rows. This only is found necessary during our testing on three tables that are related to software dependencies generated by scanning the cloned Augur repository. The two files are: 
+        - `duplicate_update.sql`
+        - `duplicate_update_error_checking.sql` 
+    The first file shows you a simplified file that is easier to inspect, but is unlikely to work without error. The second file is tested and hardened against two large Augur instances. 
+
+### Using `repo_validator.py`: 
+1. Reads a markdown file like the examples provided (`repos.md` and `repos-small.md`) and checks the GitHub API to determine if 
+    * The repository still exists
+    * If the repository, still existing, has moved
+    * What the new URL for the repository "is" and 
+    * The GitHub identifier for that repository, which could be especially useful for evolving this script into checking an Augur instance for duplicate repositories. 
+2. Outputs a file with a structure of "url checked", "still exists", moved, "new repo URL or repo URL", and GitHub identifier. 
+3. Generates an SQL script called `generated_sql_script.sql` that, unlike `generate_update_delete_sql.py`, tries to delete all the rows for the redundant repo. In testing we found this solution to perform poorly, and therefore we **STRONGLY** recommend using the `generate_update_delete_sql.py` script. 
+
+### Using `git_url_quote_lister.py`: 
+1. Reads a carriage return delimited file of unquoted repository URLs, like the example in `repos.md` or `repos-small.md` and 
+2. generates a quote and comma delimited string of those reop URLs that is easy to drop into an SQL Statement. This is put into a file called `transformed_urls.txt`. 

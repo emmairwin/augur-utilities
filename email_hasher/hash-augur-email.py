@@ -61,28 +61,28 @@ def main(secret_key):
 
         # Encrypt cmt_author_raw_email.
         cursor.execute("""
-            UPDATE commits
+            UPDATE augur_data.commits
             SET cmt_author_raw_email = encode(pgp_sym_encrypt(cmt_author_raw_email, %s), 'base64');
         """, (secret_key,))
         conn.commit()
 
         # Encrypt cmt_author_email.
         cursor.execute("""
-            UPDATE commits
+            UPDATE augur_data.commits
             SET cmt_author_email = encode(pgp_sym_encrypt(cmt_author_email, %s), 'base64');
         """, (secret_key,))
         conn.commit()
 
         # Encrypt cmt_committer_raw_email.
         cursor.execute("""
-            UPDATE commits
+            UPDATE augur_data.commits
             SET cmt_committer_raw_email = encode(pgp_sym_encrypt(cmt_committer_raw_email, %s), 'base64');
         """, (secret_key,))
         conn.commit()
 
         # Encrypt cmt_committer_email.
         cursor.execute("""
-            UPDATE commits
+            UPDATE augur_data.commits
             SET cmt_committer_email = encode(pgp_sym_encrypt(cmt_committer_email, %s), 'base64');
         """, (secret_key,))
         conn.commit()

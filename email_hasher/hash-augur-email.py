@@ -14,6 +14,7 @@
 # -- Enable the pgcrypto extension if not already enabled.
 import psycopg2
 import json
+import sys
 
 # Read database connection details from JSON file
 def read_db_config(file_path="db.config.json"):
@@ -39,7 +40,7 @@ def connect_to_db(db_config):
         print(f"Error connecting to database: {e}")
         return None
 
-def main():
+def main(secret_key):
     # Read database configuration.
     db_config = read_db_config()
     if db_config is None:
@@ -61,29 +62,29 @@ def main():
         # Encrypt cmt_author_raw_email.
         cursor.execute("""
             UPDATE commits
-            SET cmt_author_raw_email = encode(pgp_sym_encrypt(cmt_author_raw_email, 'your_secret_key'), 'base64');
-        """)
+            SET cmt_author_raw_email = encode(pgp_sym_encrypt(cmt_author_raw_email, %s), 'base64');
+        """, (secret_key,))
         conn.commit()
 
         # Encrypt cmt_author_email.
         cursor.execute("""
             UPDATE commits
-            SET cmt_author_email = encode(pgp_sym_encrypt(cmt_author_email, 'your_secret_key'), 'base64');
-        """)
+            SET cmt_author_email = encode(pgp_sym_encrypt(cmt_author_email, %s), 'base64');
+        """, (secret_key,))
         conn.commit()
 
         # Encrypt cmt_committer_raw_email.
         cursor.execute("""
             UPDATE commits
-            SET cmt_committer_raw_email = encode(pgp_sym_encrypt(cmt_committer_raw_email, 'your_secret_key'), 'base64');
-        """)
+            SET cmt_committer_raw_email = encode(pgp_sym_encrypt(cmt_committer_raw_email, %s), 'base64');
+        """, (secret_key,))
         conn.commit()
 
         # Encrypt cmt_committer_email.
         cursor.execute("""
             UPDATE commits
-            SET cmt_committer_email = encode(pgp_sym_encrypt(cmt_committer_email, 'your_secret_key'), 'base64');
-        """)
+            SET cmt_committer_email = encode(pgp_sym_encrypt(cmt_committer_email, %s), 'base64');
+        """, (secret_key,))
         conn.commit()
 
         print("Encryption updates applied successfully.")
@@ -95,8 +96,11 @@ def main():
         conn.close()
 
 if __name__ == "__main__":
-    main()
-    
+    if len(sys.argv) < 2:
+        print("Usage: python script.py <secret_key>")
+    else:
+        secret_key = sys.argv[1]
+        main(secret_key)
     
 
 

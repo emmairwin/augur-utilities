@@ -69,13 +69,13 @@ def main(secret_key):
             query = f"""
                 UPDATE augur_data.commits
                 SET {field} = encode(
-                    pgp_sym_encrypt({field}::text, CAST(%s AS text), CAST(%s AS text)),
+                    pgp_sym_encrypt(convert_to({field}, 'UTF8'), %s, ''::text),
                     'base64'
                 )
                 WHERE {field} IS NOT NULL;
             """
-            # Pass the secret key and an empty options string.
-            cursor.execute(query, (secret_key, ''))
+            # Note: secret_key is passed directly (as text).
+            cursor.execute(query, (secret_key,))
             conn.commit()
             print(f"Encrypted column: {field}")
 

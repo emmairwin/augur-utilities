@@ -1,0 +1,8 @@
+dup.err
+.err
+*.err
+githubapi.json
+*githubapi.json 
+db.config.json 
+*db.config.json 
+augur-utilities.code-workspace

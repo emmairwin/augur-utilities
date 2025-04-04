@@ -53,11 +53,9 @@ def main(secret_key):
 
     cursor = conn.cursor()
     try:
-        # Ensure pgcrypto extension is available.
         cursor.execute("CREATE EXTENSION IF NOT EXISTS pgcrypto;")
         conn.commit()
 
-        # List of columns to encrypt.
         fields_to_encrypt = [
             "cmt_author_raw_email",
             "cmt_author_email",
@@ -67,8 +65,8 @@ def main(secret_key):
 
         for field in fields_to_encrypt:
             query = f"""
-                UPDATE commits
-                SET {field} = encode(pgp_sym_encrypt({field}::text, %s::text), 'base64')
+                UPDATE augur_data.commits
+                SET {field} = encode(pgp_sym_encrypt({field}::text, %s::text, ''), 'base64')
                 WHERE {field} IS NOT NULL;
             """
             cursor.execute(query, (secret_key,))

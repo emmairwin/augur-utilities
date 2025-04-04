@@ -1,6 +1,10 @@
 # Dropbox is irritating
 .DS_Store 
 
+# Error logs
+dup.err/
+*.err/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

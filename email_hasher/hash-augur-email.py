@@ -67,15 +67,20 @@ def main(secret_key):
         ]
 
         for field in fields_to_encrypt:
+            # Note: secret_key is interpolated directly and explicitly cast.
             query = f"""
                 UPDATE augur_data.commits
                 SET {field} = encode(
-                    pgp_sym_encrypt(convert_to({field}, 'UTF8'), %s, ''::text),
+                    pgp_sym_encrypt(
+                        convert_to({field}, 'UTF8'),
+                        CAST('{secret_key}' AS text),
+                        CAST('' AS text)
+                    ),
                     'base64'
                 )
                 WHERE {field} IS NOT NULL;
             """
-            cursor.execute(query, (secret_key,))
+            cursor.execute(query)
             conn.commit()
             print(f"Encrypted column: {field}")
 

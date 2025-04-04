@@ -1,3 +1,5 @@
+dup.err
+.err
 *.err
 githubapi.json
 *githubapi.json 

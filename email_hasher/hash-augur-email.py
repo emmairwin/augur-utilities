@@ -65,13 +65,15 @@ def main(secret_key):
             "cmt_committer_email"
         ]
 
+        # Use parameterized query without explicit inline casts.
         for field in fields_to_encrypt:
             query = f"""
                 UPDATE augur_data.commits
-                SET {field} = encode(pgp_sym_encrypt({field}::text, %s::text, ''::text), 'base64')
+                SET {field} = encode(pgp_sym_encrypt({field}, %s, %s), 'base64')
                 WHERE {field} IS NOT NULL;
             """
-            cursor.execute(query, (secret_key,))
+            # Pass secret_key and an empty options string.
+            cursor.execute(query, (secret_key, ''))
             conn.commit()
             print(f"Encrypted column: {field}")
 

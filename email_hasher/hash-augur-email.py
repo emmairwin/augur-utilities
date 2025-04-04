@@ -41,13 +41,11 @@ def connect_to_db(db_config):
         return None
 
 def main(secret_key):
-    # Read database configuration.
     db_config = read_db_config()
     if db_config is None:
         print("Database configuration could not be loaded. Exiting.")
         return
 
-    # Connect to the database.
     conn = connect_to_db(db_config)
     if conn is None:
         print("Database connection failed. Exiting.")
@@ -55,39 +53,28 @@ def main(secret_key):
 
     cursor = conn.cursor()
     try:
-        # Create the pgcrypto extension if it doesn't exist.
         cursor.execute("CREATE EXTENSION IF NOT EXISTS pgcrypto;")
         conn.commit()
 
-        # Encrypt cmt_author_raw_email.
-        cursor.execute("""
-            UPDATE augur_data.commits
-            SET cmt_author_raw_email = encode(pgp_sym_encrypt(cmt_author_raw_email::text, %s::text), 'base64');
-        """, (secret_key,))
-        conn.commit()
+        fields_to_encrypt = [
+            "cmt_author_raw_email",
+            "cmt_author_email",
+            "cmt_committer_raw_email",
+            "cmt_committer_email"
+        ]
 
-        # Encrypt cmt_author_email.
-        cursor.execute("""
-            UPDATE augur_data.commits
-            SET cmt_author_email = encode(pgp_sym_encrypt(cmt_author_email::text, %s::text), 'base64');
-        """, (secret_key,))
-        conn.commit()
+        for field in fields_to_encrypt:
+            query = f"""
+                UPDATE augur_data.commits
+                SET {field} = encode(pgp_sym_encrypt(convert_to({field}, 'UTF8'), %s), 'base64')
+                WHERE {field} IS NOT NULL;
+            """
+            cursor.execute(query, (secret_key,))
+            conn.commit()
+            print(f"Encrypted column: {field}")
 
-        # Encrypt cmt_committer_raw_email.
-        cursor.execute("""
-            UPDATE augur_data.commits
-            SET cmt_committer_raw_email = encode(pgp_sym_encrypt(cmt_committer_raw_email::text, %s::text), 'base64');
-        """, (secret_key,))
-        conn.commit()
+        print("All encryption updates applied successfully.")
 
-        # Encrypt cmt_committer_email.
-        cursor.execute("""
-            UPDATE augur_data.commits
-            SET cmt_committer_email = encode(pgp_sym_encrypt(cmt_committer_email::text, %s::text), 'base64');
-        """, (secret_key,))
-        conn.commit()
-
-        print("Encryption updates applied successfully.")
     except Exception as e:
         print("An error occurred:", e)
         conn.rollback()
@@ -97,7 +84,7 @@ def main(secret_key):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python script.py <secret_key>")
+        print("Usage: python hash-augur-email.py <secret_key>")
     else:
         secret_key = sys.argv[1]
         main(secret_key)

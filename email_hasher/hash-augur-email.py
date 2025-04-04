@@ -65,8 +65,8 @@ def main(secret_key):
 
         for field in fields_to_encrypt:
             query = f"""
-                UPDATE augur_data.commits
-                SET {field} = encode(pgp_sym_encrypt(convert_to({field}, 'UTF8'), %s), 'base64')
+                UPDATE commits
+                SET {field} = encode(pgp_sym_encrypt(convert_to({field}, 'UTF8'), %s::text), 'base64')
                 WHERE {field} IS NOT NULL;
             """
             cursor.execute(query, (secret_key,))
@@ -88,6 +88,3 @@ if __name__ == "__main__":
     else:
         secret_key = sys.argv[1]
         main(secret_key)
-    
-
-

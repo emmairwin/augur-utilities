@@ -54,7 +54,7 @@ def main(secret_key):
 
     cursor = conn.cursor()
     try:
-        # Create pgcrypto extension if it doesn't exist.
+        # Ensure pgcrypto extension is available.
         cursor.execute("CREATE EXTENSION IF NOT EXISTS pgcrypto;")
         conn.commit()
 
@@ -67,12 +67,10 @@ def main(secret_key):
         ]
 
         for field in fields_to_encrypt:
-            # Build the query using the two-argument overload of pgp_sym_encrypt.
-            # The secret key is directly interpolated and wrapped in single quotes.
             query = f"""
                 UPDATE augur_data.commits
                 SET {field} = encode(
-                    pgp_sym_encrypt({field}::text, '{secret_key}'),
+                    augur_data.pgp_sym_encrypt({field}::text, E'{secret_key}'::text),
                     'base64'
                 )
                 WHERE {field} IS NOT NULL;
@@ -97,4 +95,3 @@ if __name__ == "__main__":
     else:
         secret_key = sys.argv[1]
         main(secret_key)
-        

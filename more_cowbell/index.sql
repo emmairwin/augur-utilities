@@ -12,3 +12,6 @@ ALTER TABLE "augur_data"."pull_request_message_ref"
 DROP CONSTRAINT "fk_pull_request_message_ref_message_1",
 ADD CONSTRAINT "fk_pull_request_message_ref_message_1" FOREIGN KEY ("msg_id") REFERENCES "augur_data"."message" ("msg_id") ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED;
 
+ALTER TABLE "augur_data"."pull_request_review_message_ref" 
+  DROP CONSTRAINT "fk_pull_request_review_message_ref_pull_request_reviews_1",
+  ADD CONSTRAINT "fk_pull_request_review_message_ref_pull_request_reviews_1" FOREIGN KEY ("pr_review_id") REFERENCES "augur_data"."pull_request_reviews" ("pr_review_id") ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED;

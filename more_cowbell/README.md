@@ -13,6 +13,10 @@ Components of configuration are common for `generate_update_delete_sql.py` and `
 4. `pip install -r requirements.txt` will install the libraries this utility leverages from the Python ecosystem. 
 
 ### Using `generate_update_delete_sql.py`: 
+
+**(Augur Instance Must be Stopped, or Not Collecting Data, using the `augur backend start --disable-collection` startup directive.)**
+
+0. **BEFORE EXECUTION**: Right now, you need to run the `index.sql` script on your Augur instance, as it makes adjustments to existing foreign keys. Generally, these are four design imperfections in the schema for Augur that cause no logic issues with the database, **except** when addressing the pre-2025 duplicate repo problem. 
 1. Reads through an Augur database as it exists. No parameters required once configuration is complete. _Context and Description of the Intermediate Files:_ It will generate a file called `duplicate_repos.txt`, containing the `repo_src_id`, and the `repo_id` of the two duplicate repos for that `repo_src_id` on a single line. The first of these two is the Augur `repo_id` that does not have a `repo_src_id` and will have its data moved over to the third value, which is the Augur `repo_id` that already has the `repo_src_id` populated. 
 2. Performs two core tasks: 
     * Inspects each `augur_data.repo` row that does not have a `repo_src_id` value (i.e., column is NULL)

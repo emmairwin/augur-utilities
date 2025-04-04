@@ -65,7 +65,7 @@ def main(secret_key):
 
         for field in fields_to_encrypt:
             query = f"""
-                UPDATE commits
+                UPDATE augur_data.commits
                 SET {field} = encode(pgp_sym_encrypt(convert_to({field}, 'UTF8'), %s::text), 'base64')
                 WHERE {field} IS NOT NULL;
             """

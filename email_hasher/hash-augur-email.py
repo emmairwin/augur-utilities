@@ -15,6 +15,7 @@
 import psycopg2
 import json
 import sys
+import traceback
 
 # Read database connection details from JSON file
 def read_db_config(file_path="db.config.json"):
@@ -74,7 +75,6 @@ def main(secret_key):
                 )
                 WHERE {field} IS NOT NULL;
             """
-            # Note: secret_key is passed directly (as text).
             cursor.execute(query, (secret_key,))
             conn.commit()
             print(f"Encrypted column: {field}")
@@ -82,7 +82,8 @@ def main(secret_key):
         print("All encryption updates applied successfully.")
 
     except Exception as e:
-        print("An error occurred:", e)
+        print("An error occurred:")
+        traceback.print_exc()
         conn.rollback()
     finally:
         cursor.close()

@@ -1,0 +1,9 @@
+github.com/vectordotdev/12factor
+github.com/sdkaaa/12factor
+github.com/cisagov/.dotfiles
+github.com/cisagov/.github
+github.com/gsa/10x
+github.com/18f/18f.gsa.gov
+github.com/tomgi/18xx
+github.com/tremor-rs/1password-teams-open-source
+github.com/inspektor-gadget/1password-teams-open-source

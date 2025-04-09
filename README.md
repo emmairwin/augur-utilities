@@ -3,10 +3,11 @@
 ![image](./augur-utilties.jpg)
 
 Utilities for working with Augur data. 
-1. [Tod Do Group Repo Linter](./repo_linter/)
+1. [Tod Do Group Repo Linter (at scale)](./repo_linter/)
 2. [Augur Data Collection Evaluation Queries](./augur_monitor/)
 3. [Cleaning up Duplicate Repositories (Legacy Augur Instance Repair)](./more_cowbell/)`+`
 4. [Hash Encryption of Email](./email_hasher/)
+5. [Clone a Bunch of Repos](./repo_cloner/)
 
 Use the issues tab in this repo if there's a utility you would like to see. 
 

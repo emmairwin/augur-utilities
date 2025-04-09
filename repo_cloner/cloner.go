@@ -1,14 +1,12 @@
-//This program generated using ChatGPT with the prompt, please rewrite this python program (cloner.py) in GO.
-//
-
 package main
 
 import (
 	"bufio"
 	"fmt"
+	"net/url"
 	"os"
 	"os/exec"
-	"path"
+	"path/filepath"
 	"strings"
 	"sync"
 )
@@ -19,7 +17,6 @@ const (
 	maxWorkers   = 20
 )
 
-// normalizeURL ensures the URL has https:// or git@ and points to github
 func normalizeURL(raw string) string {
 	raw = strings.TrimSpace(raw)
 	if raw == "" {
@@ -37,18 +34,40 @@ func normalizeURL(raw string) string {
 	return "https://github.com/" + raw
 }
 
-// cloneRepo clones a repo into the target directory
+func extractOrgRepo(repoURL string) (string, string) {
+	u, err := url.Parse(repoURL)
+	if err != nil {
+		return "", ""
+	}
+	parts := strings.Split(strings.Trim(u.Path, "/"), "/")
+	if len(parts) < 2 {
+		return "", ""
+	}
+	org := parts[0]
+	repo := strings.TrimSuffix(parts[1], ".git")
+	return org, repo
+}
+
 func cloneRepo(url string, wg *sync.WaitGroup, sem chan struct{}) {
 	defer wg.Done()
-	sem <- struct{}{}        // Acquire semaphore
-	defer func() { <-sem }() // Release semaphore
+	sem <- struct{}{}
+	defer func() { <-sem }()
 
-	parts := strings.Split(strings.TrimSuffix(url, "/"), "/")
-	repoName := strings.TrimSuffix(parts[len(parts)-1], ".git")
-	targetPath := path.Join(cloneDir, repoName)
+	org, repo := extractOrgRepo(url)
+	if org == "" || repo == "" {
+		fmt.Printf("[ERROR] Couldn't parse org/repo from %s\n", url)
+		return
+	}
+
+	targetPath := filepath.Join(cloneDir, org, repo)
 
 	if _, err := os.Stat(targetPath); err == nil {
-		fmt.Printf("[SKIPPED] %s already exists.\n", repoName)
+		fmt.Printf("[SKIPPED] %s/%s already exists.\n", org, repo)
+		return
+	}
+
+	if err := os.MkdirAll(filepath.Dir(targetPath), 0755); err != nil {
+		fmt.Printf("[ERROR] Couldn't create directory for %s: %v\n", targetPath, err)
 		return
 	}
 

@@ -1,3 +1,4 @@
+--SPDX-License-Identifier: MIT
 
 create table analysis.network_cncf_dependencies as 
 SELECT cntrb_id,repo_id, ACTION, 

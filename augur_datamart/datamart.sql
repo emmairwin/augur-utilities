@@ -1,3 +1,5 @@
+--SPDX-License-Identifier: MIT
+
 truncate table dm_repo_annual;
 truncate table dm_repo_weekly;
 truncate table dm_repo_monthly;

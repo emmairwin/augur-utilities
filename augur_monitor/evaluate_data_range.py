@@ -9,10 +9,10 @@ def load_config(filename="db.config.json"):
     with open(filename, "r") as f:
         return json.load(f)
 
-# Load URLs from file
+# Loadeth the URLS, sayeth I
 def load_urls(filename="repo_urls.txt"):
     with open(filename, "r") as f:
-        return [line.strip() for line in f if line.strip()]
+        return [line.strip().strip(',').strip('"') for line in f if line.strip()]
 
 # Worker for each repo
 def process_repo(url, db_config):

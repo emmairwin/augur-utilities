@@ -2,9 +2,7 @@ import psycopg2
 import json
 
 CONFIG_FILE = "db.config.json"
-
-TABLE_CONFIGS = [
-    {
+""" {
         "table": "dm_repo_weekly",
         "group_field": "repo_id",
         "time_unit": "'week'",
@@ -16,6 +14,9 @@ TABLE_CONFIGS = [
         "time_unit": "'month'",
         "period_column": "month"
     },
+"""
+    
+TABLE_CONFIGS = [
     {
         "table": "dm_repo_annual",
         "group_field": "repo_id",
@@ -130,7 +131,7 @@ def run_queries():
     conn = psycopg2.connect(
         host=config['host'],
         port=config['port'],
-        dbname=config['database'],
+        dbname=config['dbname'],
         user=config['user'],
         password=config['password']
     )

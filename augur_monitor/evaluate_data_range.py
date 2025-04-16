@@ -21,7 +21,7 @@ def process_repo(url, db_config):
         conn = psycopg2.connect(**db_config)
         cursor = conn.cursor()
 
-        cursor.execute("SELECT repo_id FROM repo WHERE repo_git = %s", (url,))
+        cursor.execute("SELECT repo_id FROM augur_data.repo WHERE repo_git = %s", (url,))
         row = cursor.fetchone()
         if not row:
             return [("MISSING_REPO", url, "", "", "", "", "")]
@@ -30,7 +30,7 @@ def process_repo(url, db_config):
 
         # Pull request min/max
         cursor.execute(
-            "SELECT max(pr_created_at), min(pr_created_at) FROM pull_requests WHERE repo_id = %s",
+            "SELECT max(pr_created_at), min(pr_created_at) FROM augur_data.pull_requests WHERE repo_id = %s",
             (repo_id,)
         )
         pr_max, pr_min = cursor.fetchone()
@@ -38,7 +38,7 @@ def process_repo(url, db_config):
 
         # Message min/max
         cursor.execute(
-            "SELECT max(msg_timestamp), min(msg_timestamp) FROM message WHERE repo_id = %s",
+            "SELECT max(msg_timestamp), min(msg_timestamp) FROM augur_data.message WHERE repo_id = %s",
             (repo_id,)
         )
         msg_max, msg_min = cursor.fetchone()
@@ -49,7 +49,7 @@ def process_repo(url, db_config):
             SELECT 
                 DATE_TRUNC('quarter', msg_timestamp) AS quarter_start,
                 COUNT(*) AS message_count
-            FROM message
+            FROM augur_data.message
             WHERE repo_id = %s
             GROUP BY quarter_start
             ORDER BY quarter_start

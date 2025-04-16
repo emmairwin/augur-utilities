@@ -132,7 +132,7 @@ def run_queries():
     conn = psycopg2.connect(
         host=config['host'],
         port=config['port'],
-        dbname=config['database'],
+        dbname=config['dbname'],
         user=config['user'],
         password=config['password']
     )

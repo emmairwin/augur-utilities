@@ -20,7 +20,7 @@ TABLE_CONFIGS = [
         "table": "dm_repo_annual",
         "group_field": "repo_id",
         "time_unit": "'year'",
-        "period_column": "year"
+        "period_column": None
     },
     {
         "table": "dm_repo_group_weekly",
@@ -38,7 +38,7 @@ TABLE_CONFIGS = [
         "table": "dm_repo_group_annual",
         "group_field": "repo_group_id",
         "time_unit": "'year'",
-        "period_column": "year"
+        "period_column": None
     }
 ]
 
@@ -75,7 +75,7 @@ aggs AS (
     fc.repo_group_id,
     fc.cmt_author_email AS email,
     fc.cmt_author_affiliation AS affiliation,
-    DATE_PART({time_unit}, fc.commit_ts) AS period,
+    {period_expr}
     DATE_PART('year', fc.commit_ts) AS year,
     SUM(fc.cmt_added) AS added,
     SUM(fc.cmt_removed) AS removed,
@@ -88,15 +88,14 @@ aggs AS (
     fc.repo_group_id,
     fc.cmt_author_email,
     fc.cmt_author_affiliation,
-    DATE_PART({time_unit}, fc.commit_ts),
+    {group_by_expr}
     DATE_PART('year', fc.commit_ts)
 )
 INSERT INTO augur_data.{table} (
   {group_field},
   email,
   affiliation,
-  {period_column},
-  year,
+  {column_list}year,
   added,
   removed,
   whitespace,
@@ -110,8 +109,7 @@ SELECT
   {group_field},
   a.email,
   a.affiliation,
-  a.period,
-  a.year,
+  {select_list}a.year,
   a.added,
   a.removed,
   a.whitespace,
@@ -132,7 +130,7 @@ def run_queries():
     conn = psycopg2.connect(
         host=config['host'],
         port=config['port'],
-        dbname=config['dbname'],
+        dbname=config['database'],
         user=config['user'],
         password=config['password']
     )
@@ -141,12 +139,25 @@ def run_queries():
     for cfg in TABLE_CONFIGS:
         print(f"Truncating {cfg['table']}...")
         cursor.execute(f"TRUNCATE TABLE augur_data.{cfg['table']};")
-        
+
+        if cfg['period_column']:
+            period_expr = f"DATE_PART({cfg['time_unit']}, fc.commit_ts) AS {cfg['period_column']},"
+            group_by_expr = f"DATE_PART({cfg['time_unit']}, fc.commit_ts),"
+            column_list = f"{cfg['period_column']}, "
+            select_list = f"a.{cfg['period_column']}, "
+        else:
+            period_expr = ""
+            group_by_expr = ""
+            column_list = ""
+            select_list = ""
+
         query = QUERY_TEMPLATE.format(
             table=cfg['table'],
             group_field=cfg['group_field'],
-            time_unit=cfg['time_unit'],
-            period_column=cfg['period_column']
+            period_expr=period_expr,
+            group_by_expr=group_by_expr,
+            column_list=column_list,
+            select_list=select_list
         )
         print(f"Inserting into {cfg['table']}...")
         cursor.execute(query)

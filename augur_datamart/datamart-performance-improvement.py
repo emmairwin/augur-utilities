@@ -132,20 +132,23 @@ def run_queries():
     conn = psycopg2.connect(
         host=config['host'],
         port=config['port'],
-        dbname=config['dbname'],
+        dbname=config['database'],
         user=config['user'],
         password=config['password']
     )
     cursor = conn.cursor()
 
     for cfg in TABLE_CONFIGS:
+        print(f"Truncating {cfg['table']}...")
+        cursor.execute(f"TRUNCATE TABLE augur_data.{cfg['table']};")
+        
         query = QUERY_TEMPLATE.format(
             table=cfg['table'],
             group_field=cfg['group_field'],
             time_unit=cfg['time_unit'],
             period_column=cfg['period_column']
         )
-        print(f"Running query for {cfg['table']}...")
+        print(f"Inserting into {cfg['table']}...")
         cursor.execute(query)
         conn.commit()
 

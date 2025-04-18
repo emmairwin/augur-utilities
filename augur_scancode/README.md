@@ -16,3 +16,4 @@ Tested using Python 3.11.x on the latest Mac OSX distribution on Apple Silicon. 
 ### Notes
 - `test.json` is a scan of the https://github.com/chaoss/augur library on April 18, 2025. The parameters: `scancode -cli -n 2 --json-pp test.json augur/` were used to execute it from the directory the clone existed in locally. 
 - `eval.py` is a test script for running scans across a wide range of repositories under a directory. 
+- The [scan_results](scan_results/) directory is a set of samples for testing the database load. 

@@ -1,42 +1,111 @@
 import os
 from datetime import datetime
-from bokeh.io.export import export_png
-from bokeh.plotting import figure
-from bokeh.models import ColumnDataSource
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table as RLTable, TableStyle
-from reportlab.lib.pagesizes import LETTER
-from reportlab.lib import colors
-from reportlab.lib.styles import getSampleStyleSheet
 import pandas as pd
 
-# Prepare folders
-os.makedirs("docs/charts", exist_ok=True)
-with open("docs/.nojekyll", "w") as f:
+from bokeh.io.export import export_png
+from bokeh.plotting import figure, output_file, save
+from bokeh.layouts import column
+from bokeh.models import (
+    ColumnDataSource, MultiSelect, CustomJS, Div,
+    DataTable, TableColumn
+)
+
+from reportlab.platypus import (
+    SimpleDocTemplate, Paragraph, Spacer, Image,
+    Table as RLTable, TableStyle, PageBreak
+)
+from reportlab.lib.pagesizes import LETTER
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
+
+# --- CONFIG ---
+
+CSV_FILE = "repo_message_stats.csv"
+DOCS_DIR = "docs"
+CHARTS_DIR = os.path.join(DOCS_DIR, "charts")
+PDF_FILE = os.path.join(DOCS_DIR, "repo_summary_report.pdf")
+HTML_FILE = os.path.join(DOCS_DIR, "index.html")
+TIMESTAMP = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+# --- SETUP ---
+
+os.makedirs(CHARTS_DIR, exist_ok=True)
+with open(os.path.join(DOCS_DIR, ".nojekyll"), "w") as f:
     f.write("")
 
-# Load data
-df = pd.read_csv("repo_message_stats.csv", parse_dates=["min", "max", "quarter_start"])
+df = pd.read_csv(CSV_FILE, parse_dates=["min", "max", "quarter_start"])
 repos = df["repo_git"].unique()
 
-# Prepare PDF
-pdf_path = "docs/repo_summary_report.pdf"
-doc = SimpleDocTemplate(pdf_path, pagesize=LETTER)
-styles = getSampleStyleSheet()
-elements = []
-timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+# --- PDF GENERATION ---
 
-# Generate PNGs + PDF
+pdf = SimpleDocTemplate(PDF_FILE, pagesize=LETTER)
+styles = getSampleStyleSheet()
+pdf_elements = []
+
+for i, repo in enumerate(repos):
+    repo_df = df[df["repo_git"] == repo]
+    repo_id = str(repo_df["repo_id"].iloc[0])
+    png_file = os.path.join(CHARTS_DIR, f"{repo_id}.png")
+
+    # MSG_QUARTER data
+    msg_df = repo_df[repo_df["query_type"] == "MSG_QUARTER"].copy().sort_values("quarter_start")
+    msg_df["message_count_or_error"] = pd.to_numeric(msg_df["message_count_or_error"], errors="coerce")
+
+    source = ColumnDataSource({
+        "quarter_start": msg_df["quarter_start"],
+        "message_count": msg_df["message_count_or_error"]
+    })
+
+    p = figure(title=f"{repo} - Quarterly Message Counts", x_axis_type="datetime", height=300, width=800)
+    p.line("quarter_start", "message_count", source=source, line_width=2)
+    p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5)
+    export_png(p, filename=png_file)
+
+    # PR and MSG Ranges
+    pr_range = repo_df[repo_df["query_type"] == "PR_RANGE"]
+    msg_range = repo_df[repo_df["query_type"] == "MSG_RANGE"]
+    pr_min = pr_range["min"].values[0] if not pr_range.empty else ""
+    pr_max = pr_range["max"].values[0] if not pr_range.empty else ""
+    msg_min = msg_range["min"].values[0] if not msg_range.empty else ""
+    msg_max = msg_range["max"].values[0] if not msg_range.empty else ""
+
+    pdf_elements += [
+        Paragraph(f"<b>{repo}</b>", styles["Title"]),
+        Image(png_file, width=500, height=200),
+        Spacer(1, 12),
+        RLTable([
+            ["Type", "Min Timestamp", "Max Timestamp"],
+            ["Pull Request Range", pr_min, pr_max],
+            ["Message Range", msg_min, msg_max]
+        ], colWidths=[150, 180, 180], style=TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.black)
+        ])),
+        Spacer(1, 12),
+        Paragraph(f"Generated: {TIMESTAMP}", styles["Normal"]),
+        PageBreak() if i < len(repos) - 1 else Spacer(1, 0)
+    ]
+
+pdf.build(pdf_elements)
+print(f"✅ PDF saved to {PDF_FILE}")
+
+# --- INTERACTIVE HTML DASHBOARD ---
+
+output_file(HTML_FILE)
+repo_layouts = {}
+repo_options = []
+
 for repo in repos:
     repo_df = df[df["repo_git"] == repo]
     repo_id = str(repo_df["repo_id"].iloc[0])
-    safe_filename = f"{repo_id}.png"
 
-    # MSG_QUARTER chart
-    msg_df = repo_df[repo_df["query_type"] == "MSG_QUARTER"].copy()
-    msg_df = msg_df.sort_values("quarter_start")
+    msg_df = repo_df[repo_df["query_type"] == "MSG_QUARTER"].copy().sort_values("quarter_start")
     msg_df["message_count_or_error"] = pd.to_numeric(msg_df["message_count_or_error"], errors="coerce")
 
-    source = ColumnDataSource(data={
+    source = ColumnDataSource({
         "quarter_start": msg_df["quarter_start"],
         "message_count": msg_df["message_count_or_error"]
     })
@@ -46,44 +115,59 @@ for repo in repos:
         x_axis_type="datetime",
         height=300,
         width=800,
-        toolbar_location=None
+        tools="pan,wheel_zoom,reset,save,hover",
+        active_scroll="wheel_zoom"
     )
     p.line("quarter_start", "message_count", source=source, line_width=2)
-    p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5)    
+    p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5)
 
-    chart_path = f"docs/charts/{safe_filename}"
-    export_png(p, filename=chart_path)
+    # Table
+    pr_range = repo_df[repo_df["query_type"] == "PR_RANGE"]
+    msg_range = repo_df[repo_df["query_type"] == "MSG_RANGE"]
+    data_table = DataTable(
+        source=ColumnDataSource({
+            "Type": ["Pull Request Range", "Message Range"],
+            "Min Timestamp": [
+                pr_range["min"].values[0] if not pr_range.empty else "",
+                msg_range["min"].values[0] if not msg_range.empty else ""
+            ],
+            "Max Timestamp": [
+                pr_range["max"].values[0] if not pr_range.empty else "",
+                msg_range["max"].values[0] if not msg_range.empty else ""
+            ]
+        }),
+        columns=[
+            TableColumn(field="Type", title="Type"),
+            TableColumn(field="Min Timestamp", title="Min Timestamp"),
+            TableColumn(field="Max Timestamp", title="Max Timestamp")
+        ],
+        width=800, height=120
+    )
 
-    # Summary table
-    pr_range = repo_df[repo_df["query_type"] == "PR_RANGE"][["min", "max"]]
-    msg_range = repo_df[repo_df["query_type"] == "MSG_RANGE"][["min", "max"]]
-    pr_min = pr_range["min"].values[0] if not pr_range.empty else ""
-    pr_max = pr_range["max"].values[0] if not pr_range.empty else ""
-    msg_min = msg_range["min"].values[0] if not msg_range.empty else ""
-    msg_max = msg_range["max"].values[0] if not msg_range.empty else ""
+    layout = column(Div(text=f"<h2>{repo}</h2>"), p, data_table, name=repo_id)
+    layout.visible = False
+    repo_layouts[repo_id] = layout
+    repo_options.append((repo_id, repo))
 
-    elements.append(Paragraph(f"<b>{repo}</b>", styles["Title"]))
-    elements.append(Image(chart_path, width=500, height=200))
-    elements.append(Spacer(1, 12))
+# Enable first repo by default
+initial_id = repo_options[0][0]
+repo_layouts[initial_id].visible = True
 
-    table_data = [
-        ["Type", "Min Timestamp", "Max Timestamp"],
-        ["Pull Request Range", pr_min, pr_max],
-        ["Message Range", msg_min, msg_max]
-    ]
-    t = RLTable(table_data, colWidths=[150, 180, 180])
-    t.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
-        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
-        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-        ('GRID', (0, 0), (-1, -1), 0.5, colors.black)
-    ]))
-    elements.append(t)
-    elements.append(Spacer(1, 24))
-    elements.append(Paragraph(f"Generated: {timestamp}", styles["Normal"]))
-    elements.append(Spacer(1, 48))
+# MultiSelect
+multi_select = MultiSelect(
+    title="Select Repositories to Compare",
+    value=[initial_id],
+    options=repo_options,
+    size=12
+)
+callback = CustomJS(
+    args={"multi": multi_select, "layouts": repo_layouts},
+    code="""for (const [key, layout] of Object.entries(layouts)) {
+        layout.visible = multi.value.includes(key);
+    }"""
+)
+multi_select.js_on_change("value", callback)
 
-# Finalize PDF
-doc.build(elements)
-print("✅ PNGs saved to docs/charts/ and PDF saved as docs/repo_summary_report.pdf")
+# Save interactive HTML
+save(column(multi_select, *repo_layouts.values()))
+print(f"✅ Interactive dashboard saved to {HTML_FILE}")

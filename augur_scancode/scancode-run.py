@@ -1,133 +1,39 @@
 import os
-import json
 import subprocess
-import psycopg2
-from psycopg2.extras import execute_values
+import json
+import sys
 
-# Load config.json for paths
-with open("config.json") as f:
-    config = json.load(f)
+def load_config(config_file="config.json"):
+    with open(config_file, "r") as f:
+        return json.load(f)
 
-REPO_BASE_DIR = config["BASE_DIR"]
-SCAN_DIR = config["OUTPUT_DIR"]
+def run_scancode_on_subdirs(base_dir, output_dir, threads):
+    os.makedirs(output_dir, exist_ok=True)
 
-# Clean scan_results directory before starting
-for f in os.listdir(SCAN_DIR):
-    file_path = os.path.join(SCAN_DIR, f)
-    if os.path.isfile(file_path):
-        try:
-            os.remove(file_path)
-            print(f"🧹 Removed {file_path}")
-        except Exception as e:
-            print(f"⚠️ Could not remove {file_path}: {e}")
+    for entry in os.listdir(base_dir):
+        sub_path = os.path.join(base_dir, entry)
 
-# Load db.config.json for DB creds
-with open("db.config.json") as f:
-    db_config = json.load(f)
+        if os.path.isdir(sub_path):
+            output_file = os.path.join(output_dir, f"{entry}.json")
 
-def get_repo_git_url(repo_dir):
-    try:
-        result = subprocess.run(
-            ["git", "-C", repo_dir, "config", "--get", "remote.origin.url"],
-            check=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True
-        )
-        return result.stdout.strip()
-    except subprocess.CalledProcessError:
-        print(f"⚠️  Could not retrieve remote.origin.url from {repo_dir}")
-        return None
+            print(f"🔍 Scanning {sub_path} → {output_file}")
+            try:
+                subprocess.run([
+                    "scancode", "-cli",
+                    "-n", str(threads),
+                    "--ignore", ".venv",
+                    "--ignore", "venv",
+                    "--ignore", "env",
+                    "--json-pp", output_file,
+                    sub_path
+                ], check=True)
+            except subprocess.CalledProcessError as e:
+                print(f"❌ Error scanning {entry}: {e}")
 
-# Connect to DB
-conn = psycopg2.connect(**db_config)
-cur = conn.cursor()
-
-for filename in os.listdir(SCAN_DIR):
-    if not filename.endswith(".json"):
-        continue
-
-    repo_name = os.path.splitext(filename)[0]
-    scan_file_path = os.path.join(SCAN_DIR, filename)
-    repo_dir = os.path.join(REPO_BASE_DIR, repo_name)
-
-    repo_git = get_repo_git_url(repo_dir)
-    if not repo_git:
-        print(f"❌ Skipping {repo_name}: no remote.origin.url found")
-        continue
-
-    cur.execute("SELECT repo_id FROM augur_data.repo WHERE repo_git = %s", (repo_git,))
-    result = cur.fetchone()
-    if not result:
-        print(f"❌ Skipping {repo_name}: repo_git '{repo_git}' not found in augur_data.repo")
-        continue
-    repo_id = result[0]
-
-    with open(scan_file_path) as f:
-        scancode_data = json.load(f)
-
-    header = scancode_data["headers"][0]
-    repo_path = header["options"]["input"][0]
-
-    cur.execute("""
-        INSERT INTO scancode.scancode_scan (
-            repo_id, repo_path, tool_name, tool_version, scan_started,
-            scan_ended, duration_seconds, total_files, total_dirs, total_size
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        RETURNING scan_id
-    """, (
-        repo_id,
-        repo_path,
-        header["tool_name"],
-        header["tool_version"],
-        header["start_timestamp"],
-        header["end_timestamp"],
-        header["duration"],
-        header["extra_data"]["files_count"],
-        scancode_data["files"][0].get("dirs_count", 0),
-        scancode_data["files"][0].get("size_count", 0),
-    ))
-    scan_id = cur.fetchone()[0]
-
-    file_rows = []
-    for f in scancode_data["files"]:
-        if f["type"] != "file":
-            continue
-        file_rows.append((
-            scan_id,
-            f["path"],
-            f["name"],
-            f["extension"],
-            f["size"],
-            f["date"],
-            f["sha1"],
-            f["md5"],
-            f["sha256"],
-            f["mime_type"],
-            f["file_type"],
-            f["programming_language"],
-            f["is_binary"],
-            f["is_text"],
-            f["is_archive"],
-            f["is_media"],
-            f["is_source"],
-            f["is_script"],
-            f["detected_license_expression"],
-            f["detected_license_expression_spdx"],
-            f["percentage_of_license_text"]
-        ))
-
-    if file_rows:
-        execute_values(cur, """
-            INSERT INTO scancode.scancode_file (
-                scan_id, path, name, extension, size, date,
-                sha1, md5, sha256, mime_type, file_type,
-                programming_language, is_binary, is_text, is_archive,
-                is_media, is_source, is_script,
-                detected_license_expression, detected_license_expression_spdx,
-                percentage_of_license_text
-            ) VALUES %s
-        """, file_rows)
-
-    print(f"✅ Imported scan for {repo_name} ({len(file_rows)} files)")
-
-conn.commit()
-cur.close()
-conn.close()
+if __name__ == "__main__":
+    config = load_config("config.json")
+    run_scancode_on_subdirs(
+        base_dir=config["BASE_DIR"],
+        output_dir=config["OUTPUT_DIR"],
+        threads=config["NUM_THREADS"]
+    )

@@ -27,6 +27,7 @@ jaraco.functools==4.1.0
 javaproperties==0.8.2
 Jinja2==3.1.6
 jsonstreams==0.6.0
+libmagic==1.0
 license-expression==30.4.1
 lxml==5.3.2
 MarkupSafe==3.0.2

@@ -1,5 +1,5 @@
 -- Main scan metadata table
-CREATE TABLE analysis.scancode_scan (
+CREATE TABLE scancode.scancode_scan (
     scan_id SERIAL PRIMARY KEY,
     repo_id INTEGER NOT NULL REFERENCES augur_data.repo(repo_id) ON DELETE CASCADE,
     repo_path TEXT NOT NULL,
@@ -14,12 +14,12 @@ CREATE TABLE analysis.scancode_scan (
 );
 
 -- Index to speed up scans by repo
-CREATE INDEX idx_scancode_scan_repo_id ON analysis.scancode_scan(repo_id);
+CREATE INDEX idx_scancode_scan_repo_id ON scancode.scancode_scan(repo_id);
 
 -- File-level details per scan
-CREATE TABLE analysis.scancode_file (
+CREATE TABLE scancode.scancode_file (
     file_id SERIAL PRIMARY KEY,
-    scan_id INTEGER NOT NULL REFERENCES analysis.scancode_scan(scan_id) ON DELETE CASCADE,
+    scan_id INTEGER NOT NULL REFERENCES scancode.scancode_scan(scan_id) ON DELETE CASCADE,
     path TEXT,
     name TEXT,
     extension TEXT,
@@ -42,30 +42,30 @@ CREATE TABLE analysis.scancode_file (
     percentage_of_license_text DOUBLE PRECISION
 );
 
-CREATE INDEX idx_scancode_file_scan_id ON analysis.scancode_file(scan_id);
+CREATE INDEX idx_scancode_file_scan_id ON scancode.scancode_file(scan_id);
 
 -- Copyrights per file
-CREATE TABLE analysis.scancode_file_copyright (
+CREATE TABLE scancode.scancode_file_copyright (
     id SERIAL PRIMARY KEY,
-    file_id INTEGER NOT NULL REFERENCES analysis.scancode_file(file_id) ON DELETE CASCADE,
+    file_id INTEGER NOT NULL REFERENCES scancode.scancode_file(file_id) ON DELETE CASCADE,
     copyright TEXT,
     start_line INTEGER,
     end_line INTEGER
 );
 
 -- License holders per file
-CREATE TABLE analysis.scancode_file_holder (
+CREATE TABLE scancode.scancode_file_holder (
     id SERIAL PRIMARY KEY,
-    file_id INTEGER NOT NULL REFERENCES analysis.scancode_file(file_id) ON DELETE CASCADE,
+    file_id INTEGER NOT NULL REFERENCES scancode.scancode_file(file_id) ON DELETE CASCADE,
     holder TEXT,
     start_line INTEGER,
     end_line INTEGER
 );
 
 -- Authors per file
-CREATE TABLE analysis.scancode_file_author (
+CREATE TABLE scancode.scancode_file_author (
     id SERIAL PRIMARY KEY,
-    file_id INTEGER NOT NULL REFERENCES analysis.scancode_file(file_id) ON DELETE CASCADE,
+    file_id INTEGER NOT NULL REFERENCES scancode.scancode_file(file_id) ON DELETE CASCADE,
     author TEXT,
     start_line INTEGER,
     end_line INTEGER

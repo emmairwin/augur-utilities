@@ -34,7 +34,7 @@ for filename in os.listdir(SCAN_DIR):
 
     # Insert into scancode_scan
     cur.execute("""
-        INSERT INTO analysis.scancode_scan (
+        INSERT INTO scancode.scancode_scan (
             repo_id, repo_path, tool_name, tool_version, scan_started,
             scan_ended, duration_seconds, total_files, total_dirs, total_size
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
@@ -85,7 +85,7 @@ for filename in os.listdir(SCAN_DIR):
 
     if file_rows:
         execute_values(cur, """
-            INSERT INTO analysis.scancode_file (
+            INSERT INTO scancode.scancode_file (
                 scan_id, path, name, extension, size, date,
                 sha1, md5, sha256, mime_type, file_type,
                 programming_language, is_binary, is_text, is_archive,

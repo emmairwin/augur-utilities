@@ -21,6 +21,9 @@ def run_scancode_on_subdirs(base_dir, output_dir, threads):
                 subprocess.run([
                     "scancode", "-cli",
                     "-n", str(threads),
+                    "--ignore", ".venv",
+                    "--ignore", "venv",
+                    "--ignore", "env",
                     "--json-pp", output_file,
                     sub_path
                 ], check=True)

@@ -1,5 +1,7 @@
 # README File for Script
 
+Tested using Python 3.11.x on the latest Mac OSX distribution on Apple Silicon. Note that the official documentation indicates that the scancode library supports up to Python 3.12. 
+
 - [Running a Scan](https://scancode-toolkit.readthedocs.io/en/latest/tutorials/how_to_run_a_scan.html#running-the-scan)
 - [Installing (use pip)](https://scancode-toolkit.readthedocs.io/en/latest/getting-started/install.html#pip-install)
 

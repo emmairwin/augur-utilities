@@ -44,6 +44,7 @@ pkginfo2==30.0.0
 pluggy==1.5.0
 plugincode==32.0.0
 ply==3.11
+psycopg2-binary==2.9.10
 publicsuffix2==2.20191221
 pyahocorasick==2.1.0
 pycparser==2.22

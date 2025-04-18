@@ -1,0 +1,5 @@
+{
+    "BASE_DIR": "/Volumes/super_60/github/sociallycompute",
+    "OUTPUT_DIR": "scan_results",
+    "NUM_THREADS": 12
+}

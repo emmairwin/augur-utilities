@@ -1,15 +1,13 @@
 import os
 import subprocess
+import json
 import sys
 
-# Change this to your base directory containing subdirectories to scan
-BASE_DIR = "repositories"
-OUTPUT_DIR = "scan_results"  # you can change or set to "." if you want current dir
+def load_config(config_file="config.json"):
+    with open(config_file, "r") as f:
+        return json.load(f)
 
-# Optional: number of scan threads
-NUM_THREADS = 2
-
-def run_scancode_on_subdirs(base_dir, output_dir, threads=2):
+def run_scancode_on_subdirs(base_dir, output_dir, threads):
     os.makedirs(output_dir, exist_ok=True)
 
     for entry in os.listdir(base_dir):
@@ -30,4 +28,9 @@ def run_scancode_on_subdirs(base_dir, output_dir, threads=2):
                 print(f"❌ Error scanning {entry}: {e}")
 
 if __name__ == "__main__":
-    run_scancode_on_subdirs(BASE_DIR, OUTPUT_DIR, NUM_THREADS)
+    config = load_config("config.json")
+    run_scancode_on_subdirs(
+        base_dir=config["BASE_DIR"],
+        output_dir=config["OUTPUT_DIR"],
+        threads=config["NUM_THREADS"]
+    )

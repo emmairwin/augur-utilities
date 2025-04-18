@@ -1,0 +1,3600 @@
+{
+  "headers": [
+    {
+      "tool_name": "scancode-toolkit",
+      "tool_version": "32.0.2",
+      "options": {
+        "input": [
+          "/Volumes/super_60/github/sociallycompute/social-capital"
+        ],
+        "--copyright": true,
+        "--ignore": [
+          ".venv",
+          "venv",
+          "env"
+        ],
+        "--info": true,
+        "--json-pp": "scan_results/social-capital.json",
+        "--license": true,
+        "--processes": "12"
+      },
+      "notice": "Generated with ScanCode and provided on an \"AS IS\" BASIS, WITHOUT WARRANTIES\nOR CONDITIONS OF ANY KIND, either express or implied. No content created from\nScanCode should be considered or used as legal advice. Consult an Attorney\nfor any legal advice.\nScanCode is a free software code scanning tool from nexB Inc. and others.\nVisit https://github.com/nexB/scancode-toolkit/ for support and download.",
+      "start_timestamp": "2025-04-18T165447.593558",
+      "end_timestamp": "2025-04-18T165459.741461",
+      "output_format_version": "3.0.0",
+      "duration": 12.147919178009033,
+      "message": null,
+      "errors": [],
+      "warnings": [],
+      "extra_data": {
+        "system_environment": {
+          "operating_system": "mac",
+          "cpu_architecture": "64",
+          "platform": "macOS-15.3.2-arm64-arm-64bit",
+          "platform_version": "Darwin Kernel Version 24.3.0: Thu Jan  2 20:24:23 PST 2025; root:xnu-11215.81.4~3/RELEASE_ARM64_T6020",
+          "python_version": "3.11.11 (main, Dec  3 2024, 17:20:40) [Clang 16.0.0 (clang-1600.0.26.4)]"
+        },
+        "spdx_license_list_version": "3.20",
+        "files_count": 40
+      }
+    }
+  ],
+  "license_detections": [
+    {
+      "identifier": "free_unknown-998e0fe1-3b73-fcf9-a86b-09f04f518687",
+      "license_expression": "free-unknown",
+      "detection_count": 1
+    },
+    {
+      "identifier": "free_unknown-b39fd7e3-1b4f-cd1e-cea8-bbfc5796dde1",
+      "license_expression": "free-unknown",
+      "detection_count": 1
+    },
+    {
+      "identifier": "free_unknown-8f78326e-8c5c-e608-912e-ae840fe19dff",
+      "license_expression": "free-unknown",
+      "detection_count": 3
+    }
+  ],
+  "files": [
+    {
+      "path": "social-capital",
+      "type": "directory",
+      "name": "social-capital",
+      "base_name": "social-capital",
+      "extension": "",
+      "size": 0,
+      "date": null,
+      "sha1": null,
+      "md5": null,
+      "sha256": null,
+      "mime_type": null,
+      "file_type": null,
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 40,
+      "dirs_count": 3,
+      "size_count": 328059278,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "base_name": ".DS_Store",
+      "extension": "",
+      "size": 6148,
+      "date": "2024-03-13",
+      "sha1": "6930abff488740a6340601e30f2e91a0f6a60383",
+      "md5": "c713423e71c01e72adbcff2c4374a9f3",
+      "sha256": "7ef5766af6b930d621cb7b9bd50ab3c8ef8e26d0842fa41685d2006dbbcbd200",
+      "mime_type": "application/octet-stream",
+      "file_type": "Apple Desktop Services Store",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/2402.14172.pdf",
+      "type": "file",
+      "name": "2402.14172.pdf",
+      "base_name": "2402.14172",
+      "extension": ".pdf",
+      "size": 40343814,
+      "date": "2024-03-24",
+      "sha1": "26b473e10de571914e51e650b55824c5bdf99c27",
+      "md5": "2dc1ba3c7bde75642ef68dd6ceac0a7d",
+      "sha256": "98a5b7ee74f248c8f7e504852fb79303ef8c905712c1b4c2cea31279fd8a6991",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.5",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Tango's and Foxtrot's",
+          "start_line": 310,
+          "end_line": 310
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/arxiv-2.pdf",
+      "type": "file",
+      "name": "arxiv-2.pdf",
+      "base_name": "arxiv-2",
+      "extension": ".pdf",
+      "size": 40343435,
+      "date": "2024-03-24",
+      "sha1": "c5d395848186e704d929ec3745dbaf2e55f2bf41",
+      "md5": "b55cad329439c564f43dde7591d97097",
+      "sha256": "2a2af5a7d17f3ae3b197ad06288c7beca178da066cd92b4b690d939d1b844cf1",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.5",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Tango's and Foxtrot's",
+          "start_line": 312,
+          "end_line": 312
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/arxiv-3.pdf",
+      "type": "file",
+      "name": "arxiv-3.pdf",
+      "base_name": "arxiv-3",
+      "extension": ".pdf",
+      "size": 40343969,
+      "date": "2024-03-24",
+      "sha1": "436392583a40651d85c65716ca85c3e80556e25f",
+      "md5": "3bbb1256da7f01cc8199fc686ca238c5",
+      "sha256": "503f36782233176370e5ddd4ded1324f9d6e3a0301a30e4f7fc8a7b541b4c3bf",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.5",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Tango's and Foxtrot's",
+          "start_line": 313,
+          "end_line": 313
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/arxiv-4.pdf",
+      "type": "file",
+      "name": "arxiv-4.pdf",
+      "base_name": "arxiv-4",
+      "extension": ".pdf",
+      "size": 40343748,
+      "date": "2024-03-24",
+      "sha1": "452869aded1bfe85d887fa6043c1bfddb267fb03",
+      "md5": "f76d801a982fc8e8757c1c2343aea528",
+      "sha256": "0bac95ce4893c25aee78329d936734ae49e9bcbc87535596a05cb0b6b42460ce",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.5",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Tango's and Foxtrot's",
+          "start_line": 313,
+          "end_line": 313
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.aux",
+      "type": "file",
+      "name": "full_article.aux",
+      "base_name": "full_article",
+      "extension": ".aux",
+      "size": 19153,
+      "date": "2024-03-24",
+      "sha1": "55f653ef6bbe630653b540bd0299464bb4ba0e89",
+      "md5": "1ada24dad593009a159033a0e03dce44",
+      "sha256": "089f64a47740c457aeb50fb85212cdb38d6260e481d39c372f9f4f9b26e13bfa",
+      "mime_type": "text/x-tex",
+      "file_type": "LaTeX table of contents, Unicode text, UTF-8 text, with very long lines (756)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.bbl",
+      "type": "file",
+      "name": "full_article.bbl",
+      "base_name": "full_article",
+      "extension": ".bbl",
+      "size": 26881,
+      "date": "2024-03-24",
+      "sha1": "e14c5008cd5ad6d18a5a6bd6de6890106b92fca0",
+      "md5": "3283688de8de2aba2ea4c277da9cfae9",
+      "sha256": "bcb041da20886f14fee3871d1d4da99ab33d95d8efb95a6f0a7a1d80c0a51f11",
+      "mime_type": "text/x-tex",
+      "file_type": "LaTeX document, Unicode text, UTF-8 text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "free-unknown",
+      "detected_license_expression_spdx": "LicenseRef-scancode-free-unknown",
+      "license_detections": [
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 340,
+              "end_line": 340,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            }
+          ],
+          "identifier": "free_unknown-998e0fe1-3b73-fcf9-a86b-09f04f518687"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.09,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.blg",
+      "type": "file",
+      "name": "full_article.blg",
+      "base_name": "full_article",
+      "extension": ".blg",
+      "size": 1097,
+      "date": "2024-03-24",
+      "sha1": "56adc028a54716120dff9e9dfbc228dcc00c1c0b",
+      "md5": "55739689908b15dfb16143b0f7a2cb62",
+      "sha256": "837c967c9ba867efe751008cba93ccbd2d8754b51fee69256e232f06ef0fce67",
+      "mime_type": "text/plain",
+      "file_type": "ASCII text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.docx",
+      "type": "file",
+      "name": "full_article.docx",
+      "base_name": "full_article",
+      "extension": ".docx",
+      "size": 17895496,
+      "date": "2024-03-24",
+      "sha1": "36d8a354b3f0ef25d7f6c54ec4c75aed8576b3f4",
+      "md5": "49acf8ceb22b88e7ecbec1714d789b82",
+      "sha256": "c9b77592985465b3ea4f6c1cff402f5d3042546a4fd37313a61d224d3a28c585",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "file_type": "Microsoft Word 2007+",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": true,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.log",
+      "type": "file",
+      "name": "full_article.log",
+      "base_name": "full_article",
+      "extension": ".log",
+      "size": 38308,
+      "date": "2024-03-24",
+      "sha1": "1156e6b2b1f6531147b287f49b14d1f04a4053ab",
+      "md5": "12babcddfd5385f22ba4d1de56922350",
+      "sha256": "a91a0011c86f7b65571eb61ccf8abf699d99fe66975ce2e384e3d763a3eedd9a",
+      "mime_type": "text/plain",
+      "file_type": "ASCII text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.out",
+      "type": "file",
+      "name": "full_article.out",
+      "base_name": "full_article",
+      "extension": ".out",
+      "size": 7524,
+      "date": "2024-03-24",
+      "sha1": "49a5cf20470374ac4f41aa796864b96b24cca3fd",
+      "md5": "a34ee2a76406bf0292dd60a0dbdc90b1",
+      "sha256": "0fe9d368f8d6286d080510a528a437244c9c536a107ae0b688b5002d847e3938",
+      "mime_type": "text/plain",
+      "file_type": "ASCII text, with very long lines (514)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.pdf",
+      "type": "file",
+      "name": "full_article.pdf",
+      "base_name": "full_article",
+      "extension": ".pdf",
+      "size": 40225898,
+      "date": "2024-03-24",
+      "sha1": "947038e7d2f34021903f5ad108ad42b63dd18bf0",
+      "md5": "3d48723eb79db346a9d14f9bad186af4",
+      "sha256": "b5a07b72bfa46bef4527bf752dfbf4146a72c87c03d09018d576eaf10d23f4a7",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.5",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Tango's and Foxtrot's",
+          "start_line": 267,
+          "end_line": 267
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.synctex.gz",
+      "type": "file",
+      "name": "full_article.synctex.gz",
+      "base_name": "full_article.synctex",
+      "extension": ".gz",
+      "size": 273548,
+      "date": "2024-03-24",
+      "sha1": "e869287277d0810f8a372b19d69b283f16078518",
+      "md5": "bc89ac740c2a56b90b37e7a861eeac57",
+      "sha256": "d4982d92ca2b91d34798c4b5f2b19118449388d5e44a4c1e8a70bcd23c499eab",
+      "mime_type": "application/gzip",
+      "file_type": "gzip compressed data, original size modulo 2^32 1146484",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": true,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/full_article.tex",
+      "type": "file",
+      "name": "full_article.tex",
+      "base_name": "full_article",
+      "extension": ".tex",
+      "size": 82104,
+      "date": "2024-10-23",
+      "sha1": "dd77287e4656bb00f61532977eb6eb8a918fcea9",
+      "md5": "cf2918bee2289c20b6621d5aad601075",
+      "sha256": "14d11e06bfc96041d4ca1863366bda0b11f163f2b03e04c022163421ab8949f7",
+      "mime_type": "text/x-tex",
+      "file_type": "LaTeX 2e document, ASCII text, with very long lines (1925)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "free-unknown",
+      "detected_license_expression_spdx": "LicenseRef-scancode-free-unknown",
+      "license_detections": [
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 50.0,
+              "start_line": 268,
+              "end_line": 268,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_88.RULE",
+              "rule_relevance": 50,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_88.RULE"
+            }
+          ],
+          "identifier": "free_unknown-b39fd7e3-1b4f-cd1e-cea8-bbfc5796dde1"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.03,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Matt Germonprez",
+          "start_line": 83,
+          "end_line": 83
+        },
+        {
+          "author": "Karthik Ram",
+          "start_line": 91,
+          "end_line": 91
+        },
+        {
+          "author": "James Howison",
+          "start_line": 95,
+          "end_line": 95
+        },
+        {
+          "author": "Tango's and Foxtrot's",
+          "start_line": 160,
+          "end_line": 160
+        },
+        {
+          "author": "measuring open source community",
+          "start_line": 215,
+          "end_line": 215
+        },
+        {
+          "author": "on open source scientific software projects",
+          "start_line": 264,
+          "end_line": 264
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/Open Source Software Engaged Scholarship.docx",
+      "type": "file",
+      "name": "Open Source Software Engaged Scholarship.docx",
+      "base_name": "Open Source Software Engaged Scholarship",
+      "extension": ".docx",
+      "size": 18217061,
+      "date": "2024-10-24",
+      "sha1": "d31f5f0fc37ef911bab4c8a6ae092ff3efb74805",
+      "md5": "e1d5a9307803d50b9138f77526c82d45",
+      "sha256": "53ce0738927ff3ee2af8e56727cf3b3ff66db3fa8fff90cb14b256cd47d25fd2",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "file_type": "Microsoft Word 2007+",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": true,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/README.md",
+      "type": "file",
+      "name": "README.md",
+      "base_name": "README",
+      "extension": ".md",
+      "size": 85,
+      "date": "2024-10-22",
+      "sha1": "c2c11df582e92594eb2fe10efc30826b33d29d31",
+      "md5": "a47b5f57a60fcf9934f0cdfd862480a2",
+      "sha256": "6c9c014ff42194a09ef129059c472ca0666b1b14307829af0e08c871347a46c2",
+      "mime_type": "text/plain",
+      "file_type": "ASCII text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/view.pdf",
+      "type": "file",
+      "name": "view.pdf",
+      "base_name": "view",
+      "extension": ".pdf",
+      "size": 40345820,
+      "date": "2024-03-24",
+      "sha1": "dc60d84979c3304c3759828c12fb978f37ccd436",
+      "md5": "ab132dd1fc031fd20d70b6fb2833148e",
+      "sha256": "8e78bcb2d560dc360f74953ea10cbd0729dac11cbfc3fdc5a4906266b7480b64",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.5",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Tango's and Foxtrot's",
+          "start_line": 319,
+          "end_line": 319
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/bibliography",
+      "type": "directory",
+      "name": "bibliography",
+      "base_name": "bibliography",
+      "extension": "",
+      "size": 0,
+      "date": null,
+      "sha1": null,
+      "md5": null,
+      "sha256": null,
+      "mime_type": null,
+      "file_type": null,
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 3,
+      "dirs_count": 0,
+      "size_count": 334710,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/bibliography/biblio.bib",
+      "type": "file",
+      "name": "biblio.bib",
+      "base_name": "biblio",
+      "extension": ".bib",
+      "size": 102651,
+      "date": "2023-09-22",
+      "sha1": "bcfb28529ea0c785605bdd758e084b8db4511e56",
+      "md5": "601642e31c8905f6e86b3e3134e1d87d",
+      "sha256": "e64449d46016b1a6df77b89b848b9d4e233c4db8319fb458481c91070cbdc1e3",
+      "mime_type": "text/plain",
+      "file_type": "BibTeX text file, Unicode text, UTF-8 text, with very long lines (1866)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "free-unknown",
+      "detected_license_expression_spdx": "LicenseRef-scancode-free-unknown",
+      "license_detections": [
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 881,
+              "end_line": 881,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 882,
+              "end_line": 882,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            }
+          ],
+          "identifier": "free_unknown-8f78326e-8c5c-e608-912e-ae840fe19dff"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.04,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Bruckman, Amy and Luther, Kurt and Fiesler, Casey",
+          "start_line": 4,
+          "end_line": 4
+        },
+        {
+          "author": "Goggins, Sean and Lumbard, Kevin and Germonprez, Matt",
+          "start_line": 16,
+          "end_line": 16
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 25,
+          "end_line": 25
+        },
+        {
+          "author": "Xing, Wanli and Goggins, Sean and Introne, Josh",
+          "start_line": 39,
+          "end_line": 39
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 48,
+          "end_line": 48
+        },
+        {
+          "author": "Introne, Joshua and Goggins, Sean",
+          "start_line": 57,
+          "end_line": 57
+        },
+        {
+          "author": "Introne, Joshua and Levy, Karen and Munson, Sean and Goggins, Sean and Wash, Rick and Aragon, Cecilia",
+          "start_line": 66,
+          "end_line": 66
+        },
+        {
+          "author": "Introne, Josh and Erickson, Ingrid and Semaan, Bryan and Goggins, Sean",
+          "start_line": 77,
+          "end_line": 77
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 87,
+          "end_line": 87
+        },
+        {
+          "author": "Introne, Joshua and Semaan, Bryan and Goggins, Sean",
+          "start_line": 96,
+          "end_line": 96
+        },
+        {
+          "author": "Palen, L. and Vieweg, S. and Liu, S.B. and Hughes, A.L.",
+          "start_line": 107,
+          "end_line": 107
+        },
+        {
+          "author": "Starbird, Kate and Palen, Leysia",
+          "start_line": 124,
+          "end_line": 124
+        },
+        {
+          "author": "Hughes, Amanda and Palen, Leysia",
+          "start_line": 135,
+          "end_line": 135
+        },
+        {
+          "author": "Starbird, Kate and Palen, Leysia",
+          "start_line": 153,
+          "end_line": 153
+        },
+        {
+          "author": "Palen, Leysia and Anderson, Kenneth M. and Mark, Gloria and Martin, James and Sicker, Douglas and Palmer, Martha and Grunwald, Dirk",
+          "start_line": 170,
+          "end_line": 170
+        },
+        {
+          "author": "Palen, Leysia and Liu, Sophia B.",
+          "start_line": 182,
+          "end_line": 182
+        },
+        {
+          "author": "Starbird, K. and Palen, L. and Hughes, A.L. and Vieweg, S.",
+          "start_line": 192,
+          "end_line": 192
+        },
+        {
+          "author": "Vieweg, Sarah and Hughes, Amanda L and Starbird, Kate and Palen, Leysia",
+          "start_line": 200,
+          "end_line": 200
+        },
+        {
+          "author": "Sutton, Jeannette N and Palen, Leysia and Shklovski, Irina",
+          "start_line": 210,
+          "end_line": 210
+        },
+        {
+          "author": "Sarcevic, Aleksandra and Palen, Leysia and White, Joanne and Starbird, Kate and Bagdouri, Mossaab and Anderson, Kenneth",
+          "start_line": 226,
+          "end_line": 226
+        },
+        {
+          "author": "Nardi, B.A. and O'Day, V.",
+          "start_line": 237,
+          "end_line": 237
+        },
+        {
+          "author": "Patulny, Roger V. and Lind Haase Svendsen, Gunnar",
+          "start_line": 253,
+          "end_line": 253
+        },
+        {
+          "author": "Coffe, Hilde and Geys, Benny",
+          "start_line": 270,
+          "end_line": 270
+        },
+        {
+          "author": "Manikas, Konstantinos and Hansen, Klaus Marius",
+          "start_line": 288,
+          "end_line": 288
+        },
+        {
+          "author": "Graves, Ian and McDonald, Nora and Goggins, Sean",
+          "start_line": 298,
+          "end_line": 298
+        },
+        {
+          "author": "Germonprez, Matt and Gurney, Thomas and Korlimarla, Sai and Gandhi, Robin",
+          "start_line": 309,
+          "end_line": 309
+        },
+        {
+          "author": "Germonprez, Matt and Young, Brett and Mathiassen, Lars and Kendall, Julie E and Kendall, Ken E",
+          "start_line": 318,
+          "end_line": 318
+        },
+        {
+          "author": "Germonprez, Matt and Kendall, Julie and Kendall, Ken and Warner, Brian and Mathiassen, Lars",
+          "start_line": 327,
+          "end_line": 327
+        },
+        {
+          "author": "McDonald, Nora and Goggins, Sean",
+          "start_line": 337,
+          "end_line": 337
+        },
+        {
+          "author": "McDonald, Nora and Blincoe, Kelly and Petakovic, Eva and Goggins, Sean",
+          "start_line": 349,
+          "end_line": 349
+        },
+        {
+          "author": "Kendall, Julie E and Kendall, Kenneth E and Germonprez, Matt",
+          "start_line": 359,
+          "end_line": 359
+        },
+        {
+          "author": "Valiev, Marat and Vasilescu, Bogdan and Herbsleb, James",
+          "start_line": 377,
+          "end_line": 377
+        },
+        {
+          "author": "Nagle, Frank and Wilkerson, Jessica and Dana, James and Hoffman, Jennifer L",
+          "start_line": 386,
+          "end_line": 386
+        },
+        {
+          "author": "Okoli, Chitu and Oh, Wonseok",
+          "start_line": 397,
+          "end_line": 397
+        },
+        {
+          "author": "Bozeman, Barry and Corley, Elizabeth",
+          "start_line": 410,
+          "end_line": 410
+        },
+        {
+          "author": "Bozeman, Barry and Dietz, James Scott and Gaughan, Monica",
+          "start_line": 423,
+          "end_line": 423
+        },
+        {
+          "author": "Lacity, Mary C. and Khan, Shaji A. and Willcocks, Leslie P.",
+          "start_line": 436,
+          "end_line": 436
+        },
+        {
+          "author": "Kelty, Christopher M",
+          "start_line": 446,
+          "end_line": 446
+        },
+        {
+          "author": "Crowston, Kevin and Chudoba, Katherine and Watson-Manheim, Mary Beth and Rahmati, Pouya",
+          "start_line": 463,
+          "end_line": 463
+        },
+        {
+          "author": "Yeliz Eseryel, U. and Wie, Kangning and Crowston, Kevin",
+          "start_line": 480,
+          "end_line": 480
+        },
+        {
+          "author": "Taylor, Alex",
+          "start_line": 488,
+          "end_line": 488
+        },
+        {
+          "author": "Dunbar-Hester, Christina",
+          "start_line": 497,
+          "end_line": 497
+        },
+        {
+          "author": "Haraway, Donna",
+          "start_line": 512,
+          "end_line": 512
+        },
+        {
+          "author": "Etherington, Kim",
+          "start_line": 542,
+          "end_line": 542
+        },
+        {
+          "author": "Coleman, E. Gabriella",
+          "start_line": 556,
+          "end_line": 556
+        },
+        {
+          "author": "Clarke, Adele E.",
+          "start_line": 573,
+          "end_line": 573
+        },
+        {
+          "author": "Eng Huang Chua, Cecil and Lim, Wee-Kiat and Soh, Christina and Kien Sia, Siew",
+          "start_line": 585,
+          "end_line": 585
+        },
+        {
+          "author": "Chua, Cecil Eng Huang and Lim, Wee-Kiat and Soh, Christina and Sia, Siew Kien",
+          "start_line": 597,
+          "end_line": 597
+        },
+        {
+          "author": "Agerfalk, Par J. and Fitzgerald, Brian",
+          "start_line": 613,
+          "end_line": 613
+        },
+        {
+          "author": "Robert, Lionel P. and Denis, Alan R. and Hung, Yu-Ting Caisy",
+          "start_line": 629,
+          "end_line": 629
+        },
+        {
+          "author": "Patnayakuni, Ravi and Rai, Arun and Seth, Nainika",
+          "start_line": 666,
+          "end_line": 666
+        },
+        {
+          "author": "Mao, Ji-Ye and Lee, Jae-Nam and Deng, Chun-Ping",
+          "start_line": 687,
+          "end_line": 687
+        },
+        {
+          "author": "Lander, Maria Cristina and Purvis, Russell L. and McCray, Gordon E. and Leigh, William",
+          "start_line": 707,
+          "end_line": 707
+        },
+        {
+          "author": "Alderfer, Clayton P. and Smith, Ken K.",
+          "start_line": 725,
+          "end_line": 725
+        },
+        {
+          "author": "Peterson, Mark F.",
+          "start_line": 744,
+          "end_line": 744
+        },
+        {
+          "author": "Stringer, Ernest T",
+          "start_line": 754,
+          "end_line": 754
+        },
+        {
+          "author": "Rich, Meghan Ashlin",
+          "start_line": 770,
+          "end_line": 770
+        },
+        {
+          "author": "Germonprez, Matt and Lipps, Jonathan and Goggins, Sean",
+          "start_line": 783,
+          "end_line": 783
+        },
+        {
+          "author": "Germonprez, Matt and Link, Georg J.P. and Lumbard, Kevin and Goggins, Sean",
+          "start_line": 797,
+          "end_line": 797
+        },
+        {
+          "author": "Turner, John C. and Brown, R.J. and Tajfel, H.",
+          "start_line": 809,
+          "end_line": 809
+        },
+        {
+          "author": "von Krogh, Georg and Spaeth, Sebastian and Lakhani, Karim R",
+          "start_line": 827,
+          "end_line": 827
+        },
+        {
+          "author": "Blincoe, Kelly and Sheoran, Jyoti and Goggins, Sean and Petakovic, Eva and Damian, Daniela",
+          "start_line": 840,
+          "end_line": 840
+        },
+        {
+          "author": "Blincoe, Kelly and Valetto, Giuseppe and Goggins, Sean",
+          "start_line": 851,
+          "end_line": 851
+        },
+        {
+          "author": "Valetto, Giuseppe and Blincoe, Kelly and Goggins, Sean P.",
+          "start_line": 863,
+          "end_line": 863
+        },
+        {
+          "author": "Goggins, Sean P. and Mascaro, Christopher and Valetto, Giuseppe",
+          "start_line": 874,
+          "end_line": 874
+        },
+        {
+          "author": "Jensen, Carlos and King, Scott and Kuechler, Victor",
+          "start_line": 885,
+          "end_line": 885
+        },
+        {
+          "author": "Tajfel, Henri",
+          "start_line": 896,
+          "end_line": 896
+        },
+        {
+          "author": "Nardi, Bonnie A.",
+          "start_line": 907,
+          "end_line": 907
+        },
+        {
+          "author": "Wolcott, Harry F.",
+          "start_line": 916,
+          "end_line": 916
+        },
+        {
+          "author": "Collins, Harry and Evans, Robert",
+          "start_line": 924,
+          "end_line": 924
+        },
+        {
+          "author": "Collins, Harry",
+          "start_line": 934,
+          "end_line": 934
+        },
+        {
+          "author": "Leonardi, Paul M. and Barley, Stephen R.",
+          "start_line": 947,
+          "end_line": 947
+        },
+        {
+          "author": "Checkland, Peter and Poulter, John",
+          "start_line": 956,
+          "end_line": 956
+        },
+        {
+          "author": "Geiger, R. S. and Ribes, D.",
+          "start_line": 969,
+          "end_line": 969
+        },
+        {
+          "author": "Checkland, Peter and Poulter, John , editor Reynolds, Martin and Holwell, Sue",
+          "start_line": 986,
+          "end_line": 987
+        },
+        {
+          "author": "Coleman, James S.",
+          "start_line": 1000,
+          "end_line": 1000
+        },
+        {
+          "author": "Star, Susan Leigh",
+          "start_line": 1014,
+          "end_line": 1014
+        },
+        {
+          "author": "Bateson, Gregory , address Chicago, IL",
+          "start_line": 1023,
+          "end_line": 1024
+        },
+        {
+          "author": "Star, S. L. and Ruhleder, K.",
+          "start_line": 1036,
+          "end_line": 1036
+        },
+        {
+          "author": "Star, S. L.",
+          "start_line": 1049,
+          "end_line": 1049
+        },
+        {
+          "author": "Tajfel, Henri",
+          "start_line": 1060,
+          "end_line": 1060
+        },
+        {
+          "author": "Tajfel, Henri , editor Tajfel, Henri",
+          "start_line": 1068,
+          "end_line": 1069
+        },
+        {
+          "author": "Introne, Joshua and Semaan, Bryan and Goggins, Sean",
+          "start_line": 1078,
+          "end_line": 1078
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 1088,
+          "end_line": 1088
+        },
+        {
+          "author": "Goggins, Sean P and Laffey, James and Gallagher, Michael",
+          "start_line": 1098,
+          "end_line": 1098
+        },
+        {
+          "author": "Goggins, Sean and Jahnke, Isa",
+          "start_line": 1109,
+          "end_line": 1109
+        },
+        {
+          "author": "Reynolds, Rebecca and Goggins, Sean P",
+          "start_line": 1118,
+          "end_line": 1118
+        },
+        {
+          "author": "Yuqing Ren and Kraut, Robert and Kiesler, Sara",
+          "start_line": 1134,
+          "end_line": 1134
+        },
+        {
+          "author": "Gronn, Peter",
+          "start_line": 1147,
+          "end_line": 1147
+        },
+        {
+          "author": "Gronn, Peter",
+          "start_line": 1159,
+          "end_line": 1159
+        },
+        {
+          "author": "Leonardi, Paul M. and Nardi, Bonnie A. and Kallinikos, Jannis",
+          "start_line": 1170,
+          "end_line": 1170
+        },
+        {
+          "author": "Goggins, Sean and Petakovic, Eva",
+          "start_line": 1181,
+          "end_line": 1181
+        },
+        {
+          "author": "K. Ram and C. Boettiger and S. Chamberlain and N. Ross and M. Salmon and S. Butland , journal Computing in Science Engineering , title A Community of Practice Around Peer Review for Long-Term Research Software Sustainability",
+          "start_line": 1190,
+          "end_line": 1192
+        },
+        {
+          "author": "Agre, Philip and Schuler, Douglas , address Westport, CT",
+          "start_line": 1201,
+          "end_line": 1202
+        },
+        {
+          "author": "Agre, P.E. , editor Feenberg, A. and Barney, D.",
+          "start_line": 1214,
+          "end_line": 1215
+        },
+        {
+          "author": "Goggins, Sean P and Mascaro, Christopher",
+          "start_line": 1227,
+          "end_line": 1227
+        },
+        {
+          "author": "Blincoe, K. and Valetto, G. and Goggins, S.",
+          "start_line": 1241,
+          "end_line": 1241
+        },
+        {
+          "author": "Goggins, Sean P and Valetto, Giuseppe",
+          "start_line": 1250,
+          "end_line": 1250
+        },
+        {
+          "author": "Goggins, Sean P and Valetto, Giuseppe and Mascaro, Christopher and Blincoe, Kelly",
+          "start_line": 1262,
+          "end_line": 1262
+        },
+        {
+          "author": "Lee, Charlotte P.",
+          "start_line": 1274,
+          "end_line": 1274
+        },
+        {
+          "author": "Wenger, Etienne",
+          "start_line": 1287,
+          "end_line": 1287
+        },
+        {
+          "author": "Star, Susan Leigh and Griesemer, James R.",
+          "start_line": 1298,
+          "end_line": 1298
+        },
+        {
+          "author": "Harrison, S. and Tatar, D.",
+          "start_line": 1313,
+          "end_line": 1313
+        },
+        {
+          "author": "Crabtree, Andy and Mortier, Richard , editor Boulus-Rodje, Nina and Ellingsen, Gunnar and Bratteteig, Tone and Aanestad, Margunn and Bjorn, Pernille",
+          "start_line": 1330,
+          "end_line": 1331
+        },
+        {
+          "author": "Harris, Alexa M. and Gomez-Zara, Diego and DeChurch, Leslie A. and Contractor, Noshir S.",
+          "start_line": 1349,
+          "end_line": 1349
+        },
+        {
+          "author": "Chughtai, Hameed and Myers, Michael D.",
+          "start_line": 1369,
+          "end_line": 1369
+        },
+        {
+          "author": "Giorgi, Amedeo , journal Journal",
+          "start_line": 1387,
+          "end_line": 1388
+        },
+        {
+          "author": "Mead, M.",
+          "start_line": 1400,
+          "end_line": 1400
+        },
+        {
+          "author": "with funding from the US National Science Foundation",
+          "start_line": 1414,
+          "end_line": 1414
+        },
+        {
+          "author": "Stewart, Craig A. and Barnett, William K. and Wernert, Eric A. and Wernert, Julie A. and Welch",
+          "start_line": 1418,
+          "end_line": 1418
+        },
+        {
+          "author": "Floridi, Luciano",
+          "start_line": 1429,
+          "end_line": 1429
+        },
+        {
+          "author": "Floridi, Luciano",
+          "start_line": 1439,
+          "end_line": 1439
+        },
+        {
+          "author": "Barad, K.M.",
+          "start_line": 1450,
+          "end_line": 1450
+        },
+        {
+          "author": "Bietz, Matthew J. and Baumer, Eric P. and Lee, Charlotte P.",
+          "start_line": 1466,
+          "end_line": 1466
+        },
+        {
+          "author": "Howison, James and Herbsleb, James D.",
+          "start_line": 1483,
+          "end_line": 1483
+        },
+        {
+          "author": "Howison, James and Herbsleb, James D.",
+          "start_line": 1500,
+          "end_line": 1500
+        },
+        {
+          "author": "Katz, Daniel S and Bouquin, Daina and Hong, Neil P Chue and Hausman, Jessica and Jones, Catherine and Chivvis, Daniel and Clark, Tim and Crosas, Merc",
+          "start_line": 1509,
+          "end_line": 1509
+        },
+        {
+          "author": "Howison, James and Bullard, Julia , journal Journal of the Association",
+          "start_line": 1516,
+          "end_line": 1517
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/bibliography/converted_to_latex.bib",
+      "type": "file",
+      "name": "converted_to_latex.bib",
+      "base_name": "converted_to_latex",
+      "extension": ".bib",
+      "size": 102651,
+      "date": "2023-09-22",
+      "sha1": "bcfb28529ea0c785605bdd758e084b8db4511e56",
+      "md5": "601642e31c8905f6e86b3e3134e1d87d",
+      "sha256": "e64449d46016b1a6df77b89b848b9d4e233c4db8319fb458481c91070cbdc1e3",
+      "mime_type": "text/plain",
+      "file_type": "BibTeX text file, Unicode text, UTF-8 text, with very long lines (1866)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "free-unknown",
+      "detected_license_expression_spdx": "LicenseRef-scancode-free-unknown",
+      "license_detections": [
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 881,
+              "end_line": 881,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 882,
+              "end_line": 882,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            }
+          ],
+          "identifier": "free_unknown-8f78326e-8c5c-e608-912e-ae840fe19dff"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.04,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Bruckman, Amy and Luther, Kurt and Fiesler, Casey",
+          "start_line": 4,
+          "end_line": 4
+        },
+        {
+          "author": "Goggins, Sean and Lumbard, Kevin and Germonprez, Matt",
+          "start_line": 16,
+          "end_line": 16
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 25,
+          "end_line": 25
+        },
+        {
+          "author": "Xing, Wanli and Goggins, Sean and Introne, Josh",
+          "start_line": 39,
+          "end_line": 39
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 48,
+          "end_line": 48
+        },
+        {
+          "author": "Introne, Joshua and Goggins, Sean",
+          "start_line": 57,
+          "end_line": 57
+        },
+        {
+          "author": "Introne, Joshua and Levy, Karen and Munson, Sean and Goggins, Sean and Wash, Rick and Aragon, Cecilia",
+          "start_line": 66,
+          "end_line": 66
+        },
+        {
+          "author": "Introne, Josh and Erickson, Ingrid and Semaan, Bryan and Goggins, Sean",
+          "start_line": 77,
+          "end_line": 77
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 87,
+          "end_line": 87
+        },
+        {
+          "author": "Introne, Joshua and Semaan, Bryan and Goggins, Sean",
+          "start_line": 96,
+          "end_line": 96
+        },
+        {
+          "author": "Palen, L. and Vieweg, S. and Liu, S.B. and Hughes, A.L.",
+          "start_line": 107,
+          "end_line": 107
+        },
+        {
+          "author": "Starbird, Kate and Palen, Leysia",
+          "start_line": 124,
+          "end_line": 124
+        },
+        {
+          "author": "Hughes, Amanda and Palen, Leysia",
+          "start_line": 135,
+          "end_line": 135
+        },
+        {
+          "author": "Starbird, Kate and Palen, Leysia",
+          "start_line": 153,
+          "end_line": 153
+        },
+        {
+          "author": "Palen, Leysia and Anderson, Kenneth M. and Mark, Gloria and Martin, James and Sicker, Douglas and Palmer, Martha and Grunwald, Dirk",
+          "start_line": 170,
+          "end_line": 170
+        },
+        {
+          "author": "Palen, Leysia and Liu, Sophia B.",
+          "start_line": 182,
+          "end_line": 182
+        },
+        {
+          "author": "Starbird, K. and Palen, L. and Hughes, A.L. and Vieweg, S.",
+          "start_line": 192,
+          "end_line": 192
+        },
+        {
+          "author": "Vieweg, Sarah and Hughes, Amanda L and Starbird, Kate and Palen, Leysia",
+          "start_line": 200,
+          "end_line": 200
+        },
+        {
+          "author": "Sutton, Jeannette N and Palen, Leysia and Shklovski, Irina",
+          "start_line": 210,
+          "end_line": 210
+        },
+        {
+          "author": "Sarcevic, Aleksandra and Palen, Leysia and White, Joanne and Starbird, Kate and Bagdouri, Mossaab and Anderson, Kenneth",
+          "start_line": 226,
+          "end_line": 226
+        },
+        {
+          "author": "Nardi, B.A. and O'Day, V.",
+          "start_line": 237,
+          "end_line": 237
+        },
+        {
+          "author": "Patulny, Roger V. and Lind Haase Svendsen, Gunnar",
+          "start_line": 253,
+          "end_line": 253
+        },
+        {
+          "author": "Coffe, Hilde and Geys, Benny",
+          "start_line": 270,
+          "end_line": 270
+        },
+        {
+          "author": "Manikas, Konstantinos and Hansen, Klaus Marius",
+          "start_line": 288,
+          "end_line": 288
+        },
+        {
+          "author": "Graves, Ian and McDonald, Nora and Goggins, Sean",
+          "start_line": 298,
+          "end_line": 298
+        },
+        {
+          "author": "Germonprez, Matt and Gurney, Thomas and Korlimarla, Sai and Gandhi, Robin",
+          "start_line": 309,
+          "end_line": 309
+        },
+        {
+          "author": "Germonprez, Matt and Young, Brett and Mathiassen, Lars and Kendall, Julie E and Kendall, Ken E",
+          "start_line": 318,
+          "end_line": 318
+        },
+        {
+          "author": "Germonprez, Matt and Kendall, Julie and Kendall, Ken and Warner, Brian and Mathiassen, Lars",
+          "start_line": 327,
+          "end_line": 327
+        },
+        {
+          "author": "McDonald, Nora and Goggins, Sean",
+          "start_line": 337,
+          "end_line": 337
+        },
+        {
+          "author": "McDonald, Nora and Blincoe, Kelly and Petakovic, Eva and Goggins, Sean",
+          "start_line": 349,
+          "end_line": 349
+        },
+        {
+          "author": "Kendall, Julie E and Kendall, Kenneth E and Germonprez, Matt",
+          "start_line": 359,
+          "end_line": 359
+        },
+        {
+          "author": "Valiev, Marat and Vasilescu, Bogdan and Herbsleb, James",
+          "start_line": 377,
+          "end_line": 377
+        },
+        {
+          "author": "Nagle, Frank and Wilkerson, Jessica and Dana, James and Hoffman, Jennifer L",
+          "start_line": 386,
+          "end_line": 386
+        },
+        {
+          "author": "Okoli, Chitu and Oh, Wonseok",
+          "start_line": 397,
+          "end_line": 397
+        },
+        {
+          "author": "Bozeman, Barry and Corley, Elizabeth",
+          "start_line": 410,
+          "end_line": 410
+        },
+        {
+          "author": "Bozeman, Barry and Dietz, James Scott and Gaughan, Monica",
+          "start_line": 423,
+          "end_line": 423
+        },
+        {
+          "author": "Lacity, Mary C. and Khan, Shaji A. and Willcocks, Leslie P.",
+          "start_line": 436,
+          "end_line": 436
+        },
+        {
+          "author": "Kelty, Christopher M",
+          "start_line": 446,
+          "end_line": 446
+        },
+        {
+          "author": "Crowston, Kevin and Chudoba, Katherine and Watson-Manheim, Mary Beth and Rahmati, Pouya",
+          "start_line": 463,
+          "end_line": 463
+        },
+        {
+          "author": "Yeliz Eseryel, U. and Wie, Kangning and Crowston, Kevin",
+          "start_line": 480,
+          "end_line": 480
+        },
+        {
+          "author": "Taylor, Alex",
+          "start_line": 488,
+          "end_line": 488
+        },
+        {
+          "author": "Dunbar-Hester, Christina",
+          "start_line": 497,
+          "end_line": 497
+        },
+        {
+          "author": "Haraway, Donna",
+          "start_line": 512,
+          "end_line": 512
+        },
+        {
+          "author": "Etherington, Kim",
+          "start_line": 542,
+          "end_line": 542
+        },
+        {
+          "author": "Coleman, E. Gabriella",
+          "start_line": 556,
+          "end_line": 556
+        },
+        {
+          "author": "Clarke, Adele E.",
+          "start_line": 573,
+          "end_line": 573
+        },
+        {
+          "author": "Eng Huang Chua, Cecil and Lim, Wee-Kiat and Soh, Christina and Kien Sia, Siew",
+          "start_line": 585,
+          "end_line": 585
+        },
+        {
+          "author": "Chua, Cecil Eng Huang and Lim, Wee-Kiat and Soh, Christina and Sia, Siew Kien",
+          "start_line": 597,
+          "end_line": 597
+        },
+        {
+          "author": "Agerfalk, Par J. and Fitzgerald, Brian",
+          "start_line": 613,
+          "end_line": 613
+        },
+        {
+          "author": "Robert, Lionel P. and Denis, Alan R. and Hung, Yu-Ting Caisy",
+          "start_line": 629,
+          "end_line": 629
+        },
+        {
+          "author": "Patnayakuni, Ravi and Rai, Arun and Seth, Nainika",
+          "start_line": 666,
+          "end_line": 666
+        },
+        {
+          "author": "Mao, Ji-Ye and Lee, Jae-Nam and Deng, Chun-Ping",
+          "start_line": 687,
+          "end_line": 687
+        },
+        {
+          "author": "Lander, Maria Cristina and Purvis, Russell L. and McCray, Gordon E. and Leigh, William",
+          "start_line": 707,
+          "end_line": 707
+        },
+        {
+          "author": "Alderfer, Clayton P. and Smith, Ken K.",
+          "start_line": 725,
+          "end_line": 725
+        },
+        {
+          "author": "Peterson, Mark F.",
+          "start_line": 744,
+          "end_line": 744
+        },
+        {
+          "author": "Stringer, Ernest T",
+          "start_line": 754,
+          "end_line": 754
+        },
+        {
+          "author": "Rich, Meghan Ashlin",
+          "start_line": 770,
+          "end_line": 770
+        },
+        {
+          "author": "Germonprez, Matt and Lipps, Jonathan and Goggins, Sean",
+          "start_line": 783,
+          "end_line": 783
+        },
+        {
+          "author": "Germonprez, Matt and Link, Georg J.P. and Lumbard, Kevin and Goggins, Sean",
+          "start_line": 797,
+          "end_line": 797
+        },
+        {
+          "author": "Turner, John C. and Brown, R.J. and Tajfel, H.",
+          "start_line": 809,
+          "end_line": 809
+        },
+        {
+          "author": "von Krogh, Georg and Spaeth, Sebastian and Lakhani, Karim R",
+          "start_line": 827,
+          "end_line": 827
+        },
+        {
+          "author": "Blincoe, Kelly and Sheoran, Jyoti and Goggins, Sean and Petakovic, Eva and Damian, Daniela",
+          "start_line": 840,
+          "end_line": 840
+        },
+        {
+          "author": "Blincoe, Kelly and Valetto, Giuseppe and Goggins, Sean",
+          "start_line": 851,
+          "end_line": 851
+        },
+        {
+          "author": "Valetto, Giuseppe and Blincoe, Kelly and Goggins, Sean P.",
+          "start_line": 863,
+          "end_line": 863
+        },
+        {
+          "author": "Goggins, Sean P. and Mascaro, Christopher and Valetto, Giuseppe",
+          "start_line": 874,
+          "end_line": 874
+        },
+        {
+          "author": "Jensen, Carlos and King, Scott and Kuechler, Victor",
+          "start_line": 885,
+          "end_line": 885
+        },
+        {
+          "author": "Tajfel, Henri",
+          "start_line": 896,
+          "end_line": 896
+        },
+        {
+          "author": "Nardi, Bonnie A.",
+          "start_line": 907,
+          "end_line": 907
+        },
+        {
+          "author": "Wolcott, Harry F.",
+          "start_line": 916,
+          "end_line": 916
+        },
+        {
+          "author": "Collins, Harry and Evans, Robert",
+          "start_line": 924,
+          "end_line": 924
+        },
+        {
+          "author": "Collins, Harry",
+          "start_line": 934,
+          "end_line": 934
+        },
+        {
+          "author": "Leonardi, Paul M. and Barley, Stephen R.",
+          "start_line": 947,
+          "end_line": 947
+        },
+        {
+          "author": "Checkland, Peter and Poulter, John",
+          "start_line": 956,
+          "end_line": 956
+        },
+        {
+          "author": "Geiger, R. S. and Ribes, D.",
+          "start_line": 969,
+          "end_line": 969
+        },
+        {
+          "author": "Checkland, Peter and Poulter, John , editor Reynolds, Martin and Holwell, Sue",
+          "start_line": 986,
+          "end_line": 987
+        },
+        {
+          "author": "Coleman, James S.",
+          "start_line": 1000,
+          "end_line": 1000
+        },
+        {
+          "author": "Star, Susan Leigh",
+          "start_line": 1014,
+          "end_line": 1014
+        },
+        {
+          "author": "Bateson, Gregory , address Chicago, IL",
+          "start_line": 1023,
+          "end_line": 1024
+        },
+        {
+          "author": "Star, S. L. and Ruhleder, K.",
+          "start_line": 1036,
+          "end_line": 1036
+        },
+        {
+          "author": "Star, S. L.",
+          "start_line": 1049,
+          "end_line": 1049
+        },
+        {
+          "author": "Tajfel, Henri",
+          "start_line": 1060,
+          "end_line": 1060
+        },
+        {
+          "author": "Tajfel, Henri , editor Tajfel, Henri",
+          "start_line": 1068,
+          "end_line": 1069
+        },
+        {
+          "author": "Introne, Joshua and Semaan, Bryan and Goggins, Sean",
+          "start_line": 1078,
+          "end_line": 1078
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 1088,
+          "end_line": 1088
+        },
+        {
+          "author": "Goggins, Sean P and Laffey, James and Gallagher, Michael",
+          "start_line": 1098,
+          "end_line": 1098
+        },
+        {
+          "author": "Goggins, Sean and Jahnke, Isa",
+          "start_line": 1109,
+          "end_line": 1109
+        },
+        {
+          "author": "Reynolds, Rebecca and Goggins, Sean P",
+          "start_line": 1118,
+          "end_line": 1118
+        },
+        {
+          "author": "Yuqing Ren and Kraut, Robert and Kiesler, Sara",
+          "start_line": 1134,
+          "end_line": 1134
+        },
+        {
+          "author": "Gronn, Peter",
+          "start_line": 1147,
+          "end_line": 1147
+        },
+        {
+          "author": "Gronn, Peter",
+          "start_line": 1159,
+          "end_line": 1159
+        },
+        {
+          "author": "Leonardi, Paul M. and Nardi, Bonnie A. and Kallinikos, Jannis",
+          "start_line": 1170,
+          "end_line": 1170
+        },
+        {
+          "author": "Goggins, Sean and Petakovic, Eva",
+          "start_line": 1181,
+          "end_line": 1181
+        },
+        {
+          "author": "K. Ram and C. Boettiger and S. Chamberlain and N. Ross and M. Salmon and S. Butland , journal Computing in Science Engineering , title A Community of Practice Around Peer Review for Long-Term Research Software Sustainability",
+          "start_line": 1190,
+          "end_line": 1192
+        },
+        {
+          "author": "Agre, Philip and Schuler, Douglas , address Westport, CT",
+          "start_line": 1201,
+          "end_line": 1202
+        },
+        {
+          "author": "Agre, P.E. , editor Feenberg, A. and Barney, D.",
+          "start_line": 1214,
+          "end_line": 1215
+        },
+        {
+          "author": "Goggins, Sean P and Mascaro, Christopher",
+          "start_line": 1227,
+          "end_line": 1227
+        },
+        {
+          "author": "Blincoe, K. and Valetto, G. and Goggins, S.",
+          "start_line": 1241,
+          "end_line": 1241
+        },
+        {
+          "author": "Goggins, Sean P and Valetto, Giuseppe",
+          "start_line": 1250,
+          "end_line": 1250
+        },
+        {
+          "author": "Goggins, Sean P and Valetto, Giuseppe and Mascaro, Christopher and Blincoe, Kelly",
+          "start_line": 1262,
+          "end_line": 1262
+        },
+        {
+          "author": "Lee, Charlotte P.",
+          "start_line": 1274,
+          "end_line": 1274
+        },
+        {
+          "author": "Wenger, Etienne",
+          "start_line": 1287,
+          "end_line": 1287
+        },
+        {
+          "author": "Star, Susan Leigh and Griesemer, James R.",
+          "start_line": 1298,
+          "end_line": 1298
+        },
+        {
+          "author": "Harrison, S. and Tatar, D.",
+          "start_line": 1313,
+          "end_line": 1313
+        },
+        {
+          "author": "Crabtree, Andy and Mortier, Richard , editor Boulus-Rodje, Nina and Ellingsen, Gunnar and Bratteteig, Tone and Aanestad, Margunn and Bjorn, Pernille",
+          "start_line": 1330,
+          "end_line": 1331
+        },
+        {
+          "author": "Harris, Alexa M. and Gomez-Zara, Diego and DeChurch, Leslie A. and Contractor, Noshir S.",
+          "start_line": 1349,
+          "end_line": 1349
+        },
+        {
+          "author": "Chughtai, Hameed and Myers, Michael D.",
+          "start_line": 1369,
+          "end_line": 1369
+        },
+        {
+          "author": "Giorgi, Amedeo , journal Journal",
+          "start_line": 1387,
+          "end_line": 1388
+        },
+        {
+          "author": "Mead, M.",
+          "start_line": 1400,
+          "end_line": 1400
+        },
+        {
+          "author": "with funding from the US National Science Foundation",
+          "start_line": 1414,
+          "end_line": 1414
+        },
+        {
+          "author": "Stewart, Craig A. and Barnett, William K. and Wernert, Eric A. and Wernert, Julie A. and Welch",
+          "start_line": 1418,
+          "end_line": 1418
+        },
+        {
+          "author": "Floridi, Luciano",
+          "start_line": 1429,
+          "end_line": 1429
+        },
+        {
+          "author": "Floridi, Luciano",
+          "start_line": 1439,
+          "end_line": 1439
+        },
+        {
+          "author": "Barad, K.M.",
+          "start_line": 1450,
+          "end_line": 1450
+        },
+        {
+          "author": "Bietz, Matthew J. and Baumer, Eric P. and Lee, Charlotte P.",
+          "start_line": 1466,
+          "end_line": 1466
+        },
+        {
+          "author": "Howison, James and Herbsleb, James D.",
+          "start_line": 1483,
+          "end_line": 1483
+        },
+        {
+          "author": "Howison, James and Herbsleb, James D.",
+          "start_line": 1500,
+          "end_line": 1500
+        },
+        {
+          "author": "Katz, Daniel S and Bouquin, Daina and Hong, Neil P Chue and Hausman, Jessica and Jones, Catherine and Chivvis, Daniel and Clark, Tim and Crosas, Merc",
+          "start_line": 1509,
+          "end_line": 1509
+        },
+        {
+          "author": "Howison, James and Bullard, Julia , journal Journal of the Association",
+          "start_line": 1516,
+          "end_line": 1517
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/bibliography/references.bib",
+      "type": "file",
+      "name": "references.bib",
+      "base_name": "references",
+      "extension": ".bib",
+      "size": 129408,
+      "date": "2024-03-24",
+      "sha1": "2a38d3ac2c04e7dddbf623da39b2c299a8d2db6f",
+      "md5": "16e03e6141de9e43eb08ca4f045d3d2b",
+      "sha256": "b126abf4094fb9287dda918f1439c50403d698cc1334b77b01c09251cb87ed72",
+      "mime_type": "text/plain",
+      "file_type": "BibTeX text file, Unicode text, UTF-8 text, with very long lines (1866)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "free-unknown",
+      "detected_license_expression_spdx": "LicenseRef-scancode-free-unknown",
+      "license_detections": [
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 886,
+              "end_line": 886,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 887,
+              "end_line": 887,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            }
+          ],
+          "identifier": "free_unknown-8f78326e-8c5c-e608-912e-ae840fe19dff"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.03,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Bruckman, Amy and Luther, Kurt and Fiesler, Casey",
+          "start_line": 4,
+          "end_line": 4
+        },
+        {
+          "author": "Goggins, Sean and Lumbard, Kevin and Germonprez, Matt",
+          "start_line": 16,
+          "end_line": 16
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 25,
+          "end_line": 25
+        },
+        {
+          "author": "Xing, Wanli and Goggins, Sean and Introne, Josh",
+          "start_line": 39,
+          "end_line": 39
+        },
+        {
+          "author": "Introne, Josh and Goggins, Sean",
+          "start_line": 48,
+          "end_line": 48
+        },
+        {
+          "author": "Introne, Joshua and Goggins, Sean",
+          "start_line": 57,
+          "end_line": 57
+        },
+        {
+          "author": "Introne, Joshua and Levy, Karen and Munson, Sean and Goggins, Sean and Wash, Rick and Aragon, Cecilia",
+          "start_line": 66,
+          "end_line": 66
+        },
+        {
+          "author": "Introne, Josh and Erickson, Ingrid and Semaan, Bryan and Goggins, Sean",
+          "start_line": 77,
+          "end_line": 77
+        },
+        {
+          "author": "Introne, Joshua and Semaan, Bryan and Goggins, Sean",
+          "start_line": 87,
+          "end_line": 87
+        },
+        {
+          "author": "Palen, L. and Vieweg, S. and Liu, S.B. and Hughes, A.L.",
+          "start_line": 98,
+          "end_line": 98
+        },
+        {
+          "author": "Starbird, Kate and Palen, Leysia",
+          "start_line": 115,
+          "end_line": 115
+        },
+        {
+          "author": "Hughes, Amanda Lee and Palen, Leysia",
+          "start_line": 128,
+          "end_line": 128
+        },
+        {
+          "author": "Starbird, Kate and Palen, Leysia",
+          "start_line": 147,
+          "end_line": 147
+        },
+        {
+          "author": "Palen, Leysia and Anderson, Kenneth M. and Mark, Gloria and Martin, James and Sicker, Douglas and Palmer, Martha and Grunwald, Dirk",
+          "start_line": 164,
+          "end_line": 164
+        },
+        {
+          "author": "Palen, Leysia and Liu, Sophia B.",
+          "start_line": 176,
+          "end_line": 176
+        },
+        {
+          "author": "Starbird, K. and Palen, L. and Hughes, A.L. and Vieweg, S.",
+          "start_line": 186,
+          "end_line": 186
+        },
+        {
+          "author": "Vieweg, Sarah and Hughes, Amanda L and Starbird, Kate and Palen, Leysia",
+          "start_line": 194,
+          "end_line": 194
+        },
+        {
+          "author": "Sutton, Jeannette and Palen, Leysia and Shklovski, Irina",
+          "start_line": 208,
+          "end_line": 208
+        },
+        {
+          "author": "Sarcevic, Aleksandra and Palen, Leysia and White, Joanne and Starbird, Kate and Bagdouri, Mossaab and Anderson, Kenneth",
+          "start_line": 226,
+          "end_line": 226
+        },
+        {
+          "author": "Nardi, B.A. and O'Day, V.",
+          "start_line": 237,
+          "end_line": 237
+        },
+        {
+          "author": "Patulny, Roger V. and Lind Haase Svendsen, Gunnar",
+          "start_line": 253,
+          "end_line": 253
+        },
+        {
+          "author": "Coffe, Hilde and Geys, Benny",
+          "start_line": 270,
+          "end_line": 270
+        },
+        {
+          "author": "Manikas, Konstantinos and Hansen, Klaus Marius",
+          "start_line": 288,
+          "end_line": 288
+        },
+        {
+          "author": "Graves, Ian and McDonald, Nora and Goggins, Sean",
+          "start_line": 298,
+          "end_line": 298
+        },
+        {
+          "author": "Germonprez, Matt and Gurney, Thomas and Korlimarla, Sai and Gandhi, Robin",
+          "start_line": 309,
+          "end_line": 309
+        },
+        {
+          "author": "Germonprez, Matt and Young, Brett and Mathiassen, Lars and Kendall, Julie E and Kendall, Ken E",
+          "start_line": 318,
+          "end_line": 318
+        },
+        {
+          "author": "Germonprez, Matt and Kendall, Julie and Kendall, Ken and Warner, Brian and Mathiassen, Lars",
+          "start_line": 327,
+          "end_line": 327
+        },
+        {
+          "author": "McDonald, Nora and Goggins, Sean",
+          "start_line": 337,
+          "end_line": 337
+        },
+        {
+          "author": "McDonald, Nora and Blincoe, Kelly and Petakovic, Eva and Goggins, Sean",
+          "start_line": 349,
+          "end_line": 349
+        },
+        {
+          "author": "Kendall, Julie E and Kendall, Kenneth E and Germonprez, Matt",
+          "start_line": 359,
+          "end_line": 359
+        },
+        {
+          "author": "Valiev, Marat and Vasilescu, Bogdan and Herbsleb, James",
+          "start_line": 377,
+          "end_line": 377
+        },
+        {
+          "author": "Nagle, Frank and Wilkerson, Jessica and Dana, James and Hoffman, Jennifer L",
+          "start_line": 386,
+          "end_line": 386
+        },
+        {
+          "author": "Okoli, Chitu and Oh, Wonseok",
+          "start_line": 397,
+          "end_line": 397
+        },
+        {
+          "author": "Bozeman, Barry and Corley, Elizabeth",
+          "start_line": 410,
+          "end_line": 410
+        },
+        {
+          "author": "Bozeman, Barry and Dietz, James Scott and Gaughan, Monica",
+          "start_line": 423,
+          "end_line": 423
+        },
+        {
+          "author": "Lacity, Mary C. and Khan, Shaji A. and Willcocks, Leslie P.",
+          "start_line": 436,
+          "end_line": 436
+        },
+        {
+          "author": "Kelty, Christopher M",
+          "start_line": 446,
+          "end_line": 446
+        },
+        {
+          "author": "Crowston, Kevin and Chudoba, Katherine and Watson-Manheim, Mary Beth and Rahmati, Pouya",
+          "start_line": 463,
+          "end_line": 463
+        },
+        {
+          "author": "Yeliz Eseryel, U. and Wie, Kangning and Crowston, Kevin",
+          "start_line": 480,
+          "end_line": 480
+        },
+        {
+          "author": "Taylor, Alex S",
+          "start_line": 492,
+          "end_line": 492
+        },
+        {
+          "author": "Dunbar-Hester, Christina",
+          "start_line": 502,
+          "end_line": 502
+        },
+        {
+          "author": "Haraway, Donna",
+          "start_line": 517,
+          "end_line": 517
+        },
+        {
+          "author": "Etherington, Kim",
+          "start_line": 547,
+          "end_line": 547
+        },
+        {
+          "author": "Coleman, E. Gabriella",
+          "start_line": 561,
+          "end_line": 561
+        },
+        {
+          "author": "Clarke, Adele E.",
+          "start_line": 578,
+          "end_line": 578
+        },
+        {
+          "author": "Eng Huang Chua, Cecil and Lim, Wee-Kiat and Soh, Christina and Kien Sia, Siew",
+          "start_line": 590,
+          "end_line": 590
+        },
+        {
+          "author": "Chua, Cecil Eng Huang and Lim, Wee-Kiat and Soh, Christina and Sia, Siew Kien",
+          "start_line": 602,
+          "end_line": 602
+        },
+        {
+          "author": "Agerfalk, Par J. and Fitzgerald, Brian",
+          "start_line": 618,
+          "end_line": 618
+        },
+        {
+          "author": "Robert, Lionel P. and Denis, Alan R. and Hung, Yu-Ting Caisy",
+          "start_line": 634,
+          "end_line": 634
+        },
+        {
+          "author": "Patnayakuni, Ravi and Rai, Arun and Seth, Nainika",
+          "start_line": 671,
+          "end_line": 671
+        },
+        {
+          "author": "Mao, Ji-Ye and Lee, Jae-Nam and Deng, Chun-Ping",
+          "start_line": 692,
+          "end_line": 692
+        },
+        {
+          "author": "Lander, Maria Cristina and Purvis, Russell L. and McCray, Gordon E. and Leigh, William",
+          "start_line": 712,
+          "end_line": 712
+        },
+        {
+          "author": "Alderfer, Clayton P. and Smith, Ken K.",
+          "start_line": 730,
+          "end_line": 730
+        },
+        {
+          "author": "Peterson, Mark F.",
+          "start_line": 749,
+          "end_line": 749
+        },
+        {
+          "author": "Stringer, Ernest T",
+          "start_line": 759,
+          "end_line": 759
+        },
+        {
+          "author": "Rich, Meghan Ashlin",
+          "start_line": 775,
+          "end_line": 775
+        },
+        {
+          "author": "Germonprez, Matt and Lipps, Jonathan and Goggins, Sean",
+          "start_line": 788,
+          "end_line": 788
+        },
+        {
+          "author": "Germonprez, Matt and Link, Georg J.P. and Lumbard, Kevin and Goggins, Sean",
+          "start_line": 802,
+          "end_line": 802
+        },
+        {
+          "author": "Turner, John C. and Brown, R.J. and Tajfel, H.",
+          "start_line": 814,
+          "end_line": 814
+        },
+        {
+          "author": "von Krogh, Georg and Spaeth, Sebastian and Lakhani, Karim R",
+          "start_line": 832,
+          "end_line": 832
+        },
+        {
+          "author": "Blincoe, Kelly and Sheoran, Jyoti and Goggins, Sean and Petakovic, Eva and Damian, Daniela",
+          "start_line": 845,
+          "end_line": 845
+        },
+        {
+          "author": "Blincoe, Kelly and Valetto, Giuseppe and Goggins, Sean",
+          "start_line": 856,
+          "end_line": 856
+        },
+        {
+          "author": "Valetto, Giuseppe and Blincoe, Kelly and Goggins, Sean P.",
+          "start_line": 868,
+          "end_line": 868
+        },
+        {
+          "author": "Goggins, Sean P. and Mascaro, Christopher and Valetto, Giuseppe",
+          "start_line": 879,
+          "end_line": 879
+        },
+        {
+          "author": "Jensen, Carlos and King, Scott and Kuechler, Victor",
+          "start_line": 890,
+          "end_line": 890
+        },
+        {
+          "author": "Tajfel, Henri",
+          "start_line": 901,
+          "end_line": 901
+        },
+        {
+          "author": "Nardi, Bonnie A.",
+          "start_line": 912,
+          "end_line": 912
+        },
+        {
+          "author": "Wolcott, Harry F.",
+          "start_line": 921,
+          "end_line": 921
+        },
+        {
+          "author": "Collins, Harry and Evans, Robert",
+          "start_line": 929,
+          "end_line": 929
+        },
+        {
+          "author": "Collins, Harry",
+          "start_line": 939,
+          "end_line": 939
+        },
+        {
+          "author": "Leonardi, Paul M. and Barley, Stephen R.",
+          "start_line": 952,
+          "end_line": 952
+        },
+        {
+          "author": "Checkland, Peter and Poulter, John",
+          "start_line": 961,
+          "end_line": 961
+        },
+        {
+          "author": "Checkland, Peter and Poulter, John , editor Reynolds, Martin and Holwell, Sue",
+          "start_line": 981,
+          "end_line": 982
+        },
+        {
+          "author": "Coleman, James S.",
+          "start_line": 995,
+          "end_line": 995
+        },
+        {
+          "author": "Star, Susan Leigh",
+          "start_line": 1009,
+          "end_line": 1009
+        },
+        {
+          "author": "Bateson, Gregory , address Chicago, IL",
+          "start_line": 1018,
+          "end_line": 1019
+        },
+        {
+          "author": "Star, S. L. and Ruhleder, K.",
+          "start_line": 1031,
+          "end_line": 1031
+        },
+        {
+          "author": "Star, S. L.",
+          "start_line": 1044,
+          "end_line": 1044
+        },
+        {
+          "author": "Tajfel, Henri",
+          "start_line": 1055,
+          "end_line": 1055
+        },
+        {
+          "author": "Tajfel, Henri",
+          "start_line": 1063,
+          "end_line": 1063
+        },
+        {
+          "author": "Goggins, Sean P and Laffey, James and Gallagher, Michael",
+          "start_line": 1074,
+          "end_line": 1074
+        },
+        {
+          "author": "Goggins, Sean and Jahnke, Isa",
+          "start_line": 1085,
+          "end_line": 1085
+        },
+        {
+          "author": "Reynolds, Rebecca and Goggins, Sean P",
+          "start_line": 1094,
+          "end_line": 1094
+        },
+        {
+          "author": "Yuqing Ren and Kraut, Robert and Kiesler, Sara",
+          "start_line": 1110,
+          "end_line": 1110
+        },
+        {
+          "author": "Gronn, Peter",
+          "start_line": 1123,
+          "end_line": 1123
+        },
+        {
+          "author": "Gronn, Peter",
+          "start_line": 1135,
+          "end_line": 1135
+        },
+        {
+          "author": "Leonardi, Paul M. and Nardi, Bonnie A. and Kallinikos, Jannis",
+          "start_line": 1146,
+          "end_line": 1146
+        },
+        {
+          "author": "Goggins, Sean and Petakovic, Eva",
+          "start_line": 1157,
+          "end_line": 1157
+        },
+        {
+          "author": "K. Ram and C. Boettiger and S. Chamberlain and N. Ross and M. Salmon and S. Butland , journal Computing in Science Engineering , title A Community of Practice Around Peer Review for Long-Term Research Software Sustainability",
+          "start_line": 1166,
+          "end_line": 1168
+        },
+        {
+          "author": "Agre, Philip and Schuler, Douglas , address Westport, CT",
+          "start_line": 1177,
+          "end_line": 1178
+        },
+        {
+          "author": "Agre, P.E. , editor Feenberg, A. and Barney, D.",
+          "start_line": 1190,
+          "end_line": 1191
+        },
+        {
+          "author": "Goggins, Sean P and Mascaro, Christopher",
+          "start_line": 1203,
+          "end_line": 1203
+        },
+        {
+          "author": "Blincoe, K. and Valetto, G. and Goggins, S.",
+          "start_line": 1217,
+          "end_line": 1217
+        },
+        {
+          "author": "Goggins, Sean P and Valetto, Giuseppe",
+          "start_line": 1226,
+          "end_line": 1226
+        },
+        {
+          "author": "Goggins, Sean P and Valetto, Giuseppe and Mascaro, Christopher and Blincoe, Kelly",
+          "start_line": 1238,
+          "end_line": 1238
+        },
+        {
+          "author": "Lee, Charlotte P.",
+          "start_line": 1250,
+          "end_line": 1250
+        },
+        {
+          "author": "Wenger, Etienne",
+          "start_line": 1263,
+          "end_line": 1263
+        },
+        {
+          "author": "Star, Susan Leigh and Griesemer, James R.",
+          "start_line": 1274,
+          "end_line": 1274
+        },
+        {
+          "author": "Harrison, S. and Tatar, D.",
+          "start_line": 1289,
+          "end_line": 1289
+        },
+        {
+          "author": "Crabtree, Andy and Mortier, Richard , editor Boulus-Rodje, Nina and Ellingsen, Gunnar and Bratteteig, Tone and Aanestad, Margunn and Bjorn, Pernille",
+          "start_line": 1306,
+          "end_line": 1307
+        },
+        {
+          "author": "Harris, Alexa M. and Gomez-Zara, Diego and DeChurch, Leslie A. and Contractor, Noshir S.",
+          "start_line": 1325,
+          "end_line": 1325
+        },
+        {
+          "author": "Chughtai, Hameed and Myers, Michael D.",
+          "start_line": 1345,
+          "end_line": 1345
+        },
+        {
+          "author": "Hammond, Phillip E , journal Soundings",
+          "start_line": 1354,
+          "end_line": 1355
+        },
+        {
+          "author": "Giorgi, Amedeo , journal Journal",
+          "start_line": 1363,
+          "end_line": 1364
+        },
+        {
+          "author": "Mead, M.",
+          "start_line": 1376,
+          "end_line": 1376
+        },
+        {
+          "author": "with funding from the US National Science Foundation",
+          "start_line": 1390,
+          "end_line": 1390
+        },
+        {
+          "author": "Stewart, Craig A. and Barnett, William K. and Wernert, Eric A. and Wernert, Julie A. and Welch",
+          "start_line": 1394,
+          "end_line": 1394
+        },
+        {
+          "author": "Floridi, Luciano",
+          "start_line": 1405,
+          "end_line": 1405
+        },
+        {
+          "author": "Floridi, Luciano",
+          "start_line": 1415,
+          "end_line": 1415
+        },
+        {
+          "author": "Barad, K.M.",
+          "start_line": 1426,
+          "end_line": 1426
+        },
+        {
+          "author": "Bietz, Matthew J. and Baumer, Eric P. and Lee, Charlotte P.",
+          "start_line": 1442,
+          "end_line": 1442
+        },
+        {
+          "author": "Howison, James and Herbsleb, James D.",
+          "start_line": 1459,
+          "end_line": 1459
+        },
+        {
+          "author": "Howison, James and Herbsleb, James D.",
+          "start_line": 1476,
+          "end_line": 1476
+        },
+        {
+          "author": "Katz, Daniel S and Bouquin, Daina and Hong, Neil P Chue and Hausman, Jessica and Jones, Catherine and Chivvis, Daniel and Clark, Tim and Crosas, Merc",
+          "start_line": 1485,
+          "end_line": 1485
+        },
+        {
+          "author": "Howison, James and Bullard, Julia , journal Journal of the Association",
+          "start_line": 1492,
+          "end_line": 1493
+        },
+        {
+          "author": "Kunegis, Jerome",
+          "start_line": 1509,
+          "end_line": 1509
+        },
+        {
+          "author": "DuBois, Christopher and Butts, Carter T and Smyth, Padhraic",
+          "start_line": 1526,
+          "end_line": 1526
+        },
+        {
+          "author": "Butts, Carter T.",
+          "start_line": 1538,
+          "end_line": 1538
+        },
+        {
+          "author": "Lerner, Juergen and Bussmann, Margit and Snijders, Tom A. B. and Brandes, Ulrik",
+          "start_line": 1555,
+          "end_line": 1555
+        },
+        {
+          "author": "Brandenberger, Laurence",
+          "start_line": 1571,
+          "end_line": 1571
+        },
+        {
+          "author": "Papachristos, Andrew V. and Bastomski, Sara",
+          "start_line": 1589,
+          "end_line": 1589
+        },
+        {
+          "author": "Gravel, Jason and Valasik, Matthew and Mulder, Joris and Leenders, Roger and Butts, Carter and Brantingham, P. Jeffrey and Tita, George E.",
+          "start_line": 1608,
+          "end_line": 1608
+        },
+        {
+          "author": "Renshaw, Scott Leo and Livas, Selena M. and Petrescu-Prahova, Miruna G. and Butts, Carter T.",
+          "start_line": 1627,
+          "end_line": 1627
+        },
+        {
+          "author": "Arena, Giuseppe and Mulder, Joris and Leenders, Roger Th. A.J.",
+          "start_line": 1646,
+          "end_line": 1646
+        },
+        {
+          "author": "Uzaheta, Alvaro and Amati, Viviana and Stadtfeld, Christoph",
+          "start_line": 1664,
+          "end_line": 1664
+        },
+        {
+          "author": "Cannon, Bryan C. and Robinson, Dawn T.",
+          "start_line": 1682,
+          "end_line": 1682
+        },
+        {
+          "author": "Haunss, Sebastian and Hollway, James",
+          "start_line": 1701,
+          "end_line": 1701
+        },
+        {
+          "author": "Fritz, Cornelius and Mehrl, Marius and Thurner, Paul W. and Kauermann, Goran",
+          "start_line": 1720,
+          "end_line": 1720
+        },
+        {
+          "author": "Butts, Carter T. and Lomi, Alessandro and Snijders, Tom A. B. and Stadtfeld, Christoph",
+          "start_line": 1739,
+          "end_line": 1739
+        },
+        {
+          "author": "Duxbury, Scott",
+          "start_line": 1750,
+          "end_line": 1750
+        },
+        {
+          "author": "Graham, Bryan and De Paula, Aureo",
+          "start_line": 1758,
+          "end_line": 1758
+        },
+        {
+          "author": "Dodsworth, Robin and Benton, Richard A",
+          "start_line": 1766,
+          "end_line": 1766
+        },
+        {
+          "author": "Carrington, Peter J and Scott, John and Wasserman, Stanley",
+          "start_line": 1775,
+          "end_line": 1775
+        },
+        {
+          "author": "Geiger, R. S. and Ribes, D.",
+          "start_line": 1786,
+          "end_line": 1786
+        },
+        {
+          "author": "Murniyati and Mutiara, Achmad Benny and Wirawan, Setia and Yusnitasari, Tristyanti and Anggraini, Dyah",
+          "start_line": 1804,
+          "end_line": 1804
+        },
+        {
+          "author": "Traag, V. A. and Waltman, L. and Van Eck, N. J.",
+          "start_line": 1822,
+          "end_line": 1822
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper",
+      "type": "directory",
+      "name": "paper",
+      "base_name": "paper",
+      "extension": "",
+      "size": 0,
+      "date": null,
+      "sha1": null,
+      "md5": null,
+      "sha256": null,
+      "mime_type": null,
+      "file_type": null,
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 20,
+      "dirs_count": 1,
+      "size_count": 49210479,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "base_name": ".DS_Store",
+      "extension": "",
+      "size": 6148,
+      "date": "2024-03-13",
+      "sha1": "f3fba7cf7b98f1b913105b95d7cc73b7be8b5fde",
+      "md5": "f7f2f6b34eb6ffaef73611d49f1626af",
+      "sha256": "886768adcabbab5e1fbfc846f8f203874fd2a98bd4b4f87548bd4370ab0b4b3b",
+      "mime_type": "application/octet-stream",
+      "file_type": "Apple Desktop Services Store",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/0_authors.tex",
+      "type": "file",
+      "name": "0_authors.tex",
+      "base_name": "0_authors",
+      "extension": ".tex",
+      "size": 1602,
+      "date": "2023-09-22",
+      "sha1": "2e99b94fe3d258812820f5f299f03c7b55d41533",
+      "md5": "4716f3c4ce759b754eeb5b2fdf9f2e41",
+      "sha256": "35582e3bb405185e130cff048a2857cee24a2bfa2891174651a9b26d30f9e0ee",
+      "mime_type": "text/plain",
+      "file_type": "ASCII text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Sean Goggins",
+          "start_line": 3,
+          "end_line": 3
+        },
+        {
+          "author": "Kevin Lumbard",
+          "start_line": 15,
+          "end_line": 15
+        },
+        {
+          "author": "Karthik Ram",
+          "start_line": 40,
+          "end_line": 40
+        },
+        {
+          "author": "James Howison",
+          "start_line": 52,
+          "end_line": 52
+        },
+        {
+          "author": "Matt Germonprez",
+          "start_line": 64,
+          "end_line": 64
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/20210517.jpg",
+      "type": "file",
+      "name": "20210517.jpg",
+      "base_name": "20210517",
+      "extension": ".jpg",
+      "size": 84160,
+      "date": "2023-09-22",
+      "sha1": "665e21bbcf11f512b5f6cdcf1344e91b1a9a3178",
+      "md5": "b2187bf148f1e68b764e746d9e43b1b1",
+      "sha256": "a6194e875c3a53f256114ce9b51c4aff36147d426ae3f954cc34751be26320c9",
+      "mime_type": "image/jpeg",
+      "file_type": "JPEG image data, JFIF standard 1.01, aspect ratio, density 72x72, segment length 16, Exif Standard: [TIFF image data, big-endian, direntries=1], baseline, precision 8, 390x613, components 3",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/CHAOSS.png",
+      "type": "file",
+      "name": "CHAOSS.png",
+      "base_name": "CHAOSS",
+      "extension": ".png",
+      "size": 65244,
+      "date": "2023-09-22",
+      "sha1": "ef82e206bf8ef0f4747bd860eac1eed1447df7fc",
+      "md5": "43dd9b41e740b8cb8d23aa6b7c57edf3",
+      "sha256": "23bfef14b62fb42ef1b0ce160cb1c5be41d07e24ac170b5af24f3810c42bd567",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1136 x 900, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/meta.png",
+      "type": "file",
+      "name": "meta.png",
+      "base_name": "meta",
+      "extension": ".png",
+      "size": 455704,
+      "date": "2023-09-22",
+      "sha1": "977489fff56396fcba6d4bcd44f21bc86240c13d",
+      "md5": "2865940fda4902b14ddbbe31c7451ccc",
+      "sha256": "9e88491bedef2cbf2b6c7a135103aa92ce96a4badd7116ced7a6143220fa08cc",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1600 x 1241, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/original-abstract.tex",
+      "type": "file",
+      "name": "original-abstract.tex",
+      "base_name": "original-abstract",
+      "extension": ".tex",
+      "size": 3475,
+      "date": "2024-03-24",
+      "sha1": "c32fae25f03a72e0d3c196f31009cf638d4bd73e",
+      "md5": "42a096fb011f6b8732d4e27222594ccf",
+      "sha256": "72c537fe00dd7c84f95767d1fc03d41b5234543044b3e619b6582fee17e793c0",
+      "mime_type": "text/plain",
+      "file_type": "ASCII text, with very long lines (1520)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/paths.png",
+      "type": "file",
+      "name": "paths.png",
+      "base_name": "paths",
+      "extension": ".png",
+      "size": 24771,
+      "date": "2023-09-22",
+      "sha1": "bb2197527116d9424071b1fa898dc229f40587aa",
+      "md5": "60c26ca67d2264a0b58a4b9454d2cf71",
+      "sha256": "b77762427d473e988066b57e5c033eaada921cec7a1c9948916a8d9475b35cd5",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 512 x 172, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/SciSoftNetworkMap-v2.png",
+      "type": "file",
+      "name": "SciSoftNetworkMap-v2.png",
+      "base_name": "SciSoftNetworkMap-v2",
+      "extension": ".png",
+      "size": 108350,
+      "date": "2023-09-22",
+      "sha1": "af1462ff83e9492d7d298cf6e43c1b42338ff11c",
+      "md5": "65bffc37f1cef5d3e38742f504d67148",
+      "sha256": "76edc178693fb6d599f732c7a25d89425af327de29866725b5b4e6ba9b59f8d1",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 705 x 541, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images",
+      "type": "directory",
+      "name": "Images",
+      "base_name": "Images",
+      "extension": "",
+      "size": 0,
+      "date": null,
+      "sha1": null,
+      "md5": null,
+      "sha256": null,
+      "mime_type": null,
+      "file_type": null,
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 12,
+      "dirs_count": 0,
+      "size_count": 48461025,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "base_name": ".DS_Store",
+      "extension": "",
+      "size": 6148,
+      "date": "2024-02-21",
+      "sha1": "df2fbeb1400acda0909a32c1cf6bf492f1121e07",
+      "md5": "194577a7e20bdcc7afbb718f502c134c",
+      "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "mime_type": "application/octet-stream",
+      "file_type": "Apple Desktop Services Store",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/CHAOSS.png",
+      "type": "file",
+      "name": "CHAOSS.png",
+      "base_name": "CHAOSS",
+      "extension": ".png",
+      "size": 65244,
+      "date": "2023-09-22",
+      "sha1": "ef82e206bf8ef0f4747bd860eac1eed1447df7fc",
+      "md5": "43dd9b41e740b8cb8d23aa6b7c57edf3",
+      "sha256": "23bfef14b62fb42ef1b0ce160cb1c5be41d07e24ac170b5af24f3810c42bd567",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1136 x 900, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/corp_updated_300.png",
+      "type": "file",
+      "name": "corp_updated_300.png",
+      "base_name": "corp_updated_300",
+      "extension": ".png",
+      "size": 10036809,
+      "date": "2023-10-08",
+      "sha1": "cc7ac31f291ae0848469be8c3713e3a271aee8d4",
+      "md5": "65d37222e2d1176a2784350503c77a16",
+      "sha256": "2d4fdfa5906580ae535263b206a25d6ec2f3ad054ad1c0e1ee3acb8f87bcfa83",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 5350 x 4267, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/corp_updated_300_small.png",
+      "type": "file",
+      "name": "corp_updated_300_small.png",
+      "base_name": "corp_updated_300_small",
+      "extension": ".png",
+      "size": 7378207,
+      "date": "2023-10-08",
+      "sha1": "8e5fc138121ee02a2a16bbb519d1ac0ca40f5a5a",
+      "md5": "faaaa30f9150b6f260c4e9cb0ea28d12",
+      "sha256": "152fd4a5b1486a1cd7b5248a0d4638bc60747d755378f5c7bae224e59bd1fcb1",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 5643 x 4317, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/meta.png",
+      "type": "file",
+      "name": "meta.png",
+      "base_name": "meta",
+      "extension": ".png",
+      "size": 455704,
+      "date": "2023-09-22",
+      "sha1": "977489fff56396fcba6d4bcd44f21bc86240c13d",
+      "md5": "2865940fda4902b14ddbbe31c7451ccc",
+      "sha256": "9e88491bedef2cbf2b6c7a135103aa92ce96a4badd7116ced7a6143220fa08cc",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1600 x 1241, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/paths.png",
+      "type": "file",
+      "name": "paths.png",
+      "base_name": "paths",
+      "extension": ".png",
+      "size": 24771,
+      "date": "2023-09-22",
+      "sha1": "bb2197527116d9424071b1fa898dc229f40587aa",
+      "md5": "60c26ca67d2264a0b58a4b9454d2cf71",
+      "sha256": "b77762427d473e988066b57e5c033eaada921cec7a1c9948916a8d9475b35cd5",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 512 x 172, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/science.png",
+      "type": "file",
+      "name": "science.png",
+      "base_name": "science",
+      "extension": ".png",
+      "size": 1239738,
+      "date": "2023-09-22",
+      "sha1": "4614fdfdba046ab9ac8547810a3d25461964283d",
+      "md5": "106e869b7e85e0a4441782e7adbd6547",
+      "sha256": "4e23a6d838c6bde038e6fd5d7d80a908ab492fbb4c4f3a7f062b97d6c14b0c89",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 2120 x 1660, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/science_updated_300.png",
+      "type": "file",
+      "name": "science_updated_300.png",
+      "base_name": "science_updated_300",
+      "extension": ".png",
+      "size": 8524908,
+      "date": "2023-10-08",
+      "sha1": "ddce700ed41954d4a6fbd97dd126debc2a15e5bc",
+      "md5": "9903ac10ba1647a5d30cf0387996860c",
+      "sha256": "bd7074bea3f918498676b806f64566ad6e762d9cd48a8f09d052601b54c5f19d",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 5350 x 4267, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/science_updated_300_small.png",
+      "type": "file",
+      "name": "science_updated_300_small.png",
+      "base_name": "science_updated_300_small",
+      "extension": ".png",
+      "size": 6506044,
+      "date": "2023-10-08",
+      "sha1": "efffb94030ba62bdd16a52cbead7815bba408e9e",
+      "md5": "7f5aedd544fb3bbedefc43a592e4e860",
+      "sha256": "1cbad4ecfad7274486b970dc5a6c8eda5406891051de89a718dff86315576415",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 5643 x 4317, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/SciSoftNetworkMap-v2.png",
+      "type": "file",
+      "name": "SciSoftNetworkMap-v2.png",
+      "base_name": "SciSoftNetworkMap-v2",
+      "extension": ".png",
+      "size": 108350,
+      "date": "2023-09-22",
+      "sha1": "af1462ff83e9492d7d298cf6e43c1b42338ff11c",
+      "md5": "65bffc37f1cef5d3e38742f504d67148",
+      "sha256": "76edc178693fb6d599f732c7a25d89425af327de29866725b5b4e6ba9b59f8d1",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 705 x 541, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/zscience_updated_300.png",
+      "type": "file",
+      "name": "zscience_updated_300.png",
+      "base_name": "zscience_updated_300",
+      "extension": ".png",
+      "size": 8149925,
+      "date": "2023-10-08",
+      "sha1": "89e35ce48e4e762790d57b059aad54ff43387fe9",
+      "md5": "c3e7d82b6caa866ea0e9f353fa2e91e4",
+      "sha256": "eb04dfbd5296dcec77b0ab7929cf6420e632fc65fd9ddea744b6192a5d11d665",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 5350 x 4267, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "social-capital/paper/Images/zscience_updated_300_small.png",
+      "type": "file",
+      "name": "zscience_updated_300_small.png",
+      "base_name": "zscience_updated_300_small",
+      "extension": ".png",
+      "size": 5965177,
+      "date": "2023-10-08",
+      "sha1": "1df55e647db984d048533106d52ef74f6e88e4ac",
+      "md5": "1aff814a424d1ee415131f29cb4c52a4",
+      "sha256": "20001a9c907690ffb42fd30044e7e3f54d843249c20b85e41b2fd4df2a411425",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 5643 x 4317, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    }
+  ]
+}

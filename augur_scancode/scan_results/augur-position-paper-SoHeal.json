@@ -1,0 +1,3085 @@
+{
+  "headers": [
+    {
+      "tool_name": "scancode-toolkit",
+      "tool_version": "32.0.2",
+      "options": {
+        "input": [
+          "/Volumes/super_60/github/sociallycompute/augur-position-paper-SoHeal"
+        ],
+        "--copyright": true,
+        "--ignore": [
+          ".venv",
+          "venv",
+          "env"
+        ],
+        "--info": true,
+        "--json-pp": "scan_results/augur-position-paper-SoHeal.json",
+        "--license": true,
+        "--processes": "12"
+      },
+      "notice": "Generated with ScanCode and provided on an \"AS IS\" BASIS, WITHOUT WARRANTIES\nOR CONDITIONS OF ANY KIND, either express or implied. No content created from\nScanCode should be considered or used as legal advice. Consult an Attorney\nfor any legal advice.\nScanCode is a free software code scanning tool from nexB Inc. and others.\nVisit https://github.com/nexB/scancode-toolkit/ for support and download.",
+      "start_timestamp": "2025-04-18T164905.212605",
+      "end_timestamp": "2025-04-18T164920.917746",
+      "output_format_version": "3.0.0",
+      "duration": 15.705153226852417,
+      "message": null,
+      "errors": [],
+      "warnings": [],
+      "extra_data": {
+        "system_environment": {
+          "operating_system": "mac",
+          "cpu_architecture": "64",
+          "platform": "macOS-15.3.2-arm64-arm-64bit",
+          "platform_version": "Darwin Kernel Version 24.3.0: Thu Jan  2 20:24:23 PST 2025; root:xnu-11215.81.4~3/RELEASE_ARM64_T6020",
+          "python_version": "3.11.11 (main, Dec  3 2024, 17:20:40) [Clang 16.0.0 (clang-1600.0.26.4)]"
+        },
+        "spdx_license_list_version": "3.20",
+        "files_count": 39
+      }
+    }
+  ],
+  "license_detections": [
+    {
+      "identifier": "other_permissive_and_free_unknown__and_warranty_disclaimer-1799c3a9-907f-1635-65bc-f6923a3e881b",
+      "license_expression": "(other-permissive AND free-unknown) AND warranty-disclaimer",
+      "detection_count": 1
+    },
+    {
+      "identifier": "lppl_1_3c-d16c0876-8a07-6c55-15e6-d7a608946dd3",
+      "license_expression": "lppl-1.3c",
+      "detection_count": 2
+    },
+    {
+      "identifier": "artistic_1_0_and_warranty_disclaimer-6d1cb36f-d809-42b8-eec9-8560f4fb8d8b",
+      "license_expression": "artistic-1.0 AND warranty-disclaimer",
+      "detection_count": 1
+    },
+    {
+      "identifier": "public_domain-726e2a7b-0584-7269-ed45-bb056a7755f0",
+      "license_expression": "public-domain",
+      "detection_count": 7
+    },
+    {
+      "identifier": "free_unknown-998e0fe1-3b73-fcf9-a86b-09f04f518687",
+      "license_expression": "free-unknown",
+      "detection_count": 3
+    },
+    {
+      "identifier": "public_domain_and_proprietary_license-57945c7d-177e-176a-b4ed-51b9a79502be",
+      "license_expression": "public-domain AND proprietary-license",
+      "detection_count": 2
+    },
+    {
+      "identifier": "mit-8ad58907-13b4-affb-c81b-30e7b098f949",
+      "license_expression": "mit",
+      "detection_count": 1
+    },
+    {
+      "identifier": "free_unknown-b39fd7e3-1b4f-cd1e-cea8-bbfc5796dde1",
+      "license_expression": "free-unknown",
+      "detection_count": 2
+    }
+  ],
+  "files": [
+    {
+      "path": "augur-position-paper-SoHeal",
+      "type": "directory",
+      "name": "augur-position-paper-SoHeal",
+      "base_name": "augur-position-paper-SoHeal",
+      "extension": "",
+      "size": 0,
+      "date": null,
+      "sha1": null,
+      "md5": null,
+      "sha256": null,
+      "mime_type": null,
+      "file_type": null,
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 39,
+      "dirs_count": 3,
+      "size_count": 7634362,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/bare_conf.tex",
+      "type": "file",
+      "name": "bare_conf.tex",
+      "base_name": "bare_conf",
+      "extension": ".tex",
+      "size": 16525,
+      "date": "2025-01-06",
+      "sha1": "7196d55662844c03b8b2c64a8c29555fd4771ad4",
+      "md5": "3c6551b20ab13758ca509a8cb3796c3a",
+      "sha256": "4170646710934bf8d6ab6e566950447619b4baf8dfc95f5550ed491c16782154",
+      "mime_type": "text/x-tex",
+      "file_type": "LaTeX 2e document, ASCII text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "((other-permissive AND free-unknown) AND warranty-disclaimer) AND lppl-1.3c",
+      "detected_license_expression_spdx": "((LicenseRef-scancode-other-permissive AND LicenseRef-scancode-free-unknown) AND LicenseRef-scancode-warranty-disclaimer) AND LPPL-1.3c",
+      "license_detections": [
+        {
+          "license_expression": "(other-permissive AND free-unknown) AND warranty-disclaimer",
+          "matches": [
+            {
+              "score": 55.56,
+              "start_line": 20,
+              "end_line": 22,
+              "matched_length": 15,
+              "match_coverage": 55.56,
+              "matcher": "3-seq",
+              "license_expression": "other-permissive AND free-unknown",
+              "rule_identifier": "other-permissive_and_free-unknown_87.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/other-permissive_and_free-unknown_87.RULE"
+            },
+            {
+              "score": 36.36,
+              "start_line": 20,
+              "end_line": 22,
+              "matched_length": 12,
+              "match_coverage": 36.36,
+              "matcher": "3-seq",
+              "license_expression": "warranty-disclaimer",
+              "rule_identifier": "warranty-disclaimer.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/warranty-disclaimer.RULE"
+            }
+          ],
+          "identifier": "other_permissive_and_free_unknown__and_warranty_disclaimer-1799c3a9-907f-1635-65bc-f6923a3e881b"
+        },
+        {
+          "license_expression": "lppl-1.3c",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 32,
+              "end_line": 32,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "unknown-license-reference",
+              "rule_identifier": "license-intro_59.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/license-intro_59.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 32,
+              "end_line": 32,
+              "matched_length": 5,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "lppl-1.3c",
+              "rule_identifier": "lppl-1.3c_6.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/lppl-1.3c_6.RULE"
+            }
+          ],
+          "identifier": "lppl_1_3c-d16c0876-8a07-6c55-15e6-d7a608946dd3"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 1.09,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Donald Arseneau",
+          "start_line": 86,
+          "end_line": 86
+        },
+        {
+          "author": "David Carlisle and Sebastian Rahtz",
+          "start_line": 121,
+          "end_line": 121
+        },
+        {
+          "author": "Peter Williams and Rogerio Brito",
+          "start_line": 158,
+          "end_line": 158
+        },
+        {
+          "author": "Steven Douglas Cochran",
+          "start_line": 195,
+          "end_line": 195
+        },
+        {
+          "author": "Sigitas Tolusis",
+          "start_line": 230,
+          "end_line": 230
+        },
+        {
+          "author": "Donald Arseneau",
+          "start_line": 259,
+          "end_line": 259
+        },
+        {
+          "author": "IEEEauthorblockN Sean Goggins IEEEauthorblockA University of Missouri Columbia, Missouri",
+          "start_line": 297,
+          "end_line": 300
+        },
+        {
+          "author": "IEEEauthorblockN Michael Shell IEEEauthorrefmark",
+          "start_line": 314,
+          "end_line": 314
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/CC-BY_icon.pdf",
+      "type": "file",
+      "name": "CC-BY_icon.pdf",
+      "base_name": "CC-BY_icon",
+      "extension": ".pdf",
+      "size": 2846,
+      "date": "2025-01-06",
+      "sha1": "bb41de2aac2b33c3bcd966570614630386895c42",
+      "md5": "e0a0e6af6786e7f1afbd89576b0655bf",
+      "sha256": "56e78d362009dfcdb402fab0486fc2b880a55bd747892eb62b7e6dd874e0275f",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.5, 1 page(s)",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/IEEEtran.cls",
+      "type": "file",
+      "name": "IEEEtran.cls",
+      "base_name": "IEEEtran",
+      "extension": ".cls",
+      "size": 281957,
+      "date": "2025-01-06",
+      "sha1": "126fe3d41c20343fe5b36eb0c2edd4f8607ac63e",
+      "md5": "5b2e4fa15b0f7eabb840ebf67df4c0f7",
+      "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7",
+      "mime_type": "text/x-tex",
+      "file_type": "LaTeX 2e document, ASCII text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "(artistic-1.0 AND warranty-disclaimer) AND lppl-1.3c",
+      "detected_license_expression_spdx": "(Artistic-1.0 AND LicenseRef-scancode-warranty-disclaimer) AND LPPL-1.3c",
+      "license_detections": [
+        {
+          "license_expression": "artistic-1.0 AND warranty-disclaimer",
+          "matches": [
+            {
+              "score": 25.0,
+              "start_line": 37,
+              "end_line": 43,
+              "matched_length": 16,
+              "match_coverage": 25.0,
+              "matcher": "3-seq",
+              "license_expression": "artistic-1.0",
+              "rule_identifier": "artistic-1.0_14.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/artistic-1.0_14.RULE"
+            },
+            {
+              "score": 36.36,
+              "start_line": 41,
+              "end_line": 43,
+              "matched_length": 12,
+              "match_coverage": 36.36,
+              "matcher": "3-seq",
+              "license_expression": "warranty-disclaimer",
+              "rule_identifier": "warranty-disclaimer.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/warranty-disclaimer.RULE"
+            }
+          ],
+          "identifier": "artistic_1_0_and_warranty_disclaimer-6d1cb36f-d809-42b8-eec9-8560f4fb8d8b"
+        },
+        {
+          "license_expression": "lppl-1.3c",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 53,
+              "end_line": 53,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "unknown-license-reference",
+              "rule_identifier": "license-intro_59.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/license-intro_59.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 53,
+              "end_line": 53,
+              "matched_length": 5,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "lppl-1.3c",
+              "rule_identifier": "lppl-1.3c_6.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/lppl-1.3c_6.RULE"
+            }
+          ],
+          "identifier": "lppl_1_3c-d16c0876-8a07-6c55-15e6-d7a608946dd3"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.08,
+      "copyrights": [
+        {
+          "copyright": "Copyright (c) 1993-2000 by Gerry Murray, Silvano Balemi, Jon Dixon, Peter N'uchter, Juergen von Hagen",
+          "start_line": 24,
+          "end_line": 26
+        },
+        {
+          "copyright": "Copyright (c) 2001-2015 by Michael Shell",
+          "start_line": 28,
+          "end_line": 28
+        }
+      ],
+      "holders": [
+        {
+          "holder": "Gerry Murray, Silvano Balemi, Jon Dixon, Peter N'uchter, Juergen von Hagen",
+          "start_line": 24,
+          "end_line": 26
+        },
+        {
+          "holder": "Michael Shell",
+          "start_line": 28,
+          "end_line": 28
+        }
+      ],
+      "authors": [
+        {
+          "author": "affiliation. When",
+          "start_line": 4528,
+          "end_line": 4529
+        },
+        {
+          "author": "IEEEspecialpapernotice par IEEEcompsoconly",
+          "start_line": 4832,
+          "end_line": 4833
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/README",
+      "type": "file",
+      "name": "README",
+      "base_name": "README",
+      "extension": "",
+      "size": 8328,
+      "date": "2025-01-06",
+      "sha1": "7b1617038114f256c51fe6f259d29c7ea5b4d352",
+      "md5": "b24f1ba98c108cd95c065f395b5d5827",
+      "sha256": "10e2880af2d79fcd8cdd28b4664c790b455eb2cbf1d92ca0f47c08dfde254d5c",
+      "mime_type": "text/plain",
+      "file_type": "ASCII text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/references.bib",
+      "type": "file",
+      "name": "references.bib",
+      "base_name": "references",
+      "extension": ".bib",
+      "size": 224010,
+      "date": "2025-01-06",
+      "sha1": "d1849cb42bb491b2ec27bf59901cc87d3f201946",
+      "md5": "ed591b5ad08caa29cd3c9aea10a518c4",
+      "sha256": "1b44aaca88ce3b3caf087013be190ce4c0108663cac0f3a584821339112e21f5",
+      "mime_type": "text/plain",
+      "file_type": "Unicode text, UTF-8 text, with very long lines (1776)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "public-domain AND free-unknown AND (public-domain AND proprietary-license) AND mit",
+      "detected_license_expression_spdx": "LicenseRef-scancode-public-domain AND LicenseRef-scancode-free-unknown AND (LicenseRef-scancode-public-domain AND LicenseRef-scancode-proprietary-license) AND MIT",
+      "license_detections": [
+        {
+          "license_expression": "public-domain",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 143,
+              "end_line": 143,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_310.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_310.RULE"
+            }
+          ],
+          "identifier": "public_domain-726e2a7b-0584-7269-ed45-bb056a7755f0"
+        },
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 307,
+              "end_line": 307,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            }
+          ],
+          "identifier": "free_unknown-998e0fe1-3b73-fcf9-a86b-09f04f518687"
+        },
+        {
+          "license_expression": "public-domain",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 1032,
+              "end_line": 1032,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_310.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_310.RULE"
+            }
+          ],
+          "identifier": "public_domain-726e2a7b-0584-7269-ed45-bb056a7755f0"
+        },
+        {
+          "license_expression": "public-domain",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 1135,
+              "end_line": 1135,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_310.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_310.RULE"
+            }
+          ],
+          "identifier": "public_domain-726e2a7b-0584-7269-ed45-bb056a7755f0"
+        },
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 1186,
+              "end_line": 1186,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            }
+          ],
+          "identifier": "free_unknown-998e0fe1-3b73-fcf9-a86b-09f04f518687"
+        },
+        {
+          "license_expression": "public-domain AND proprietary-license",
+          "matches": [
+            {
+              "score": 70.0,
+              "start_line": 1242,
+              "end_line": 1242,
+              "matched_length": 2,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_bare_words.RULE",
+              "rule_relevance": 70,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_bare_words.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 1242,
+              "end_line": 1242,
+              "matched_length": 2,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "proprietary-license",
+              "rule_identifier": "proprietary-license_272.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/proprietary-license_272.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 1242,
+              "end_line": 1242,
+              "matched_length": 5,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_448.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_448.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 1242,
+              "end_line": 1242,
+              "matched_length": 2,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "proprietary-license",
+              "rule_identifier": "proprietary-license_272.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/proprietary-license_272.RULE"
+            }
+          ],
+          "identifier": "public_domain_and_proprietary_license-57945c7d-177e-176a-b4ed-51b9a79502be"
+        },
+        {
+          "license_expression": "public-domain",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 1314,
+              "end_line": 1314,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_310.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_310.RULE"
+            }
+          ],
+          "identifier": "public_domain-726e2a7b-0584-7269-ed45-bb056a7755f0"
+        },
+        {
+          "license_expression": "mit",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 1436,
+              "end_line": 1436,
+              "matched_length": 4,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "mit",
+              "rule_identifier": "mit_88.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/mit_88.RULE"
+            }
+          ],
+          "identifier": "mit-8ad58907-13b4-affb-c81b-30e7b098f949"
+        },
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 1585,
+              "end_line": 1585,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_85.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_85.RULE"
+            }
+          ],
+          "identifier": "free_unknown-998e0fe1-3b73-fcf9-a86b-09f04f518687"
+        },
+        {
+          "license_expression": "public-domain",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 1757,
+              "end_line": 1757,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_310.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_310.RULE"
+            }
+          ],
+          "identifier": "public_domain-726e2a7b-0584-7269-ed45-bb056a7755f0"
+        },
+        {
+          "license_expression": "public-domain",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 1773,
+              "end_line": 1773,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_310.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_310.RULE"
+            }
+          ],
+          "identifier": "public_domain-726e2a7b-0584-7269-ed45-bb056a7755f0"
+        },
+        {
+          "license_expression": "public-domain",
+          "matches": [
+            {
+              "score": 100.0,
+              "start_line": 2155,
+              "end_line": 2155,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_310.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_310.RULE"
+            }
+          ],
+          "identifier": "public_domain-726e2a7b-0584-7269-ed45-bb056a7755f0"
+        },
+        {
+          "license_expression": "public-domain AND proprietary-license",
+          "matches": [
+            {
+              "score": 70.0,
+              "start_line": 2346,
+              "end_line": 2346,
+              "matched_length": 2,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_bare_words.RULE",
+              "rule_relevance": 70,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_bare_words.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 2346,
+              "end_line": 2346,
+              "matched_length": 2,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "proprietary-license",
+              "rule_identifier": "proprietary-license_272.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/proprietary-license_272.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 2346,
+              "end_line": 2346,
+              "matched_length": 5,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "public-domain",
+              "rule_identifier": "public-domain_448.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/public-domain_448.RULE"
+            },
+            {
+              "score": 100.0,
+              "start_line": 2346,
+              "end_line": 2346,
+              "matched_length": 2,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "proprietary-license",
+              "rule_identifier": "proprietary-license_272.RULE",
+              "rule_relevance": 100,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/proprietary-license_272.RULE"
+            }
+          ],
+          "identifier": "public_domain_and_proprietary_license-57945c7d-177e-176a-b4ed-51b9a79502be"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.18,
+      "copyrights": [
+        {
+          "copyright": "copyright (c) 2014 IFIP International Federation",
+          "start_line": 226,
+          "end_line": 226
+        },
+        {
+          "copyright": "(c) Author 2016",
+          "start_line": 1242,
+          "end_line": 1242
+        },
+        {
+          "copyright": "(c) Author 2008",
+          "start_line": 2346,
+          "end_line": 2346
+        },
+        {
+          "copyright": "Copyright (c) 1975 John Wiley & Sons, Ltd",
+          "start_line": 2536,
+          "end_line": 2536
+        }
+      ],
+      "holders": [
+        {
+          "holder": "IFIP International Federation",
+          "start_line": 226,
+          "end_line": 226
+        },
+        {
+          "holder": "John Wiley & Sons, Ltd",
+          "start_line": 2536,
+          "end_line": 2536
+        }
+      ],
+      "authors": [
+        {
+          "author": "Vivian, John and Rao, Arjun Arkal and Nothaft, Frank Austin and Ketchum, Christopher and Armstrong, Joel and Novak, Adam and Pfeil, Jacob and Narkizian, Jake and Deran, Alden D and Musselman-Brown, Audrey and Schmidt, Hannes and Amstutz, Peter and Craft, Brian and Goldman, Mary and Rosenbloom, Kate and Cline, Melissa and O'Connor, Brian and Hanna, Megan and Birger, Chet and Kent, W James and Patterson, David A and Joseph, Anthony D and Zhu, Jingchun and Zaranek, Sasha and Getz, Gad and Haussler, David and Paten, Benedict",
+          "start_line": 7,
+          "end_line": 7
+        },
+        {
+          "author": "Foucault, Matthieu and Falleri, Jean-Remy and Blanc, Xavier",
+          "start_line": 23,
+          "end_line": 23
+        },
+        {
+          "author": "Schwartz, S and Carpenter, K",
+          "start_line": 41,
+          "end_line": 41
+        },
+        {
+          "author": "Tu, Feifei and Zhang, Feixue",
+          "start_line": 59,
+          "end_line": 59
+        },
+        {
+          "author": "Braunschweig, Brandt and Dhage, Neha and Viera, Maria Jose and Seaman, Carolyn and Sampath, Sreedevi and Koru, Gunes A.",
+          "start_line": 77,
+          "end_line": 77
+        },
+        {
+          "author": "Walden, Greg and Harper, Gregg",
+          "start_line": 89,
+          "end_line": 89
+        },
+        {
+          "author": "Bouwers, Eric and Deursen, Arie",
+          "start_line": 111,
+          "end_line": 111
+        },
+        {
+          "author": "Shihab, Emad and Jiang, Zhen Ming and Ibrahim, Walid M. and Adams, Bram and Hassan, Ahmed E.",
+          "start_line": 128,
+          "end_line": 128
+        },
+        {
+          "author": "Soto, M. and Ciolkowski, M.",
+          "start_line": 140,
+          "end_line": 140
+        },
+        {
+          "author": "the main development team. Often",
+          "start_line": 156,
+          "end_line": 156
+        },
+        {
+          "author": "Davies, Julius and German, Daniel M. and Godfrey, Michael W. and Hindle, Abram",
+          "start_line": 159,
+          "end_line": 159
+        },
+        {
+          "author": "Rausch, Thomas and Hummer, Waldemar and Leitner, Philipp and Schulte, Stefan",
+          "start_line": 177,
+          "end_line": 177
+        },
+        {
+          "author": "Madeyski, Lech and Kawalerowicz, Marcin",
+          "start_line": 196,
+          "end_line": 196
+        },
+        {
+          "author": "Meneely, Andrew and Tejeda, Alberto C. Rodriguez and Spates, Brian and Trudeau, Shannon and Neuberger, Danielle and Whitlock, Katherine and Ketant, Christopher and Davis, Kayla",
+          "start_line": 214,
+          "end_line": 214
+        },
+        {
+          "author": "Hannemann, Anna and Liiva, Kristjan and Klamma, Ralf , editor Corral, Luis and Sillitti, Alberto and Succi, Giancarlo and Vlasenko, Jelena and Wasserman, Anthony I.",
+          "start_line": 235,
+          "end_line": 236
+        },
+        {
+          "author": "Izquierdo-Cortazar, Daniel and Robles, Gregorio and Gonzalez-Barahona, Jesus M. and Deprez, Jean-Christophe",
+          "start_line": 257,
+          "end_line": 257
+        },
+        {
+          "author": "Aue, Joop and Haisma, Michiel and Tomasdottir, Kristin Fjola and Bacchelli, Alberto",
+          "start_line": 275,
+          "end_line": 275
+        },
+        {
+          "author": "Izquierdo-Cortazar, Daniel and Sekitoleko, Nelson and Gonzalez-Barahona, Jesus M. and Kurth, Lars",
+          "start_line": 311,
+          "end_line": 311
+        },
+        {
+          "author": "Lerner, Josh and Tirole, Jean",
+          "start_line": 323,
+          "end_line": 323
+        },
+        {
+          "author": "Lindberg, Aron and Berente, Nicholas and Gaskin, James and Lyytinen, Kalle",
+          "start_line": 335,
+          "end_line": 335
+        },
+        {
+          "author": "Howison, James and Crowston, Kevin",
+          "start_line": 347,
+          "end_line": 347
+        },
+        {
+          "author": "Austin, Robert D",
+          "start_line": 356,
+          "end_line": 356
+        },
+        {
+          "author": "Engstrom, Henrik and Andersson Hagiwara, Magnus and Backlund, Per and Lebram, Mikael and Lundberg, Lars and Johannesson, Mikael and Sterner, Anders and Maurin Soderholm, Hanna",
+          "start_line": 374,
+          "end_line": 374
+        },
+        {
+          "author": "Bacon, Jono",
+          "start_line": 384,
+          "end_line": 384
+        },
+        {
+          "author": "Buchanan, Richard",
+          "start_line": 407,
+          "end_line": 407
+        },
+        {
+          "author": "Geiger, R. Stuart and Ribes, David",
+          "start_line": 418,
+          "end_line": 418
+        },
+        {
+          "author": "Gronbaek, K. and Kyng, Morten and Mogensen, Preben",
+          "start_line": 427,
+          "end_line": 427
+        },
+        {
+          "author": "Gousios, Georgios",
+          "start_line": 446,
+          "end_line": 446
+        },
+        {
+          "author": "Emerson, Robert M. and Fretz, Rachel I. and Shaw, Linda L.",
+          "start_line": 455,
+          "end_line": 455
+        },
+        {
+          "author": "Fook, Jan",
+          "start_line": 464,
+          "end_line": 464
+        },
+        {
+          "author": "Goggins, Sean P. and Mascaro, Christopher and Valetto, Giuseppe",
+          "start_line": 476,
+          "end_line": 476
+        },
+        {
+          "author": "van Maanen, John",
+          "start_line": 485,
+          "end_line": 485
+        },
+        {
+          "author": "Spradley, James P.",
+          "start_line": 496,
+          "end_line": 496
+        },
+        {
+          "author": "Spradley, James P.",
+          "start_line": 506,
+          "end_line": 506
+        },
+        {
+          "author": "Kensing, Finn and Blomberg, Jeanette",
+          "start_line": 523,
+          "end_line": 523
+        },
+        {
+          "author": "Apache Foundation",
+          "start_line": 535,
+          "end_line": 535
+        },
+        {
+          "author": "Elliott, Margaret S. and Scacchi, Walt",
+          "start_line": 545,
+          "end_line": 545
+        },
+        {
+          "author": "McDonald, Nora and Blincoe, Kelly and Petakovic, E. V. A. and Goggins, Sean",
+          "start_line": 584,
+          "end_line": 584
+        },
+        {
+          "author": "Cataldo, Marcelo and Herbsleb, James D.",
+          "start_line": 599,
+          "end_line": 599
+        },
+        {
+          "author": "Dimoka, Angelika and Hong, Yili and Pavlou, Paul A.",
+          "start_line": 610,
+          "end_line": 610
+        },
+        {
+          "author": "Gonzalez-Barahona, Jesus M. and Sherwood, Paul and Robles, Gregorio and Izquierdo, Daniel",
+          "start_line": 620,
+          "end_line": 620
+        },
+        {
+          "author": "German, Daniel M. and Manabe, Yuki and Inoue, Katsuro",
+          "start_line": 630,
+          "end_line": 630
+        },
+        {
+          "author": "Wagstrom, P. and Herbsleb, J. D. and Kraut, R. E. and Mockus, A.",
+          "start_line": 639,
+          "end_line": 639
+        },
+        {
+          "author": "McDonald, Nora and Goggins, Sean",
+          "start_line": 647,
+          "end_line": 647
+        },
+        {
+          "author": "Cataldo, Marcelo and Bass, Matthew and Herbsleb, James D. and Bass, Len",
+          "start_line": 657,
+          "end_line": 657
+        },
+        {
+          "author": "Blincoe, Kelly and Sheoran, Jyoti and Goggins, Sean and Petakovic, Eva and Damian, Daniela",
+          "start_line": 668,
+          "end_line": 668
+        },
+        {
+          "author": "Wells, John D. and Valacich, Joseph S. and Hess, Traci J.",
+          "start_line": 678,
+          "end_line": 678
+        },
+        {
+          "author": "Germonprez, Matt and Link, Georg J.P. and Lumbard, Kevin and Goggins, Sean",
+          "start_line": 695,
+          "end_line": 695
+        },
+        {
+          "author": "Begel, Andrew and Herbsleb, James D. and Storey, Margaret-Anne",
+          "start_line": 707,
+          "end_line": 707
+        },
+        {
+          "author": "Arnold, Ross D. and Wade, Jon P.",
+          "start_line": 718,
+          "end_line": 718
+        },
+        {
+          "author": "Crowston, Kevin and Howison, James",
+          "start_line": 729,
+          "end_line": 729
+        },
+        {
+          "author": "Schweik, Charles M.",
+          "start_line": 741,
+          "end_line": 741
+        },
+        {
+          "author": "Tsay, Jason T. and Dabbish, Laura and Herbsleb, James",
+          "start_line": 750,
+          "end_line": 750
+        },
+        {
+          "author": "Sen, Ravi and Singh, Siddhartha S. and Borle, Sharad",
+          "start_line": 762,
+          "end_line": 762
+        },
+        {
+          "author": "Midha, Vishal and Palvia, Prashant",
+          "start_line": 773,
+          "end_line": 773
+        },
+        {
+          "author": "Subramaniam, Chandrasekar and Sen, Ravi and Nelson, Matthew L.",
+          "start_line": 785,
+          "end_line": 785
+        },
+        {
+          "author": "Subramaniam, Chandrasekar and Sen, Ravi and Nelson, Matthew L.",
+          "start_line": 797,
+          "end_line": 797
+        },
+        {
+          "author": "Kraut, Robert E and Resnick, Paul and Kiesler, Sara and Ren, Yuqing and Chen, Yan and Burke, Moira and Kittur, Niki and Riedl, John and Konstan, Joseph",
+          "start_line": 805,
+          "end_line": 805
+        },
+        {
+          "author": "Crabtree, Andy",
+          "start_line": 813,
+          "end_line": 813
+        },
+        {
+          "author": "Lee, Sang-Yong Tom and Kim, Hee-Woong and Gupta, Sumeet",
+          "start_line": 824,
+          "end_line": 824
+        },
+        {
+          "author": "Link, Georg J.P. and Germonprez, Matt",
+          "start_line": 833,
+          "end_line": 833
+        },
+        {
+          "author": "Van Alstyne, M. and Brynjolfsson, E.",
+          "start_line": 863,
+          "end_line": 863
+        },
+        {
+          "author": "Wilson, Scott",
+          "start_line": 876,
+          "end_line": 876
+        },
+        {
+          "author": "Weiss, Michael",
+          "start_line": 887,
+          "end_line": 887
+        },
+        {
+          "author": "Marlow, Jennifer and Dabbish, Laura",
+          "start_line": 901,
+          "end_line": 901
+        },
+        {
+          "author": "Matthews, Tara and Chen, Jilin and Whittaker, Steve and Pal, Aditya and Zhu, Haiyi and Badenes, Hernan and Smith, Barton",
+          "start_line": 916,
+          "end_line": 916
+        },
+        {
+          "author": "Nagy, Del and Yassin, Areej M. and Bhattacherjee, Anol",
+          "start_line": 929,
+          "end_line": 929
+        },
+        {
+          "author": "Izquierdo-Cortazar, Daniel and Robles, Gregorio and Gonzalez-Barahona, Jesus M. and Deprez, Jean-Christophe",
+          "start_line": 955,
+          "end_line": 955
+        },
+        {
+          "author": "Introne, Joshua E. and Drescher, Marcus",
+          "start_line": 973,
+          "end_line": 973
+        },
+        {
+          "author": "Gonzalez-Barahona, Jesus M. and Robles, Gregorio and Andradas-Izquierdo, Roberto and Ghosh, Rishab Aiyer",
+          "start_line": 985,
+          "end_line": 985
+        },
+        {
+          "author": "Goh, Jie-Mein and Gao, Guodong",
+          "start_line": 999,
+          "end_line": 999
+        },
+        {
+          "author": "Fu, Xinyu",
+          "start_line": 1015,
+          "end_line": 1015
+        },
+        {
+          "author": "Gacek, C. and Arief, B.",
+          "start_line": 1029,
+          "end_line": 1029
+        },
+        {
+          "author": "Fritz, Thomas and Ou, Jingwen and Murphy, Gail C. and Murphy-Hill, Emerson",
+          "start_line": 1047,
+          "end_line": 1047
+        },
+        {
+          "author": "Eisenmann, Thomas and Parker, Geoffrey and Van Alstyne, Marshall , editor Gawer, Annabelle",
+          "start_line": 1061,
+          "end_line": 1062
+        },
+        {
+          "author": "Diamant, E Ilana and Fussell, Susan R and Lo, Fen-ly",
+          "start_line": 1073,
+          "end_line": 1073
+        },
+        {
+          "author": "Fritz, Thomas and Murphy, Gail C. and Murphy-Hill, Emerson and Ou, Jingwen and Hill, Emily",
+          "start_line": 1088,
+          "end_line": 1088
+        },
+        {
+          "author": "Yamashita, Kazuhiro and McIntosh, Shane and Kamei, Yasutaka and Hassan, Ahmed E. and Ubayashi, Naoyasu",
+          "start_line": 1100,
+          "end_line": 1100
+        },
+        {
+          "author": "Daniel, Sherae and Agarwal, Ritu and Stewart, Katherine J.",
+          "start_line": 1112,
+          "end_line": 1112
+        },
+        {
+          "author": "Bietz, Matthew J and Ferro, Toni and Lee, Charlotte P",
+          "start_line": 1121,
+          "end_line": 1121
+        },
+        {
+          "author": "Soto, M. and Ciolkowski, M.",
+          "start_line": 1132,
+          "end_line": 1132
+        },
+        {
+          "author": "Nyman, Linus and Lindman, Juho",
+          "start_line": 1147,
+          "end_line": 1147
+        },
+        {
+          "author": "Viseur, Ir Robert",
+          "start_line": 1165,
+          "end_line": 1165
+        },
+        {
+          "author": "Laffan, Liz",
+          "start_line": 1176,
+          "end_line": 1176
+        },
+        {
+          "author": "Crowston, Kevin and Howison, James and Annabi, Hala",
+          "start_line": 1202,
+          "end_line": 1202
+        },
+        {
+          "author": "Adner, Ron and Kapoor, Rahul",
+          "start_line": 1215,
+          "end_line": 1215
+        },
+        {
+          "author": "Torchiano, Marco and Ricca, Filippo and Marchetto, Alessandro",
+          "start_line": 1232,
+          "end_line": 1232
+        },
+        {
+          "author": "Krishnamurthy, Sandeep",
+          "start_line": 1249,
+          "end_line": 1249
+        },
+        {
+          "author": "Daniel, Sherae and Stewart, Katherine",
+          "start_line": 1280,
+          "end_line": 1280
+        },
+        {
+          "author": "Aue, Joop and Haisma, Michiel and Tomasdottir, Kristin Fjola and Bacchelli, Alberto",
+          "start_line": 1299,
+          "end_line": 1299
+        },
+        {
+          "author": "Aman, H. and Burhandenny, A. E. and Amasaki, S. and Yokogawa, T. and Kawahara, M.",
+          "start_line": 1311,
+          "end_line": 1311
+        },
+        {
+          "author": "Terrell, Josh and Kofink, Andrew and Middleton, Justin and Rainear, Clarissa and Murphy-Hill, Emerson and Parnin, Chris and Stallings, Jon",
+          "start_line": 1330,
+          "end_line": 1330
+        },
+        {
+          "author": "Arantes, Flavia Linhalis and Freire, Fernanda Maria Pereira",
+          "start_line": 1342,
+          "end_line": 1342
+        },
+        {
+          "author": "a single company",
+          "start_line": 1346,
+          "end_line": 1346
+        },
+        {
+          "author": "Gamalielsson, Jonas and Lundell, Bjorn",
+          "start_line": 1369,
+          "end_line": 1369
+        },
+        {
+          "author": "Rozenberg, Daniel and Beschastnikh, Ivan and Kosmale, Fabian and Poser, Valerie and Becker, Heiko and Palyart, Marc and Murphy, Gail C.",
+          "start_line": 1387,
+          "end_line": 1387
+        },
+        {
+          "author": "Kaur, Inderpreet and Kaur, Arvinder",
+          "start_line": 1403,
+          "end_line": 1403
+        },
+        {
+          "author": "Abunadi, Ibrahim and Alenezi, Mamdouh",
+          "start_line": 1421,
+          "end_line": 1421
+        },
+        {
+          "author": "Rosen, Christoffer and Grawi, Ben and Shihab, Emad",
+          "start_line": 1440,
+          "end_line": 1440
+        },
+        {
+          "author": "Taibi, Fathi",
+          "start_line": 1457,
+          "end_line": 1457
+        },
+        {
+          "author": "Youssef, Ahmmad and Capiluppi, Andrea",
+          "start_line": 1476,
+          "end_line": 1476
+        },
+        {
+          "author": "Capiluppi, Andrea and Serebrenik, Alexander and Youssef, Ahmmad",
+          "start_line": 1492,
+          "end_line": 1492
+        },
+        {
+          "author": "Johari, Kalpana and Kaur, Arvinder",
+          "start_line": 1508,
+          "end_line": 1508
+        },
+        {
+          "author": "Ortu, Marco and Destefanis, Giuseppe and Kassab, Mohamad and Marchesi, Michele",
+          "start_line": 1525,
+          "end_line": 1525
+        },
+        {
+          "author": "Yamashita, Kazuhiro and McIntosh, Shane and Kamei, Yasutaka and Ubayashi, Naoyasu",
+          "start_line": 1542,
+          "end_line": 1542
+        },
+        {
+          "author": "Rahman, Foyzur and Devanbu, Premkumar",
+          "start_line": 1572,
+          "end_line": 1572
+        },
+        {
+          "author": "Johari, Kalpana and Kaur, Arvinder",
+          "start_line": 1588,
+          "end_line": 1588
+        },
+        {
+          "author": "Plakidas, Konstantinos and Stevanetic, Srdjan and Schall, Daniel and Ionescu, Tudor B. and Zdun, Uwe",
+          "start_line": 1608,
+          "end_line": 1608
+        },
+        {
+          "author": "Azman, Syafiq Kamarul and AlDhaheri, Khawla",
+          "start_line": 1621,
+          "end_line": 1621
+        },
+        {
+          "author": "Daradoumis, Thanasis and Martinez-Mones, Alejandra and Xhafa, Fatos",
+          "start_line": 1632,
+          "end_line": 1632
+        },
+        {
+          "author": "Cosentino, V. and Izquierdo, J. L. C. and Cabot, J.",
+          "start_line": 1643,
+          "end_line": 1643
+        },
+        {
+          "author": "Schweiger, Stefan and Cress, Ulrike",
+          "start_line": 1656,
+          "end_line": 1656
+        },
+        {
+          "author": "Rubineau, B. and Fernandez, R.M.",
+          "start_line": 1664,
+          "end_line": 1664
+        },
+        {
+          "author": "Burt, Ronald S.",
+          "start_line": 1671,
+          "end_line": 1671
+        },
+        {
+          "author": "Introne, Joshua E. and Goggins, Sean",
+          "start_line": 1681,
+          "end_line": 1681
+        },
+        {
+          "author": "Introne, Joshua E. and Erickson, Ingrid and Semaan, Bryan and Goggins, Sean",
+          "start_line": 1691,
+          "end_line": 1691
+        },
+        {
+          "author": "Arrow, Holly and McGrath, Joseph E. and Berdahl, Jennifer L.",
+          "start_line": 1700,
+          "end_line": 1700
+        },
+        {
+          "author": "Arrow, Holly and Poole, M. S. and Henry, K. B. and Wheelan, S. and Moreland, R.",
+          "start_line": 1712,
+          "end_line": 1712
+        },
+        {
+          "author": "Saunders, Adam and Brynjolfsson, Erik",
+          "start_line": 1723,
+          "end_line": 1723
+        },
+        {
+          "author": "Ren, Yuqing and Kraut, Robert and Kiesler, Sara",
+          "start_line": 1739,
+          "end_line": 1739
+        },
+        {
+          "author": "Raja, U. and Tretter, M. J.",
+          "start_line": 1754,
+          "end_line": 1754
+        },
+        {
+          "author": "Raja, U. and Tretter, M. J.",
+          "start_line": 1770,
+          "end_line": 1770
+        },
+        {
+          "author": "Naparat, Damrongsak and Finnegan, Patrick and Cahalane, Michael",
+          "start_line": 1786,
+          "end_line": 1786
+        },
+        {
+          "author": "Naparat, Damrongsak and Finnegan, Patrick and Cahalane, Michael",
+          "start_line": 1801,
+          "end_line": 1801
+        },
+        {
+          "author": "Nakikj, Drashko and Mamykina, Lena",
+          "start_line": 1818,
+          "end_line": 1818
+        },
+        {
+          "author": "Nakikj, Drashko and Mamykina, Lena",
+          "start_line": 1829,
+          "end_line": 1829
+        },
+        {
+          "author": "Jiang, Yujuan and Adams, Bram and Khomh, Foutse and German, Daniel M.",
+          "start_line": 1846,
+          "end_line": 1846
+        },
+        {
+          "author": "Head, Andrew",
+          "start_line": 1864,
+          "end_line": 1864
+        },
+        {
+          "author": "Dourish, Paul",
+          "start_line": 1883,
+          "end_line": 1883
+        },
+        {
+          "author": "distributed teams",
+          "start_line": 1893,
+          "end_line": 1893
+        },
+        {
+          "author": "Crowston, Kevin and Scozzi, Barbara",
+          "start_line": 1897,
+          "end_line": 1897
+        },
+        {
+          "author": "Chengalur-Smith, Indushobha and Sidorova, Anna and Daniel, Sherae",
+          "start_line": 1913,
+          "end_line": 1913
+        },
+        {
+          "author": "Crowston, Kevin and Annabi, Hala and Howison, James",
+          "start_line": 1923,
+          "end_line": 1923
+        },
+        {
+          "author": "Turner, John C. and Brown, R.J. and Tajfel, H.",
+          "start_line": 1933,
+          "end_line": 1933
+        },
+        {
+          "author": "Sharma, Meera and Kumari, Madhu and Singh, V. B.",
+          "start_line": 1950,
+          "end_line": 1950
+        },
+        {
+          "author": "Schweik, Charles M. and English, Robert C.",
+          "start_line": 1965,
+          "end_line": 1965
+        },
+        {
+          "author": "Sethanandha, Bhuricha Deen and Massey, Bart and Jones, William",
+          "start_line": 2008,
+          "end_line": 2008
+        },
+        {
+          "author": "Zgraggen, Emanuel and Zhao, Zheguang and Zeleznik, Robert and Kraska, Tim",
+          "start_line": 2025,
+          "end_line": 2025
+        },
+        {
+          "author": "Zgraggen, Emanuel and Zhao, Zheguang and Zeleznik, Robert and Kraska, Tim",
+          "start_line": 2042,
+          "end_line": 2042
+        },
+        {
+          "author": "Weiss, Dawid",
+          "start_line": 2052,
+          "end_line": 2052
+        },
+        {
+          "author": "Coleman, James S.",
+          "start_line": 2061,
+          "end_line": 2061
+        },
+        {
+          "author": "Schweiger, Stefan and Cress, Ulrike",
+          "start_line": 2073,
+          "end_line": 2073
+        },
+        {
+          "author": "Schweiger, Stefan and Cress, Ulrike",
+          "start_line": 2084,
+          "end_line": 2084
+        },
+        {
+          "author": "Goffman, Erving",
+          "start_line": 2095,
+          "end_line": 2095
+        },
+        {
+          "author": "Gallaugher, John M. and Wang, Yu-Ming",
+          "start_line": 2105,
+          "end_line": 2105
+        },
+        {
+          "author": "Tajfel, Henri and Turner, John C.",
+          "start_line": 2114,
+          "end_line": 2114
+        },
+        {
+          "author": "Bietz, Matthew J and Ferro, Toni and Lee, Charlotte P",
+          "start_line": 2123,
+          "end_line": 2123
+        },
+        {
+          "author": "Introne, Joshua E. and Drescher, Marcus",
+          "start_line": 2140,
+          "end_line": 2140
+        },
+        {
+          "author": "Aman, H. and Burhandenny, A. E. and Amasaki, S. and Yokogawa, T. and Kawahara, M.",
+          "start_line": 2152,
+          "end_line": 2152
+        },
+        {
+          "author": "Tung, Liam",
+          "start_line": 2181,
+          "end_line": 2181
+        },
+        {
+          "author": "Cohen, Noam",
+          "start_line": 2192,
+          "end_line": 2192
+        },
+        {
+          "author": "Eckert, Claudia and Stacey, Martin",
+          "start_line": 2210,
+          "end_line": 2210
+        },
+        {
+          "author": "Bird, Christian and Pattison, David and D'Souza, Raissa and Filkov, Vladimir and Devanbu, Premkumar",
+          "start_line": 2229,
+          "end_line": 2229
+        },
+        {
+          "author": "Sullins, Ellen S.",
+          "start_line": 2244,
+          "end_line": 2244
+        },
+        {
+          "author": "Silberman, M. Six",
+          "start_line": 2259,
+          "end_line": 2259
+        },
+        {
+          "author": "McDonald, Nora and Goggins, Sean",
+          "start_line": 2269,
+          "end_line": 2269
+        },
+        {
+          "author": "McDonald, Nora and Blincoe, Kelly and Petakovic, Eva and Goggins, Sean",
+          "start_line": 2281,
+          "end_line": 2281
+        },
+        {
+          "author": "Heidegger, Martin",
+          "start_line": 2290,
+          "end_line": 2290
+        },
+        {
+          "author": "Goggins, Sean and Petakovic, Eva",
+          "start_line": 2297,
+          "end_line": 2297
+        },
+        {
+          "author": "Goggins, Sean P and Mascaro, Christopher and Valetto, Giuseppe",
+          "start_line": 2308,
+          "end_line": 2308
+        },
+        {
+          "author": "Festinger, L.",
+          "start_line": 2318,
+          "end_line": 2318
+        },
+        {
+          "author": "Farris, Paul and Bendle, Neil and Pfeifer, Phillip and Reibstein, David",
+          "start_line": 2327,
+          "end_line": 2327
+        },
+        {
+          "author": "Chen, Y. and Harper, F.M. and Konstan, J. and Xin Li, S.",
+          "start_line": 2337,
+          "end_line": 2337
+        },
+        {
+          "author": "Crowston, Kevin and Howison, James",
+          "start_line": 2358,
+          "end_line": 2358
+        },
+        {
+          "author": "Buckingham, Justin T. and Alicke, Mark D.",
+          "start_line": 2374,
+          "end_line": 2374
+        },
+        {
+          "author": "Ahmad, M. A. and Teredesai, A.",
+          "start_line": 2385,
+          "end_line": 2385
+        },
+        {
+          "author": "Blincoe, Kelly and Sheoran, Jyoti and Goggins, Sean and Petakovic, Eva and Damian, Daniela",
+          "start_line": 2395,
+          "end_line": 2395
+        },
+        {
+          "author": "Gersick, Connie JG",
+          "start_line": 2407,
+          "end_line": 2407
+        },
+        {
+          "author": "Cummings, Jonathon N. and Cross, Rob",
+          "start_line": 2418,
+          "end_line": 2418
+        },
+        {
+          "author": "Cataldo, Marcelo and Herbsleb, James D. and Carley, Kathleen M.",
+          "start_line": 2429,
+          "end_line": 2429
+        },
+        {
+          "author": "Austin, Robert D",
+          "start_line": 2438,
+          "end_line": 2438
+        },
+        {
+          "author": "McGrath, Joseph E.",
+          "start_line": 2447,
+          "end_line": 2447
+        },
+        {
+          "author": "Cataldo, Marcelo and Wagstrom, Patrick A. and Herbsleb, James D. and Carley, Kathleen M.",
+          "start_line": 2458,
+          "end_line": 2458
+        },
+        {
+          "author": "McGrath, Joseph E. and Arrow, Holly and Berdahl, Jennifer L.",
+          "start_line": 2470,
+          "end_line": 2470
+        },
+        {
+          "author": "McGrath, Joseph Edward",
+          "start_line": 2481,
+          "end_line": 2481
+        },
+        {
+          "author": "Tajfel, Henri",
+          "start_line": 2490,
+          "end_line": 2490
+        },
+        {
+          "author": "Vygotsky, Lev Semenovich",
+          "start_line": 2499,
+          "end_line": 2499
+        },
+        {
+          "author": "Bandura, Albert",
+          "start_line": 2509,
+          "end_line": 2509
+        },
+        {
+          "author": "Jergensen, Corey and Sarma, Anita and Wagstrom, Patrick",
+          "start_line": 2524,
+          "end_line": 2524
+        },
+        {
+          "author": "Turner, John C.",
+          "start_line": 2546,
+          "end_line": 2546
+        },
+        {
+          "author": "Mayring, Philipp , editor Flick, U and Von Kardoff, E and Steinke, I",
+          "start_line": 2557,
+          "end_line": 2558
+        },
+        {
+          "author": "Miles, Matthew B. and Huberman, A. Michael and Saldana, Johnny",
+          "start_line": 2566,
+          "end_line": 2566
+        },
+        {
+          "author": "Creswell, John W. and Creswell, J. David",
+          "start_line": 2575,
+          "end_line": 2575
+        },
+        {
+          "author": "Creswell, John W.",
+          "start_line": 2587,
+          "end_line": 2587
+        },
+        {
+          "author": "Dourish, Paul , editor Olson, Judith and Kellogg, Wendy",
+          "start_line": 2597,
+          "end_line": 2598
+        },
+        {
+          "author": "Riehle, Dirk",
+          "start_line": 2609,
+          "end_line": 2609
+        },
+        {
+          "author": "Dahlander, Linus and Wallin, Martin W.",
+          "start_line": 2621,
+          "end_line": 2621
+        },
+        {
+          "author": "Crowston, Kevin and Howison, James , editor Benbya, Hind and Belbaly, Nassim",
+          "start_line": 2633,
+          "end_line": 2634
+        },
+        {
+          "author": "Von Krogh, Georg and Haefliger, Stefan and Spaeth, Sebastian and Wallin, Martin W.",
+          "start_line": 2644,
+          "end_line": 2644
+        },
+        {
+          "author": "Feller, Joseph and Finnegan, Patrick and Fitzgerald, Brian and Hayes, Jeremy",
+          "start_line": 2656,
+          "end_line": 2656
+        },
+        {
+          "author": "Dahlander, Linus and Magnusson, Mats",
+          "start_line": 2667,
+          "end_line": 2667
+        },
+        {
+          "author": "von Krogh, Georg and Spaeth, Sebastian and Lakhani, Karim R",
+          "start_line": 2685,
+          "end_line": 2685
+        },
+        {
+          "author": "Hippel, Eric",
+          "start_line": 2699,
+          "end_line": 2699
+        },
+        {
+          "author": "Krippendorff, K.",
+          "start_line": 2711,
+          "end_line": 2711
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper",
+      "type": "directory",
+      "name": "paper",
+      "base_name": "paper",
+      "extension": "",
+      "size": 0,
+      "date": null,
+      "sha1": null,
+      "md5": null,
+      "sha256": null,
+      "mime_type": null,
+      "file_type": null,
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 34,
+      "dirs_count": 2,
+      "size_count": 7100696,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/1_abstract.tex",
+      "type": "file",
+      "name": "1_abstract.tex",
+      "base_name": "1_abstract",
+      "extension": ".tex",
+      "size": 1756,
+      "date": "2025-01-06",
+      "sha1": "a4f5344248c0201dae90c99c46d5b4fe92cd219b",
+      "md5": "26f6e55756445d8bd4cdc9df1e5e32ce",
+      "sha256": "334b4ab8a2188f4ad7f93aa1f00043487720bb464ea06e00b983df265cd025e5",
+      "mime_type": "text/plain",
+      "file_type": "Unicode text, UTF-8 text, with very long lines (1754), with no line terminators",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/2_content.tex",
+      "type": "file",
+      "name": "2_content.tex",
+      "base_name": "2_content",
+      "extension": ".tex",
+      "size": 37257,
+      "date": "2025-01-06",
+      "sha1": "409c18d53e4895ec1e6fae6810c97b24f1dbfc03",
+      "md5": "723347e39fecd83fe433e24a0255dedc",
+      "sha256": "c412c91e18ea6a390e2b30f0bd9c34b7f764175b53c1f2e80497d2ce8a1f31dc",
+      "mime_type": "text/x-tex",
+      "file_type": "LaTeX document, Unicode text, UTF-8 text, with very long lines (1936)",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "free-unknown",
+      "detected_license_expression_spdx": "LicenseRef-scancode-free-unknown",
+      "license_detections": [
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 50.0,
+              "start_line": 39,
+              "end_line": 39,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_88.RULE",
+              "rule_relevance": 50,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_88.RULE"
+            }
+          ],
+          "identifier": "free_unknown-b39fd7e3-1b4f-cd1e-cea8-bbfc5796dde1"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.06,
+      "copyrights": [
+        {
+          "copyright": "(c) Software quality, community service",
+          "start_line": 38,
+          "end_line": 38
+        }
+      ],
+      "holders": [
+        {
+          "holder": "Software quality, community service",
+          "start_line": 38,
+          "end_line": 38
+        }
+      ],
+      "authors": [
+        {
+          "author": "repeat contributors",
+          "start_line": 148,
+          "end_line": 148
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images",
+      "type": "directory",
+      "name": "images",
+      "base_name": "images",
+      "extension": "",
+      "size": 0,
+      "date": null,
+      "sha1": null,
+      "md5": null,
+      "sha256": null,
+      "mime_type": null,
+      "file_type": null,
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 31,
+      "dirs_count": 0,
+      "size_count": 6048757,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/ACMGroup.png",
+      "type": "file",
+      "name": "ACMGroup.png",
+      "base_name": "ACMGroup",
+      "extension": ".png",
+      "size": 134184,
+      "date": "2025-01-06",
+      "sha1": "54fbe80e0021065bf83f1b8490235e228dacc032",
+      "md5": "9848df40cb7e11bc5a76a8bc5a0cf042",
+      "sha256": "98b9c6341fac4fc73f6e2828a53b1a937885da845ba4f9d4bf28c32cf6ef4c16",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 504 x 554, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/activity.pdf",
+      "type": "file",
+      "name": "activity.pdf",
+      "base_name": "activity",
+      "extension": ".pdf",
+      "size": 298885,
+      "date": "2025-01-06",
+      "sha1": "bab119f26f6ec28b9223890a04968d8daad2043d",
+      "md5": "9e4af1aea5abde455ce05a445e47ba17",
+      "sha256": "b3c3f011c7f6f7e673d99eff57b09f9e4a02f1cb99055f279e3b0bf6ed170f54",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.3, 1 page(s)",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/API-Meta.png",
+      "type": "file",
+      "name": "API-Meta.png",
+      "base_name": "API-Meta",
+      "extension": ".png",
+      "size": 58352,
+      "date": "2025-01-06",
+      "sha1": "40a2390f7a4743fa28f78bcac214d2711b94ceba",
+      "md5": "8b1031a24a76045dae3cd67f0ff07ac4",
+      "sha256": "8a3ec8dce223a6bf72676305eda079d51b41dda489ea532d360785140e93eea2",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 578 x 652, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/API-Meta.psd",
+      "type": "file",
+      "name": "API-Meta.psd",
+      "base_name": "API-Meta",
+      "extension": ".psd",
+      "size": 339670,
+      "date": "2025-01-06",
+      "sha1": "1f5fcb300a2b78f41a6468d04c693d7f928a557d",
+      "md5": "1fd525e5bf428c90150b354778dccf18",
+      "sha256": "e0b650c429a26c012ac463b54a373fe9af11bffc68ad8abdd34f8b89737ef44e",
+      "mime_type": "image/vnd.adobe.photoshop",
+      "file_type": "Adobe Photoshop Image, 578 x 652, RGB, 3x 8-bit channels",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/API-Meta1.png",
+      "type": "file",
+      "name": "API-Meta1.png",
+      "base_name": "API-Meta1",
+      "extension": ".png",
+      "size": 129845,
+      "date": "2025-01-06",
+      "sha1": "db7fb15269a4956e4052a52a88a2c07e5c4e8121",
+      "md5": "9c7e3a07bf15b6a2ff9e4c5aabba4f35",
+      "sha256": "f8314b89f654ac3fd548fc60df926f41df4545a5a16083aa41077a42615003b8",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 494 x 557, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/augur-dm.png",
+      "type": "file",
+      "name": "augur-dm.png",
+      "base_name": "augur-dm",
+      "extension": ".png",
+      "size": 486873,
+      "date": "2025-01-06",
+      "sha1": "50632a3d7f99aae45f43a797ab3fc6cfbfcbd1e1",
+      "md5": "afc9ba200df1777da2158e0eef5fce22",
+      "sha256": "2d6495f95cb4f4ac864000af17274ac6812d323b1ed36fe2b00244732d3a6e9b",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 2000 x 2830, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/augur-ghtorrent.jpg",
+      "type": "file",
+      "name": "augur-ghtorrent.jpg",
+      "base_name": "augur-ghtorrent",
+      "extension": ".jpg",
+      "size": 318379,
+      "date": "2025-01-06",
+      "sha1": "3a3a28049ea7ab3fe2773aa8d900f08d36955b53",
+      "md5": "ea1bfe240dec9f8666f554e8bcdb5e70",
+      "sha256": "d085868495548864828e811a7fe8b77c4fb448bc706807f20544ce91cd9d99c4",
+      "mime_type": "image/jpeg",
+      "file_type": "JPEG image data, JFIF standard 1.01, aspect ratio, density 72x72, segment length 16, Exif Standard: [TIFF image data, big-endian, direntries=4, xresolution=62, yresolution=70, resolutionunit=2], baseline, precision 8, 1525x1164, components 3",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/Augur.png",
+      "type": "file",
+      "name": "Augur.png",
+      "base_name": "Augur",
+      "extension": ".png",
+      "size": 49643,
+      "date": "2025-01-06",
+      "sha1": "45d277607bb265b882108eccf41ec80510d5898d",
+      "md5": "d6a270008c65c17358e1d24ddbd9e65d",
+      "sha256": "1e5c4a0ad4b2e6e2f408bf7ec86062c20bc91181548c12f848fe3f38bf7f8fe3",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 598 x 499, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/augurdm2.png",
+      "type": "file",
+      "name": "augurdm2.png",
+      "base_name": "augurdm2",
+      "extension": ".png",
+      "size": 239546,
+      "date": "2025-01-06",
+      "sha1": "1986299a42aea9db8a5a4296d210c3e1ca4a8a62",
+      "md5": "3073dc0b0b8c5b04e0188b65fd40b30d",
+      "sha256": "b07be2adac310901e177e209678f5ae5b42d47a47ae5ae20b2c3e985ee7d2296",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1261 x 1128, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/augurdm3.png",
+      "type": "file",
+      "name": "augurdm3.png",
+      "base_name": "augurdm3",
+      "extension": ".png",
+      "size": 109417,
+      "date": "2025-01-06",
+      "sha1": "caed9b9e09a16dc91c8205e8f3f9119daadbd22e",
+      "md5": "42417fc1d6a3a5c33b216e53063fabb0",
+      "sha256": "936373f4eea207f80dcd04bc788f2fd833c190ef5c8b6fafd82fea61a322781a",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1221 x 641, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/CII.png",
+      "type": "file",
+      "name": "CII.png",
+      "base_name": "CII",
+      "extension": ".png",
+      "size": 32616,
+      "date": "2025-01-06",
+      "sha1": "1af49712bb414c21fcdff152cd25f6b6555706ec",
+      "md5": "40a0a1dda3b5fc363d53013e062fbc42",
+      "sha256": "fb1f0d52e713c83de6664bccc8ef08c7ddadff659564b7affbb6d258679cff9c",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 581 x 226, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/dosocs.png",
+      "type": "file",
+      "name": "dosocs.png",
+      "base_name": "dosocs",
+      "extension": ".png",
+      "size": 16926,
+      "date": "2025-01-06",
+      "sha1": "f1c8d8f259b1c0f10bd80d69d851ea8b70a39b14",
+      "md5": "f582b7320dbe0947e71956d4bffd29a1",
+      "sha256": "4f2f066ce6737e62a9e52adb7874435cdee26b65efb866d324324d5f1c51bde7",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 652 x 255, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/experimental.pdf",
+      "type": "file",
+      "name": "experimental.pdf",
+      "base_name": "experimental",
+      "extension": ".pdf",
+      "size": 289944,
+      "date": "2025-01-06",
+      "sha1": "22c4e34f4954c29584a3285724266f2e7a674e9a",
+      "md5": "1f44ae087d7c96ce4ee20db5e175f3d8",
+      "sha256": "add7e4d4a42ceae31c6a2c376d493d0c2e7edeb5051246c7e60b9fd6860c092c",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.3, 1 page(s)",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/geiger.bib",
+      "type": "file",
+      "name": "geiger.bib",
+      "base_name": "geiger",
+      "extension": ".bib",
+      "size": 553,
+      "date": "2025-01-06",
+      "sha1": "fd8738865217c3864df451f4ec25d41386b96a40",
+      "md5": "aa85d9b2a1528168fc77b9ccfcfaaba4",
+      "sha256": "b001b1b32b2d23066cf380437dbd29e015da2a7b1447e2b42b6f84f72b1ba45b",
+      "mime_type": "text/plain",
+      "file_type": "ASCII text",
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": true,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [
+        {
+          "author": "Geiger, R. S. and Ribes, D.",
+          "start_line": 8,
+          "end_line": 8
+        }
+      ],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/GHTorrent_ndm.png",
+      "type": "file",
+      "name": "GHTorrent_ndm.png",
+      "base_name": "GHTorrent_ndm",
+      "extension": ".png",
+      "size": 364298,
+      "date": "2025-01-06",
+      "sha1": "d3fd9fb774bae44c9ff8534d10ea3013c95c9202",
+      "md5": "0fe6984aa3fa86373f21a19ad41e15cb",
+      "sha256": "07022d91c5a5cbf2340ef2a63df3ed9312b6037e4c04c868fc18b63afc18c20c",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1394 x 1323, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/glusterbot-private.png",
+      "type": "file",
+      "name": "glusterbot-private.png",
+      "base_name": "glusterbot-private",
+      "extension": ".png",
+      "size": 61254,
+      "date": "2025-01-06",
+      "sha1": "a9de7d38df766ce4a68f6f1ab902afa1c7fe83c2",
+      "md5": "69d228ff696c436cd0f961ae7643f611",
+      "sha256": "ce4a0cf902d3450d5c70baae9f3d4b8eeed38b46279344565e98659a77a21570",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1021 x 328, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/glusterbot.png",
+      "type": "file",
+      "name": "glusterbot.png",
+      "base_name": "glusterbot",
+      "extension": ".png",
+      "size": 70631,
+      "date": "2025-01-06",
+      "sha1": "aa23141d8f5df3eb8d9a84bc4da50ed6b9365805",
+      "md5": "490e3c3c974c1d21c6c7d81faeb47503",
+      "sha256": "6777ab9bc44c6aeb443b4c6db938ae44c41b2bdc091e0b0398be344c6d2acdac",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1021 x 328, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/gmd.pdf",
+      "type": "file",
+      "name": "gmd.pdf",
+      "base_name": "gmd",
+      "extension": ".pdf",
+      "size": 288899,
+      "date": "2025-01-06",
+      "sha1": "62451138a0abf4365edda92a6445e3c26fa1545a",
+      "md5": "0cb9ffee13bdb7c560073458d66349a7",
+      "sha256": "9314fc7f7ca55d3c075973c90c3a6772965d32528b121fda9d0a49a8b1e18096",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.3, 1 page(s)",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/gmd.png",
+      "type": "file",
+      "name": "gmd.png",
+      "base_name": "gmd",
+      "extension": ".png",
+      "size": 116980,
+      "date": "2025-01-06",
+      "sha1": "69886fc154c6e2f196a3d324da07b8582b5cd45c",
+      "md5": "f7205be6e0bba7fe3821b0bc960f4d5c",
+      "sha256": "cd81a3e03f99e0da918ed469c3351fc2c3cf85e1fdf5f3d65ca91c015aecc1f0",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 954 x 697, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/gmdchaoss.pdf",
+      "type": "file",
+      "name": "gmdchaoss.pdf",
+      "base_name": "gmdchaoss",
+      "extension": ".pdf",
+      "size": 352515,
+      "date": "2025-01-06",
+      "sha1": "13dec31223fe73fe618c1bd83bbb8156a1fdd257",
+      "md5": "54576fad9426c3121697ee02e85b0d4f",
+      "sha256": "79305b5cfbc072007f3f7e9e4b6d07be4c3f9260ec8a1caf8a08531ceb966c6d",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.3, 1 page(s)",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/metricstatus-all.png",
+      "type": "file",
+      "name": "metricstatus-all.png",
+      "base_name": "metricstatus-all",
+      "extension": ".png",
+      "size": 67137,
+      "date": "2025-01-06",
+      "sha1": "179d4e0cf2f7a505850eb0eaf53bf9cff3d58a72",
+      "md5": "fa6d7b3134d4aadc886b3fb91b3bbb6c",
+      "sha256": "c5518d64a87f03aa5fe3dd08aa5ce85e6c1fed12547b88c88829db05ab27eb33",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1346 x 231, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/metricstatus-github.png",
+      "type": "file",
+      "name": "metricstatus-github.png",
+      "base_name": "metricstatus-github",
+      "extension": ".png",
+      "size": 104628,
+      "date": "2025-01-06",
+      "sha1": "46e5e99653f89124c54bfbf82af594d3451a9acc",
+      "md5": "fe2a5b3ac3f276c8e80b29771b0ac82d",
+      "sha256": "d0a899aaf8eb8a93a908761d139d3472550d771e3fe1ac9c890ebeed9b391f22",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1324 x 281, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/metricstatus-githuba.png",
+      "type": "file",
+      "name": "metricstatus-githuba.png",
+      "base_name": "metricstatus-githuba",
+      "extension": ".png",
+      "size": 485726,
+      "date": "2025-01-06",
+      "sha1": "4903bd3670393a7cff6ec56d8b9c6ebb58d80240",
+      "md5": "0b7f9147b8bf743847798ac430054356",
+      "sha256": "083e035acd422ae011f299db3709ca64a5cd6064a8d0a6529887d942c87e7f53",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 558 x 281, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/metricstatus-githubb.png",
+      "type": "file",
+      "name": "metricstatus-githubb.png",
+      "base_name": "metricstatus-githubb",
+      "extension": ".png",
+      "size": 600389,
+      "date": "2025-01-06",
+      "sha1": "9ca809d3209a7844235867df7b929c79ffea7b7e",
+      "md5": "8338e81d1693eea59612361bfba12f2a",
+      "sha256": "70108361506acbef8ccd43c7af71d51097e235755bdda0318e1ac596772aee39",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 694 x 281, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/metricstatus-githubc.png",
+      "type": "file",
+      "name": "metricstatus-githubc.png",
+      "base_name": "metricstatus-githubc",
+      "extension": ".png",
+      "size": 116611,
+      "date": "2025-01-06",
+      "sha1": "cbd9cd31c90dea44794f6b7e2678ee7d45bc942a",
+      "md5": "0a62ea6b9b0d3fcee7c9b19559085f13",
+      "sha256": "4d8f65d11b6d30fe4c4e899d586cc1884ab683c44fc962252c050b242cb5a7a1",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 702 x 562, 8-bit/color RGBA, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/morethanactivity.png",
+      "type": "file",
+      "name": "morethanactivity.png",
+      "base_name": "morethanactivity",
+      "extension": ".png",
+      "size": 73549,
+      "date": "2025-01-06",
+      "sha1": "30e290b6515c020309ee0cf9fd6d8f81efeca4ed",
+      "md5": "c1f1d362d999de204c9eb4b7bfe2fb43",
+      "sha256": "3d8cd89b0fc12f4ca815561b0701a0fe4ed76bace6fbdb6888a6a167d5c2afc7",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1048 x 323, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/new-contributors.png",
+      "type": "file",
+      "name": "new-contributors.png",
+      "base_name": "new-contributors",
+      "extension": ".png",
+      "size": 64421,
+      "date": "2025-01-06",
+      "sha1": "86608ac032730b9f188531ff5785b6789f964639",
+      "md5": "afa8e754f9f758655aa78b5dafe858d2",
+      "sha256": "3da86d48a0b2b58a6cb0f5aa4d9b0b725c2fe8bce0bc80813f6fb41afc8165de",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 817 x 387, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/PR-Comparison.png",
+      "type": "file",
+      "name": "PR-Comparison.png",
+      "base_name": "PR-Comparison",
+      "extension": ".png",
+      "size": 188020,
+      "date": "2025-01-06",
+      "sha1": "b9974f6b5d06d8d8838f9b09917d41ea8fc8eebe",
+      "md5": "9bbf670f8940c9cb09088484cf0c170f",
+      "sha256": "b765225f89ca15bb2e970f09765cbd7053307e84c75696ce2753e3ed8d03fccf",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 924 x 485, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/risk.pdf",
+      "type": "file",
+      "name": "risk.pdf",
+      "base_name": "risk",
+      "extension": ".pdf",
+      "size": 192618,
+      "date": "2025-01-06",
+      "sha1": "75fcb93a8666561d7a0d7c1c5268cbe6fd408fff",
+      "md5": "7291aaf27c29b14a60d376cfd41c7891",
+      "sha256": "d8ac9b4c529bc00f810b48c6f5dd53e14ac3fb974a8986b7b9558bd5589d359c",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.3, 1 page(s)",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/VizForm.png",
+      "type": "file",
+      "name": "VizForm.png",
+      "base_name": "VizForm",
+      "extension": ".png",
+      "size": 310153,
+      "date": "2025-01-06",
+      "sha1": "caa20137c6b0bf448df19868119765b5c87f7f49",
+      "md5": "d4c16599045d246bb490777bcb4b9aa4",
+      "sha256": "0f87b4b650a3485e0ead3daa3c2a4081a3be60345df29761ff728e9038b6a9db",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1832 x 1216, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/images/zephyr.png",
+      "type": "file",
+      "name": "zephyr.png",
+      "base_name": "zephyr",
+      "extension": ".png",
+      "size": 86095,
+      "date": "2025-01-06",
+      "sha1": "df11b60ba8c0bc4b2d6ec489525b29031718bfc7",
+      "md5": "5bf28b18aec1579641852a60111aa58f",
+      "sha256": "d0489e7d7938fedab2ca16c0ddde7ea563c7ac3403ba41ee1565631fe6380649",
+      "mime_type": "image/png",
+      "file_type": "PNG image data, 1344 x 493, 8-bit/color RGB, non-interlaced",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": true,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/Marked-Up-Versions-PDF",
+      "type": "directory",
+      "name": "Marked-Up-Versions-PDF",
+      "base_name": "Marked-Up-Versions-PDF",
+      "extension": "",
+      "size": 0,
+      "date": null,
+      "sha1": null,
+      "md5": null,
+      "sha256": null,
+      "mime_type": null,
+      "file_type": null,
+      "programming_language": null,
+      "is_binary": false,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": null,
+      "detected_license_expression_spdx": null,
+      "license_detections": [],
+      "license_clues": [],
+      "percentage_of_license_text": 0,
+      "copyrights": [],
+      "holders": [],
+      "authors": [],
+      "files_count": 1,
+      "dirs_count": 0,
+      "size_count": 1012926,
+      "scan_errors": []
+    },
+    {
+      "path": "augur-position-paper-SoHeal/paper/Marked-Up-Versions-PDF/augur_position_paper_SoHeal.pdf",
+      "type": "file",
+      "name": "augur_position_paper_SoHeal.pdf",
+      "base_name": "augur_position_paper_SoHeal",
+      "extension": ".pdf",
+      "size": 1012926,
+      "date": "2025-01-06",
+      "sha1": "8ae2435be05a89270395404598dcae2ef7185283",
+      "md5": "cfa9f8baf8e1a673f60af37aa25ed7f7",
+      "sha256": "87d554ec3899355eeef213e1d11bee967dca285171471ffb5299e467c3284ea7",
+      "mime_type": "application/pdf",
+      "file_type": "PDF document, version 1.5",
+      "programming_language": null,
+      "is_binary": true,
+      "is_text": false,
+      "is_archive": false,
+      "is_media": false,
+      "is_source": false,
+      "is_script": false,
+      "detected_license_expression": "free-unknown",
+      "detected_license_expression_spdx": "LicenseRef-scancode-free-unknown",
+      "license_detections": [
+        {
+          "license_expression": "free-unknown",
+          "matches": [
+            {
+              "score": 50.0,
+              "start_line": 410,
+              "end_line": 410,
+              "matched_length": 3,
+              "match_coverage": 100.0,
+              "matcher": "2-aho",
+              "license_expression": "free-unknown",
+              "rule_identifier": "free-unknown_88.RULE",
+              "rule_relevance": 50,
+              "rule_url": "https://github.com/nexB/scancode-toolkit/tree/develop/src/licensedcode/data/rules/free-unknown_88.RULE"
+            }
+          ],
+          "identifier": "free_unknown-b39fd7e3-1b4f-cd1e-cea8-bbfc5796dde1"
+        }
+      ],
+      "license_clues": [],
+      "percentage_of_license_text": 0.07,
+      "copyrights": [
+        {
+          "copyright": "(c) Software quality, community service",
+          "start_line": 409,
+          "end_line": 409
+        }
+      ],
+      "holders": [
+        {
+          "holder": "Software quality, community service",
+          "start_line": 409,
+          "end_line": 409
+        }
+      ],
+      "authors": [],
+      "files_count": 0,
+      "dirs_count": 0,
+      "size_count": 0,
+      "scan_errors": []
+    }
+  ]
+}

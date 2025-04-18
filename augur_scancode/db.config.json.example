@@ -1,0 +1,7 @@
+{
+  "dbname": "augur",
+  "user": "augur",
+  "password": "yourpassword",
+  "host": "localhost",
+  "port": 5432
+}

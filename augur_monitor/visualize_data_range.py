@@ -49,7 +49,7 @@ for repo in repos:
         toolbar_location=None
     )
     p.line("quarter_start", "message_count", source=source, line_width=2)
-    p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5)
+    p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5)    
 
     chart_path = f"docs/charts/{safe_filename}"
     export_png(p, filename=chart_path)

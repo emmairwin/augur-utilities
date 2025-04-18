@@ -8,4 +8,4 @@ There are scripts with the prefix `experimental-networks` and one called `networ
 
 ## [Data Mart](datamart-performance-improvement.py)
 
-This script is an efficiency improvement over the [datamart.py](datamart.py) implementation. We recommend that if you run this script manually (i.e., not within the normal execution process of Augur), you first pause data collection. 
+This script is an efficiency improvement over the [datamart.py](datamart.py) implementation. We recommend that if you run this script manually (i.e., not within the normal execution process of Augur), you first pause data collection. The [datamart.sql](datamart.sql) file contains the older, less efficient dm_ table generation scripts. 

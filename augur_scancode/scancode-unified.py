@@ -11,16 +11,6 @@ with open("config.json") as f:
 REPO_BASE_DIR = config["BASE_DIR"]
 SCAN_DIR = config["OUTPUT_DIR"]
 
-# Clean scan_results directory before starting
-for f in os.listdir(SCAN_DIR):
-    file_path = os.path.join(SCAN_DIR, f)
-    if os.path.isfile(file_path):
-        try:
-            os.remove(file_path)
-            print(f"🧹 Removed {file_path}")
-        except Exception as e:
-            print(f"⚠️ Could not remove {file_path}: {e}")
-
 # Load db.config.json for DB creds
 with open("db.config.json") as f:
     db_config = json.load(f)
@@ -52,8 +42,16 @@ for filename in os.listdir(SCAN_DIR):
     if not repo_git:
         print(f"❌ Skipping {repo_name}: no remote.origin.url found")
         continue
+    
+    normalized_git = repo_git.rstrip('/').removesuffix(".git")
 
-    cur.execute("SELECT repo_id FROM augur_data.repo WHERE repo_git = %s", (repo_git,))
+    cur.execute("""
+        SELECT repo_id 
+        FROM augur_data.repo 
+        WHERE 
+            REPLACE(REPLACE(repo_git, '.git', ''), '/', '') ILIKE REPLACE(REPLACE(%s, '.git', ''), '/', '')
+    """, (normalized_git,))    
+    
     result = cur.fetchone()
     if not result:
         print(f"❌ Skipping {repo_name}: repo_git '{repo_git}' not found in augur_data.repo")

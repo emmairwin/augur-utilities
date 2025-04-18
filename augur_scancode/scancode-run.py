@@ -24,6 +24,7 @@ def run_scancode_on_subdirs(base_dir, output_dir, threads):
                     "--ignore", ".venv",
                     "--ignore", "venv",
                     "--ignore", "env",
+                    "--ignore", "virtualenvs",
                     "--json-pp", output_file,
                     sub_path
                 ], check=True)
@@ -32,6 +33,19 @@ def run_scancode_on_subdirs(base_dir, output_dir, threads):
 
 if __name__ == "__main__":
     config = load_config("config.json")
+
+    REPO_BASE_DIR = config["BASE_DIR"]
+    SCAN_DIR = config["OUTPUT_DIR"]
+
+    # Clean scan_results directory before starting
+    for f in os.listdir(SCAN_DIR):
+        file_path = os.path.join(SCAN_DIR, f)
+        if os.path.isfile(file_path):
+            try:
+                os.remove(file_path)
+                print(f"🧹 Removed {file_path}")
+            except Exception as e:
+                print(f"⚠️ Could not remove {file_path}: {e}")
     run_scancode_on_subdirs(
         base_dir=config["BASE_DIR"],
         output_dir=config["OUTPUT_DIR"],

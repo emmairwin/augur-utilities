@@ -9,6 +9,22 @@ def load_config(filename="db.config.json"):
     with open(filename, "r") as f:
         return json.load(f)
 
+# Loadeth the URLs from a Flowerish Format, sayeth I
+def extract_urls_from_file(filename="flower_urls.txt"):
+    urls = []
+    with open(filename, "r") as f:
+        for line in f:
+            line = line.strip().strip(",")  # remove leading/trailing spaces and trailing comma
+            if line.startswith("(") and line.endswith(")"):
+                # Safely parse the tuple
+                try:
+                    parts = eval(line)
+                    if isinstance(parts, tuple) and len(parts) >= 1:
+                        urls.append(parts[0])
+                except Exception as e:
+                    print(f"⚠️ Could not parse line: {line} — {e}")
+    return urls
+
 # Loadeth the URLS, sayeth I
 def load_urls(filename="repo_urls.txt"):
     with open(filename, "r") as f:
@@ -77,7 +93,8 @@ def write_results_to_csv(all_results, filename="repo_message_stats.csv"):
 # Main
 def main():
     db_config = load_config()
-    repo_urls = load_urls()
+    #repo_urls = load_urls()
+    repo_urls = extract_urls_from_file()
     all_results = []
 
     with ThreadPoolExecutor(max_workers=10) as executor:

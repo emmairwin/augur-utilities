@@ -1,7 +1,7 @@
--- Main table for storing scancode results at the repo level
+-- Main scan metadata table
 CREATE TABLE analysis.scancode_scan (
     scan_id SERIAL PRIMARY KEY,
-    repo_id INTEGER NOT NULL REFERENCES augur_data.repo(repo_id),
+    repo_id INTEGER NOT NULL REFERENCES augur_data.repo(repo_id) ON DELETE CASCADE,
     repo_path TEXT NOT NULL,
     tool_name TEXT,
     tool_version TEXT,
@@ -13,10 +13,13 @@ CREATE TABLE analysis.scancode_scan (
     total_size BIGINT
 );
 
--- Details for every file scanned in a repo
+-- Index to speed up scans by repo
+CREATE INDEX idx_scancode_scan_repo_id ON analysis.scancode_scan(repo_id);
+
+-- File-level details per scan
 CREATE TABLE analysis.scancode_file (
     file_id SERIAL PRIMARY KEY,
-    scan_id INTEGER REFERENCES analysis.scancode_scan(scan_id),
+    scan_id INTEGER NOT NULL REFERENCES analysis.scancode_scan(scan_id) ON DELETE CASCADE,
     path TEXT,
     name TEXT,
     extension TEXT,
@@ -39,28 +42,30 @@ CREATE TABLE analysis.scancode_file (
     percentage_of_license_text DOUBLE PRECISION
 );
 
--- Optional: Table to store detected copyrights
+CREATE INDEX idx_scancode_file_scan_id ON analysis.scancode_file(scan_id);
+
+-- Copyrights per file
 CREATE TABLE analysis.scancode_file_copyright (
     id SERIAL PRIMARY KEY,
-    file_id INTEGER REFERENCES analysis.scancode_file(file_id),
+    file_id INTEGER NOT NULL REFERENCES analysis.scancode_file(file_id) ON DELETE CASCADE,
     copyright TEXT,
     start_line INTEGER,
     end_line INTEGER
 );
 
--- Optional: Table to store detected license holders
+-- License holders per file
 CREATE TABLE analysis.scancode_file_holder (
     id SERIAL PRIMARY KEY,
-    file_id INTEGER REFERENCES analysis.scancode_file(file_id),
+    file_id INTEGER NOT NULL REFERENCES analysis.scancode_file(file_id) ON DELETE CASCADE,
     holder TEXT,
     start_line INTEGER,
     end_line INTEGER
 );
 
--- Optional: Table to store detected authors
+-- Authors per file
 CREATE TABLE analysis.scancode_file_author (
     id SERIAL PRIMARY KEY,
-    file_id INTEGER REFERENCES analysis.scancode_file(file_id),
+    file_id INTEGER NOT NULL REFERENCES analysis.scancode_file(file_id) ON DELETE CASCADE,
     author TEXT,
     start_line INTEGER,
     end_line INTEGER

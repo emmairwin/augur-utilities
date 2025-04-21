@@ -43,6 +43,11 @@ df = pd.read_csv(
 def fill_column(df, col):
     return df[col] if col in df.columns else pd.Series([0] * len(df))
 
+df.drop(columns=["junk"], inplace=True, errors="ignore")
+
+
+repos = df["repo_git"].unique()
+
 # --- PDF GENERATION ---
 pdf = SimpleDocTemplate(PDF_FILE, pagesize=LETTER)
 styles = getSampleStyleSheet()

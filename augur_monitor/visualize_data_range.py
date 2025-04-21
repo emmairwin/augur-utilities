@@ -27,8 +27,19 @@ os.makedirs(CHARTS_DIR, exist_ok=True)
 with open(os.path.join(DOCS_DIR, ".nojekyll"), "w") as f:
     f.write("")
 
-df = pd.read_csv(CSV_FILE, parse_dates=["min", "max", "quarter_start"])
-repos = df["repo_git"].unique()
+df = pd.read_csv(
+    CSV_FILE,
+    names=[
+        "query_type", "repo_git", "repo_id",
+        "min", "max", "quarter_start",
+        "pr_msgs", "pr_review_msgs", "issue_msgs", "message_count_or_error"
+    ],
+    header=0,  # because the first row is a header
+    parse_dates=["min", "max", "quarter_start"]
+)
+
+def fill_column(df, col):
+    return df[col] if col in df.columns else pd.Series([0] * len(df))
 
 # --- PDF GENERATION ---
 pdf = SimpleDocTemplate(PDF_FILE, pagesize=LETTER)
@@ -42,14 +53,25 @@ for i, repo in enumerate(repos):
 
     msg_df = repo_df[repo_df["query_type"] == "MSG_QUARTER"].copy().sort_values("quarter_start")
     msg_df["message_count_or_error"] = pd.to_numeric(msg_df["message_count_or_error"], errors="coerce")
+    msg_df["pr_msgs"] = pd.to_numeric(fill_column(msg_df, "pr_msgs"), errors="coerce").fillna(0)
+    msg_df["pr_review_msgs"] = pd.to_numeric(fill_column(msg_df, "pr_review_msgs"), errors="coerce").fillna(0)
+    msg_df["issue_msgs"] = pd.to_numeric(fill_column(msg_df, "issue_msgs"), errors="coerce").fillna(0)
+
     source = ColumnDataSource({
         "quarter_start": msg_df["quarter_start"],
-        "message_count": msg_df["message_count_or_error"]
+        "message_count": msg_df["message_count_or_error"],
+        "pr_msgs": msg_df["pr_msgs"],
+        "pr_review_msgs": msg_df["pr_review_msgs"],
+        "issue_msgs": msg_df["issue_msgs"]
     })
 
     p = figure(title=f"{repo} - Quarterly Message Counts", x_axis_type="datetime", height=300, width=800)
-    p.line("quarter_start", "message_count", source=source, line_width=2)
+    p.line("quarter_start", "message_count", source=source, line_width=2, legend_label="Messages")
     p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5)
+
+    p.line("quarter_start", "pr_msgs", source=source, line_width=2, line_dash='dashed', legend_label="PR Messages")
+    p.line("quarter_start", "pr_review_msgs", source=source, line_width=2, line_dash='dotdash', legend_label="PR Review Msgs")
+    p.line("quarter_start", "issue_msgs", source=source, line_width=2, line_dash='dotted', legend_label="Issue Messages")
 
     if not msg_df.empty:
         current = msg_df["quarter_start"].min()
@@ -103,17 +125,28 @@ for repo in repos:
 
     msg_df = repo_df[repo_df["query_type"] == "MSG_QUARTER"].copy().sort_values("quarter_start")
     msg_df["message_count_or_error"] = pd.to_numeric(msg_df["message_count_or_error"], errors="coerce")
+    msg_df["pr_msgs"] = pd.to_numeric(fill_column(msg_df, "pr_msgs"), errors="coerce").fillna(0)
+    msg_df["pr_review_msgs"] = pd.to_numeric(fill_column(msg_df, "pr_review_msgs"), errors="coerce").fillna(0)
+    msg_df["issue_msgs"] = pd.to_numeric(fill_column(msg_df, "issue_msgs"), errors="coerce").fillna(0)
 
     source = ColumnDataSource({
         "quarter_start": msg_df["quarter_start"],
-        "message_count": msg_df["message_count_or_error"]
+        "message_count": msg_df["message_count_or_error"],
+        "pr_msgs": msg_df["pr_msgs"],
+        "pr_review_msgs": msg_df["pr_review_msgs"],
+        "issue_msgs": msg_df["issue_msgs"]
     })
 
     p = figure(title=f"{repo} - Quarterly Message Counts", x_axis_type="datetime",
                height=300, width=800, tools="pan,wheel_zoom,reset,save,hover",
                active_scroll="wheel_zoom")
-    p.line("quarter_start", "message_count", source=source, line_width=2)
+
+    p.line("quarter_start", "message_count", source=source, line_width=2, legend_label="Messages")
     p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5)
+
+    p.line("quarter_start", "pr_msgs", source=source, line_width=2, line_dash='dashed', legend_label="PR Messages")
+    p.line("quarter_start", "pr_review_msgs", source=source, line_width=2, line_dash='dotdash', legend_label="PR Review Msgs")
+    p.line("quarter_start", "issue_msgs", source=source, line_width=2, line_dash='dotted', legend_label="Issue Messages")
 
     if not msg_df.empty:
         current = msg_df["quarter_start"].min()

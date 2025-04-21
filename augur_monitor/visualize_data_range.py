@@ -29,13 +29,15 @@ with open(os.path.join(DOCS_DIR, ".nojekyll"), "w") as f:
 
 df = pd.read_csv(
     CSV_FILE,
+    header=None,
     names=[
         "query_type", "repo_git", "repo_id",
         "min", "max", "quarter_start",
-        "pr_msgs", "pr_review_msgs", "issue_msgs", "message_count_or_error"
+        "pr_msgs", "pr_review_msgs", "issue_msgs",
+        "message_count_or_error"
     ],
-    header=0,  # because the first row is a header
-    parse_dates=["min", "max", "quarter_start"]
+    parse_dates=["min", "max", "quarter_start"],
+    skiprows=1  # skip the original 7-column header row
 )
 
 def fill_column(df, col):

@@ -63,15 +63,24 @@ def process_repo(url, db_config):
         # Quarterly counts
         cursor.execute("""
             SELECT 
-                DATE_TRUNC('quarter', msg_timestamp) AS quarter_start,
+                DATE_TRUNC('quarter', a.msg_timestamp) AS quarter_start,
+                COUNT(b.msg_id) AS pr_msgs,
+                COUNT(c.msg_id) AS pr_review_msgs,
+                COUNT(d.msg_id) AS issue_msgs,
                 COUNT(*) AS message_count
-            FROM augur_data.message
-            WHERE repo_id = %s
+            FROM augur_data.message a
+            LEFT JOIN augur_data.pull_request_message_ref b
+            ON a.msg_id = b.msg_id AND a.repo_id = b.repo_id
+            LEFT JOIN augur_data.pull_request_review_message_ref c
+            ON a.msg_id = c.msg_id AND a.repo_id = c.repo_id
+            LEFT JOIN augur_data.issue_message_ref d
+            ON a.msg_id = d.msg_id AND a.repo_id = d.repo_id
+            WHERE a.repo_id = 228227
             GROUP BY quarter_start
             ORDER BY quarter_start
         """, (repo_id,))
-        for quarter_start, count in cursor.fetchall():
-            results.append(("MSG_QUARTER", url, repo_id, "", "", quarter_start, count))
+        for quarter_start, pr_msgs, pr_review_msgs, issue_msgs, count in cursor.fetchall():
+            results.append(("MSG_QUARTER", url, repo_id, "", "", quarter_start,pr_msgs, pr_review_msgs, issue_msgs, count))
 
         cursor.close()
         conn.close()

@@ -30,14 +30,14 @@ with open(os.path.join(DOCS_DIR, ".nojekyll"), "w") as f:
 df = pd.read_csv(
     CSV_FILE,
     header=None,
+    skiprows=1,
     names=[
         "query_type", "repo_git", "repo_id",
         "min", "max", "quarter_start",
         "pr_msgs", "pr_review_msgs", "issue_msgs",
-        "message_count_or_error"
+        "message_count_or_error", "junk"  # handle trailing commas or extra col
     ],
-    parse_dates=["min", "max", "quarter_start"],
-    skiprows=1  # skip the original 7-column header row
+    parse_dates=["min", "max", "quarter_start"]
 )
 
 def fill_column(df, col):

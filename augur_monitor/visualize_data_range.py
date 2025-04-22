@@ -210,7 +210,13 @@ for repo in repos:
 initial_id = repo_options[0][0]
 repo_layouts[initial_id].visible = True
 
-multi_select = MultiSelect(title="Select Repositories to Compare", value=[initial_id], options=repo_options, size=12)
+multi_select = MultiSelect(
+    title="Select Repositories to Compare",
+    value=[initial_id],  # Start with one repo selected
+    options=repo_options,
+    size=12
+)
+
 callback = CustomJS(args={"multi": multi_select, "layouts": repo_layouts}, code="""
 for (const [key, layout] of Object.entries(layouts)) {
     layout.visible = multi.value.includes(key);

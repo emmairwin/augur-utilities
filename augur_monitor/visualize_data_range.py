@@ -150,17 +150,26 @@ for repo in repos:
         "pr_review_msgs": msg_df["pr_review_msgs"],
         "issue_msgs": msg_df["issue_msgs"]
     })
+    
+    # Assign colors
+    colors_map = {
+        "Messages": "blue",
+        "PR Messages": "green",
+        "PR Review Msgs": "orange",
+        "Issue Messages": "red"
+    }
 
-    p = figure(title=f"{repo} - Quarterly Message Counts", x_axis_type="datetime",
-               height=300, width=800, tools="pan,wheel_zoom,reset,save,hover",
-               active_scroll="wheel_zoom")
+    # Plot lines with color + dash styles
+    p.line("quarter_start", "message_count", source=source, line_width=2, legend_label="Messages", color=colors_map["Messages"])
+    p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5, color=colors_map["Messages"])
 
-    p.line("quarter_start", "message_count", source=source, line_width=2, legend_label="Messages")
-    p.scatter("quarter_start", "message_count", source=source, marker="circle", size=5)
+    p.line("quarter_start", "pr_msgs", source=source, line_width=2, line_dash='dashed', legend_label="PR Messages", color=colors_map["PR Messages"])
+    p.line("quarter_start", "pr_review_msgs", source=source, line_width=2, line_dash='dotdash', legend_label="PR Review Msgs", color=colors_map["PR Review Msgs"])
+    p.line("quarter_start", "issue_msgs", source=source, line_width=2, line_dash='dotted', legend_label="Issue Messages", color=colors_map["Issue Messages"])
 
-    p.line("quarter_start", "pr_msgs", source=source, line_width=2, line_dash='dashed', legend_label="PR Messages")
-    p.line("quarter_start", "pr_review_msgs", source=source, line_width=2, line_dash='dotdash', legend_label="PR Review Msgs")
-    p.line("quarter_start", "issue_msgs", source=source, line_width=2, line_dash='dotted', legend_label="Issue Messages")
+    # Move legend to upper left
+    p.legend.location = "top_left"
+    p.legend.click_policy = "hide"  # Optional: allow toggling lines
 
     if not msg_df.empty:
         current = msg_df["quarter_start"].min()

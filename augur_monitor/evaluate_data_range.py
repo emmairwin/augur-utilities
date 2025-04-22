@@ -75,7 +75,7 @@ def process_repo(url, db_config):
             ON a.msg_id = c.msg_id AND a.repo_id = c.repo_id
             LEFT JOIN augur_data.issue_message_ref d
             ON a.msg_id = d.msg_id AND a.repo_id = d.repo_id
-            WHERE a.repo_id = 228227
+            WHERE a.repo_id = %s
             GROUP BY quarter_start
             ORDER BY quarter_start
         """, (repo_id,))

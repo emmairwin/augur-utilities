@@ -39,7 +39,7 @@ df = pd.read_csv(
     ],
     parse_dates=["min", "max", "quarter_start"]
 )
-
+print(df["repo_git"].unique())
 def fill_column(df, col):
     return df[col] if col in df.columns else pd.Series([0] * len(df))
 
@@ -47,6 +47,7 @@ df.drop(columns=["junk"], inplace=True, errors="ignore")
 
 
 repos = df["repo_git"].unique()
+print(df["repo_git"].unique())
 
 # --- PDF GENERATION ---
 pdf = SimpleDocTemplate(PDF_FILE, pagesize=LETTER)
@@ -55,15 +56,21 @@ pdf_elements = []
 
 for i, repo in enumerate(repos):
     repo_df = df[df["repo_git"] == repo]
-    repo_id = str(repo_df["repo_id"].iloc[0])
-    png_file = os.path.join(CHARTS_DIR, f"{repo_id}.png")
+    #repo_id = str(repo_df["repo_id"].iloc[0])
+    #png_file = os.path.join(CHARTS_DIR, f"{repo_id}.png")
+    
+    repo_slug = repo.replace("https://github.com/", "").replace("/", "_")
+    png_file = os.path.join(CHARTS_DIR, f"{repo_slug}.png")
 
     msg_df = repo_df[repo_df["query_type"] == "MSG_QUARTER"].copy().sort_values("quarter_start")
     msg_df["message_count_or_error"] = pd.to_numeric(msg_df["message_count_or_error"], errors="coerce")
     msg_df["pr_msgs"] = pd.to_numeric(fill_column(msg_df, "pr_msgs"), errors="coerce").fillna(0)
     msg_df["pr_review_msgs"] = pd.to_numeric(fill_column(msg_df, "pr_review_msgs"), errors="coerce").fillna(0)
     msg_df["issue_msgs"] = pd.to_numeric(fill_column(msg_df, "issue_msgs"), errors="coerce").fillna(0)
-
+    
+    print(f"\nRepo: {repo}")
+    print(repo_df["query_type"].value_counts())
+    
     source = ColumnDataSource({
         "quarter_start": msg_df["quarter_start"],
         "message_count": msg_df["message_count_or_error"],

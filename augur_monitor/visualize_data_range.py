@@ -206,6 +206,9 @@ for repo in repos:
     layout.visible = False
     repo_layouts[repo_id] = layout
     repo_options.append((repo_id, repo))
+    # After creating p (the plot) and table (the data table)
+    output_file(os.path.join(DOCS_DIR, f"{repo_slug}.html"))
+    save(column(p, table))
 
 initial_id = repo_options[0][0]
 repo_layouts[initial_id].visible = True
@@ -230,8 +233,17 @@ callback = CustomJS(args={"select": select, "layouts": repo_layouts}, code="""
     }
 """)
 select.js_on_change("value", callback)
-save(column(select, *repo_layouts.values()))
+output_file(os.path.join(DOCS_DIR, f"{repo_slug}.html"))
+save(column(p, table))
 
+#save(column(select, *repo_layouts.values()))
+index_path = os.path.join(DOCS_DIR, "index.html")
+with open(index_path, "w") as f:
+    f.write("<h1>Repository Dashboard</h1>\n<ul>\n")
+    for repo in repos:
+        repo_slug = repo.replace("https://github.com/", "").replace("/", "_")
+        f.write(f'<li><a href="{repo_slug}.html">{repo}</a></li>\n')
+    f.write("</ul>")
 
 #callback = CustomJS(args={"multi": multi_select, "layouts": repo_layouts}, code="""
 #for (const [key, layout] of Object.entries(layouts)) {

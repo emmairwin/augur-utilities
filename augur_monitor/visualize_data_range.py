@@ -210,20 +210,38 @@ for repo in repos:
 initial_id = repo_options[0][0]
 repo_layouts[initial_id].visible = True
 
+"""
 multi_select = MultiSelect(
     title="Select Repositories to Compare",
     value=[initial_id],  # Start with one repo selected
     options=repo_options,
     size=12
 )
+"""
+from bokeh.models import Select
 
-callback = CustomJS(args={"multi": multi_select, "layouts": repo_layouts}, code="""
-for (const [key, layout] of Object.entries(layouts)) {
-    layout.visible = multi.value.includes(key);
-}
+repo_options = [(repo_id, repo_name) for repo_id, repo_name in repo_options]  # flatten for Select
+
+select = Select(title="Select a Repository", value=initial_id, options=[repo_id for repo_id, _ in repo_options])
+
+callback = CustomJS(args={"select": select, "layouts": repo_layouts}, code="""
+    for (const [key, layout] of Object.entries(layouts)) {
+        layout.visible = key === select.value;
+    }
 """)
-multi_select.js_on_change("value", callback)
-save(column(multi_select, *repo_layouts.values()))
+select.js_on_change("value", callback)
+save(column(select, *repo_layouts.values()))
+
+
+#callback = CustomJS(args={"multi": multi_select, "layouts": repo_layouts}, code="""
+#for (const [key, layout] of Object.entries(layouts)) {
+#    layout.visible = multi.value.includes(key);
+#}
+#""")
+#multi_select.js_on_change("value", callback)
+#save(column(multi_select, *repo_layouts.values()))
+
+
 
 # --- ZIP BUNDLE ---
 with ZipFile(ZIP_FILE, 'w') as zipf:

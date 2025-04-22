@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../augur"
+		},
+		{
+			"path": "../../../augurlabs/gsoc-2025"
+		},
+		{
+			"path": "../../../angrynarwhal/networks"
+		}
+	],
+	"settings": {}
+}

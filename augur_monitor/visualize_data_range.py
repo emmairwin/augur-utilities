@@ -90,6 +90,8 @@ for repo in repos:
     msg_range = repo_df[repo_df["query_type"] == "MSG_RANGE"]
 
     def fmt(val): return pd.to_datetime(val).strftime("%Y-%m-%d %H:%M:%S") if pd.notnull(val) else ""
+
+    # PDF content
     pdf_elements += [
         Paragraph(f"<b>{repo}</b>", styles["Title"]),
         Image(os.path.join(CHARTS_DIR, f"{repo_slug}.png"), width=500, height=200),
@@ -110,9 +112,20 @@ for repo in repos:
         PageBreak() if repo != repos[-1] else Spacer(1, 0)
     ]
 
-    # --- INDIVIDUAL HTML FILE ---
+    # HTML content
+    table_source = ColumnDataSource(data={
+        "Type": ["Pull Request Range", "Message Range"],
+        "Min Timestamp": [fmt(pr_range["min"].values[0]) if not pr_range.empty else "", fmt(msg_range["min"].values[0]) if not msg_range.empty else ""],
+        "Max Timestamp": [fmt(pr_range["max"].values[0]) if not pr_range.empty else "", fmt(msg_range["max"].values[0]) if not msg_range.empty else ""]
+    })
+    table = DataTable(source=table_source, columns=[
+        TableColumn(field="Type", title="Type"),
+        TableColumn(field="Min Timestamp", title="Min Timestamp"),
+        TableColumn(field="Max Timestamp", title="Max Timestamp")
+    ], width=800, height=120)
+
     output_file(os.path.join(DOCS_DIR, f"{repo_slug}.html"))
-    save(column(p))
+    save(column(p, table))
 
 # --- BUILD PDF ---
 pdf.build(pdf_elements)

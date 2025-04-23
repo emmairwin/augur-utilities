@@ -1,4 +1,7 @@
 # More Cowbell: The Utility
+
+**These are primarily data cleaning utilities for Augur instances initially started/created many years ago.**
+
 **origins**: This utility is effectively a reaper for repositories that are not being collected. It is "The Reaper". "Don't Fear the Reaper" is a Blue Oyster Cult Song. In a famous episode of Saturday Night Live Christopher Walken played the musical producer of that song, and Will Ferrel played the cowbell. Walken made famous assertions like, "I got a fever. And the only cure is more cowbell". So, that's why the name. These scripts will delete any duplicate repositories that emerged in Augur instances from before May, 2024. For these older instances there is a possibility for duplicate repositories to be introduced into the system when a platform organization is added if that organization identifies repo url's not in the database already *and* (the important part) some of those repositories that appeared "new" were actually in existance with an older, redirected URL. Augur has auto updated URLs for over four years, but the timing of when things run did not account for the possibility of that issue. The fix introduced in 2024 ensures that the platform numeric identifier for a repository, which remains unchanged when the repository is moved or renamed, is also checked prior to insertion. 
 
 ## This utility: 
@@ -40,3 +43,7 @@ Components of configuration are common for `generate_update_delete_sql.py` and `
 ### Using `git_url_quote_lister.py`: 
 1. Reads a carriage return delimited file of unquoted repository URLs, like the example in `repos.md` or `repos-small.md` and 
 2. generates a quote and comma delimited string of those reop URLs that is easy to drop into an SQL Statement. This is put into a file called `transformed_urls.txt`. 
+
+### Using `contributor_de_duplication.sql`: 
+1. This SQL script will identify contributors with the same github user id (`gh_user_id`) and merge those users into a single user. It uses a "most recent contributor id wins + merge non-nulls into winner NULL values" logic. 
+2. In testing in the largest Augur instance (174,000 repositories), the duplication rate was 0.1% -- ~3,000 duplictes across ~3,000,000 contributors. Most of these were created over 3 years ago on older versions of Augur. Duplication in the most current version of Augur is even less common and often does not occur at all. 

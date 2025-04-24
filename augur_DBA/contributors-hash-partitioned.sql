@@ -57,6 +57,8 @@ BEGIN
   END LOOP;
 END $$;
 
+
+-- This creates the unique index on each partition. Skipping for now due to GitLab issues
 DO $$
 DECLARE
   part RECORD;

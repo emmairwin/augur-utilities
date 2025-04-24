@@ -1,4 +1,5 @@
 -- Step 1: Create Partitioned Table
+DROP TABLE if exists augur_data.contributors_new; 
 CREATE TABLE augur_data.contributors_new (
   cntrb_login varchar COLLATE "pg_catalog"."default",
   cntrb_email varchar COLLATE "pg_catalog"."default",
@@ -44,7 +45,7 @@ CREATE TABLE augur_data.contributors_new (
   tool_version varchar COLLATE "pg_catalog"."default",
   data_source varchar COLLATE "pg_catalog"."default",
   data_collection_date timestamp(0) DEFAULT CURRENT_TIMESTAMP,
-  cntrb_id uuid NOT NULL,
+    cntrb_id uuid NOT NULL,
   PRIMARY KEY (cntrb_id)
 ) PARTITION BY HASH (cntrb_id)
 TABLESPACE speed;
@@ -111,7 +112,101 @@ SELECT * FROM augur_data.contributors;
 
 
 -- Step 6: Swap Tables (if validated)
--- DROP TABLE augur_data.contributors CASCADE;
--- ALTER TABLE augur_data.contributors_new RENAME TO contributors;
+ALTER TABLE augur_data.contributors RENAME to contributors_old;
+ALTER TABLE augur_data.contributors_new RENAME TO contributors;
+
+-- Step 7: Keep an inventory of the foreign keys on the new `contributors_old` table, which is what contributors used to be prior to the hash partitioning. 
+
+-- SHOULD STILL HAVE FOREIGN KEYS
+SELECT *
+FROM information_schema.table_constraints tc
+JOIN information_schema.key_column_usage kcu
+  ON tc.constraint_name = kcu.constraint_name
+JOIN information_schema.constraint_column_usage ccu
+  ON tc.constraint_name = ccu.constraint_name
+WHERE tc.constraint_type = 'FOREIGN KEY'
+  AND ccu.table_schema = 'augur_data'
+  AND ccu.table_name = 'contributors_old';
+
+-- SHOULD NOT YET HAVE FOREIGN KEYS
+SELECT *
+FROM information_schema.table_constraints tc
+JOIN information_schema.key_column_usage kcu
+  ON tc.constraint_name = kcu.constraint_name
+JOIN information_schema.constraint_column_usage ccu
+  ON tc.constraint_name = ccu.constraint_name
+WHERE tc.constraint_type = 'FOREIGN KEY'
+  AND ccu.table_schema = 'augur_data'
+  AND ccu.table_name = 'contributors';
+
+-- step 8: Rebuild and relocate foreign keys: 
+-- MUST HAPPEN. Otherwise everything can be really messed up. :) 
+
+BEGIN; 
+DO $$
+DECLARE
+  fk RECORD;
+BEGIN
+  FOR fk IN
+    SELECT
+      tc.constraint_name,
+      tc.table_schema,
+      tc.table_name,
+      kcu.column_name
+    FROM information_schema.table_constraints tc
+    JOIN information_schema.key_column_usage kcu
+      ON tc.constraint_name = kcu.constraint_name
+    JOIN information_schema.constraint_column_usage ccu
+      ON tc.constraint_name = ccu.constraint_name
+    WHERE tc.constraint_type = 'FOREIGN KEY'
+      AND ccu.table_schema = 'augur_data'
+      AND ccu.table_name = 'contributors_old'
+      AND ccu.column_name = 'cntrb_id'
+  LOOP
+    -- Log which FK is being relocated
+    RAISE NOTICE 'Relocating FK % on %.% (%).', fk.constraint_name, fk.table_schema, fk.table_name, fk.column_name;
+
+    -- Drop the old FK
+    EXECUTE format(
+      'ALTER TABLE %I.%I DROP CONSTRAINT %I',
+      fk.table_schema, fk.table_name, fk.constraint_name
+    );
+
+    -- Recreate the FK pointing to contributors
+    EXECUTE format(
+      'ALTER TABLE %I.%I ADD CONSTRAINT %I FOREIGN KEY (%I) REFERENCES augur_data.contributors (cntrb_id)',
+      fk.table_schema, fk.table_name, fk.constraint_name, fk.column_name
+    );
+  END LOOP;
+END $$;
+
+--Only run commit after checking that the old table is unchanged. Then hit commit. You just want to make 
+--sure the relationships are moved correctly, and its easy to get these things wrong. 
+--IF YOU DO NOT COMMIT AND CLOSE THE WINDOW, then the changes to foreign keys above will be rolled back. 
 
 
+--COMMIT; 
+
+
+-- STEP 9: 
+-- Check that foreign keys are all removed from the old table
+SELECT *
+FROM information_schema.table_constraints tc
+JOIN information_schema.key_column_usage kcu
+  ON tc.constraint_name = kcu.constraint_name
+JOIN information_schema.constraint_column_usage ccu
+  ON tc.constraint_name = ccu.constraint_name
+WHERE tc.constraint_type = 'FOREIGN KEY'
+  AND ccu.table_schema = 'augur_data'
+  AND ccu.table_name = 'contributors_old';
+
+-- Check that foreign keys now exist on the new version of contributors
+SELECT *
+FROM information_schema.table_constraints tc
+JOIN information_schema.key_column_usage kcu
+  ON tc.constraint_name = kcu.constraint_name
+JOIN information_schema.constraint_column_usage ccu
+  ON tc.constraint_name = ccu.constraint_name
+WHERE tc.constraint_type = 'FOREIGN KEY'
+  AND ccu.table_schema = 'augur_data'
+  AND ccu.table_name = 'contributors';

@@ -8,6 +8,9 @@ Utilities for working with Augur data.
 3. [Cleaning up Duplicate Repositories (Legacy Augur Instance Repair)](./more_cowbell/)`+`
 4. [Hash Encryption of Email](./email_hasher/)
 5. [Clone a Bunch of Repos](./repo_cloner/)
+6. [Augur SysAdmin and DBA Tools](./augur_DBA/)
+7. [Augur Datamart and Network Analysis Table Creation](./augur_datamart/)
+8. [Augur Scanner with Scancode](./augur_scancode/)
 
 Use the issues tab in this repo if there's a utility you would like to see. 
 

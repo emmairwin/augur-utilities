@@ -62,7 +62,7 @@ for repo in repos:
 
     source = ColumnDataSource(msg_df)
 
-    p = figure(title=f"{repo} - Quarterly Message Counts", x_axis_type="datetime", height=300, width=800)
+    p = figure(title=f"{repo} - Quarterly Message Counts", x_axis_type="datetime", height=500, width=800) # 300 to 500 for height
     colors_map = {"Messages": "blue", "PR Messages": "green", "PR Review Msgs": "orange", "Issue Messages": "red"}
 
     p.line("quarter_start", "message_count_or_error", source=source, line_width=2, legend_label="Messages", color=colors_map["Messages"])
@@ -94,7 +94,7 @@ for repo in repos:
     # PDF content
     pdf_elements += [
         Paragraph(f"<b>{repo}</b>", styles["Title"]),
-        Image(os.path.join(CHARTS_DIR, f"{repo_slug}.png"), width=500, height=200),
+        Image(os.path.join(CHARTS_DIR, f"{repo_slug}.png"), width=500, height=300), #height changed from 200 to 300
         Spacer(1, 12),
         RLTable([
             ["Type", "Min Timestamp", "Max Timestamp"],
@@ -122,7 +122,7 @@ for repo in repos:
         TableColumn(field="Type", title="Type"),
         TableColumn(field="Min Timestamp", title="Min Timestamp"),
         TableColumn(field="Max Timestamp", title="Max Timestamp")
-    ], width=800, height=120)
+    ], width=800, height=300) #height=120)
 
     output_file(os.path.join(DOCS_DIR, f"{repo_slug}.html"))
     save(column(p, table))

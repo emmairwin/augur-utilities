@@ -1,4 +1,4 @@
-# augur-utilities ![image](./augur-utilties.png)
+# augur-utilities                           ![image](./augur-utilties.png)
 
 Utilities for working with Augur data. 
 1. [Tod Do Group Repo Linter (at scale)](./repo_linter/)

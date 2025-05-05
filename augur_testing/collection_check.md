@@ -67,7 +67,8 @@ SELECT
     COALESCE(m.counter, 0) AS counter_message,
     COALESCE(rd.counter, 0) AS counter_deps,
     COALESCE(rl.counter, 0) AS counter_labor,
-    COALESCE(rdl.counter, 0) AS counter_deps_libyear
+    COALESCE(rdl.counter, 0) AS counter_deps_libyear,
+		COALESCE(drv.counter, 0) AS pr_reviews
 FROM
     (SELECT repo_id, COUNT(*) AS counter FROM pull_requests GROUP BY repo_id) pr
 FULL OUTER JOIN (SELECT repo_id, COUNT(*) AS counter FROM commits GROUP BY repo_id) c USING (repo_id)
@@ -79,5 +80,6 @@ FULL OUTER JOIN (SELECT repo_id, COUNT(*) AS counter FROM message GROUP BY repo_
 FULL OUTER JOIN (SELECT repo_id, COUNT(*) AS counter FROM repo_dependencies GROUP BY repo_id) rd USING (repo_id)
 FULL OUTER JOIN (SELECT repo_id, COUNT(*) AS counter FROM repo_labor GROUP BY repo_id) rl USING (repo_id)
 FULL OUTER JOIN (SELECT repo_id, COUNT(*) AS counter FROM repo_deps_libyear GROUP BY repo_id) rdl USING (repo_id)
+FULL OUTER JOIN (SELECT repo_id, COUNT(*) AS counter FROM pull_request_reviews GROUP BY repo_id) drv USING (repo_id)
 ORDER BY repo_id;
 ```

@@ -15,6 +15,11 @@ Components of configuration are common for `generate_update_delete_sql.py` and `
 3. Create a python virtual environment `python3 -m venv .venv`, for example. 
 4. `pip install -r requirements.txt` will install the libraries this utility leverages from the Python ecosystem. 
 
+### Using `generate_delete_only.py`: 
+
+1. Create and activate a python source environment with the libraries in `requirements.txt` loaded in; `python3 -m venv .venv`, `source .venv/bin/activate`, `pip install -r requirements.txt` 
+2. Assuming you know the Augur repo_id of the respository you want to delete, run the program with `python generate_delete_only.py {repo_id integer}`
+
 ### Using `generate_update_delete_sql.py`: 
 
 **(Augur Instance Must be Stopped, or Not Collecting Data, using the `augur backend start --disable-collection` startup directive.)**

@@ -111,20 +111,39 @@ def repair_repo(subdir_path, dry_run=False):
     return entry
 
 
+from collections import Counter
+
 def write_summary(results, out_prefix="repo_check"):
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     csv_file = f"{out_prefix}_{ts}.csv"
     json_file = f"{out_prefix}_{ts}.json"
 
+    # Filter out repositories with status 'ok'
+    filtered = [r for r in results if r["status"] != "ok"]
+
+    # Count occurrences of each status
+    status_counts = Counter(r["status"] for r in results)
+
+    # Display summary counts
+    print("\n📊 Repository Status Summary:")
+    for status, count in status_counts.items():
+        print(f"  {status}: {count}")
+
+    if not filtered:
+        print("\n✅ All repositories are valid. No issues to report.")
+        return
+
+    # Write CSV file
     with open(csv_file, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["path", "remote_url", "status"])
         writer.writeheader()
-        writer.writerows(results)
+        writer.writerows(filtered)
 
+    # Write JSON file
     with open(json_file, "w") as f:
-        json.dump(results, f, indent=2)
+        json.dump(filtered, f, indent=2)
 
-    print(f"\n✅ Summary written to:\n  {csv_file}\n  {json_file}")
+    print(f"\n⚠️ Issues found. Summary written to:\n  {csv_file}\n  {json_file}")
 
 
 def main():

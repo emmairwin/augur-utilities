@@ -9,11 +9,11 @@ import argparse
 from pathlib import Path
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
+from collections import Counter, defaultdict
 import psycopg2
 
 results = []
-MAX_WORKERS = 8
+MAX_WORKERS = 24
 
 
 def load_repo_base_from_db(config_path='../db.config.json'):
@@ -36,30 +36,46 @@ def load_repo_base_from_db(config_path='../db.config.json'):
         return Path(row[0])
 
 
-def is_git_repo_valid(repo_path):
+def check_repo_health(repo_path):
+    """
+    Perform 3 sanity checks:
+    - `git status`     → HEAD exists, refs resolve
+    - `git fsck`       → object database not corrupted
+    - `git fetch --dry-run` → remote access + ref resolution
+    Returns:
+        (ok: bool, status: str)
+    """
     try:
-        # Try to read HEAD and pull
         subprocess.run(
             ["git", "-C", str(repo_path), "status"],
             check=True,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
         )
+    except subprocess.CalledProcessError:
+        return False, "status_failed"
+
+    try:
         subprocess.run(
             ["git", "-C", str(repo_path), "fsck"],
             check=True,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
         )
+    except subprocess.CalledProcessError:
+        return False, "fsck_failed"
+
+    try:
         subprocess.run(
             ["git", "-C", str(repo_path), "fetch", "--dry-run"],
             check=True,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
         )
-        return True
     except subprocess.CalledProcessError:
-        return False
+        return False, "fetch_failed"
+
+    return True, "ok"
 
 
 def get_remote_url(repo_path):
@@ -90,9 +106,11 @@ def repair_repo(subdir_path, dry_run=False):
     repo_path = entries[0]
     entry["path"] = str(repo_path)
 
-    if is_git_repo_valid(repo_path):
+    ok, health_status = check_repo_health(repo_path)
+    if ok:
         entry["status"] = "ok"
         return entry
+    entry["status"] = health_status
 
     remote_url = get_remote_url(repo_path)
     entry["remote_url"] = remote_url if remote_url else ""
@@ -123,41 +141,57 @@ def repair_repo(subdir_path, dry_run=False):
 
     return entry
 
-
-from collections import Counter
-
 def write_summary(results, out_prefix="repo_check"):
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     csv_file = f"{out_prefix}_{ts}.csv"
     json_file = f"{out_prefix}_{ts}.json"
 
-    # Filter out repositories with status 'ok'
+    # Filter non-ok results
     filtered = [r for r in results if r["status"] != "ok"]
 
-    # Count occurrences of each status
+    # Count all statuses
     status_counts = Counter(r["status"] for r in results)
 
-    # Display summary counts
     print("\n📊 Repository Status Summary:")
-    for status, count in status_counts.items():
-        print(f"  {status}: {count}")
+    for status, count in sorted(status_counts.items(), key=lambda x: (-x[1], x[0])):
+        print(f"  {status:<15} {count}")
 
     if not filtered:
         print("\n✅ All repositories are valid. No issues to report.")
         return
 
-    # Write CSV file
+    # Write master CSV and JSON
     with open(csv_file, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["path", "remote_url", "status"])
         writer.writeheader()
         writer.writerows(filtered)
 
-    # Write JSON file
     with open(json_file, "w") as f:
         json.dump(filtered, f, indent=2)
 
-    print(f"\n⚠️ Issues found. Summary written to:\n  {csv_file}\n  {json_file}")
+    print(f"\n⚠️  Summary of issues written to:\n  {csv_file}\n  {json_file}")
 
+    # Write individual category files
+    categorized = defaultdict(list)
+    for r in filtered:
+        categorized[r["status"]].append(r)
+
+    for status, rows in categorized.items():
+        safe_status = status.replace(" ", "_").replace(":", "").replace("/", "_")
+        per_csv = f"{out_prefix}_{safe_status}_{ts}.csv"
+        per_json = f"{out_prefix}_{safe_status}_{ts}.json"
+
+        with open(per_csv, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=["path", "remote_url", "status"])
+            writer.writeheader()
+            writer.writerows(rows)
+
+        with open(per_json, "w") as f:
+            json.dump(rows, f, indent=2)
+
+        print(f"📄 {len(rows)} repos in category '{status}' written to:")
+        print(f"    {per_csv}")
+        print(f"    {per_json}")
 
 def main():
     parser = argparse.ArgumentParser(description="Verify and optionally re-clone corrupt Git repos")

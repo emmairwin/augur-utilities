@@ -1,5 +1,7 @@
 # Dropbox is irritating
 .DS_Store 
+db.config.json 
+*db.config.json 
 
 # Error logs
 dup.err/

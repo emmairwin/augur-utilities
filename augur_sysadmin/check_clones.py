@@ -5,15 +5,36 @@ import subprocess
 import shutil
 import csv
 import json
-from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor, as_completed
 import argparse
+from pathlib import Path
 from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-BASE_DIR = Path("/mnt/external/ai-repos/mnt/repos/repos/hostedaugur/hosted")
-MAX_WORKERS = 8  # Adjust based on system capabilities
+import psycopg2
 
 results = []
+MAX_WORKERS = 8
+
+
+def load_repo_base_from_db(config_path='db.config.json'):
+    with open(config_path, 'r') as f:
+        db_config = json.load(f)
+
+    conn = psycopg2.connect(
+        dbname=db_config['database'],
+        user=db_config['user'],
+        password=db_config['password'],
+        host=db_config['host'],
+        port=db_config.get('port', 5432)
+    )
+
+    with conn.cursor() as cur:
+        cur.execute("SELECT value FROM augur_operations.config WHERE setting_name = 'repo_directory';")
+        row = cur.fetchone()
+        if not row:
+            raise ValueError("Could not find 'repo_directory' in augur_operations.config")
+        return Path(row[0])
+
 
 def is_git_repo_valid(repo_path):
     try:
@@ -71,7 +92,6 @@ def repair_repo(subdir_path, dry_run=False):
         entry["status"] = "would_reclone"
         return entry
 
-    # Re-clone logic
     temp_path = repo_path.with_name(repo_path.name + "_reclone_tmp")
     try:
         subprocess.run(
@@ -96,13 +116,11 @@ def write_summary(results, out_prefix="repo_check"):
     csv_file = f"{out_prefix}_{ts}.csv"
     json_file = f"{out_prefix}_{ts}.json"
 
-    # CSV
     with open(csv_file, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["path", "remote_url", "status"])
         writer.writeheader()
         writer.writerows(results)
 
-    # JSON
     with open(json_file, "w") as f:
         json.dump(results, f, indent=2)
 
@@ -112,10 +130,17 @@ def write_summary(results, out_prefix="repo_check"):
 def main():
     parser = argparse.ArgumentParser(description="Verify and optionally re-clone corrupt Git repos")
     parser.add_argument('--dry-run', action='store_true', help="Only print actions without making changes")
+    parser.add_argument('--db-config', default="db.config.json", help="Path to Augur-style db.config.json")
     args = parser.parse_args()
 
-    subdirs = [p for p in BASE_DIR.iterdir() if p.is_dir()]
-    print(f"Scanning {len(subdirs)} repo directories...\n")
+    try:
+        base_path = load_repo_base_from_db(args.db_config)
+    except Exception as e:
+        print(f"❌ Failed to load repo base from DB: {e}")
+        return
+
+    subdirs = [p for p in base_path.iterdir() if p.is_dir()]
+    print(f"📂 Scanning {len(subdirs)} directories under {base_path}...\n")
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         futures = {

@@ -16,7 +16,7 @@ results = []
 MAX_WORKERS = 8
 
 
-def load_repo_base_from_db(config_path='db.config.json'):
+def load_repo_base_from_db(config_path='../db.config.json'):
     with open(config_path, 'r') as f:
         db_config = json.load(f)
 

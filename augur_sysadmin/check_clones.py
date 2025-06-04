@@ -38,8 +38,21 @@ def load_repo_base_from_db(config_path='../db.config.json'):
 
 def is_git_repo_valid(repo_path):
     try:
+        # Try to read HEAD and pull
         subprocess.run(
-            ["git", "-C", str(repo_path), "rev-parse", "--is-inside-work-tree"],
+            ["git", "-C", str(repo_path), "status"],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["git", "-C", str(repo_path), "fsck"],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["git", "-C", str(repo_path), "fetch", "--dry-run"],
             check=True,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL

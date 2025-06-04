@@ -21,7 +21,7 @@ def load_repo_base_from_db(config_path='../db.config.json'):
         db_config = json.load(f)
 
     conn = psycopg2.connect(
-        dbname=db_config['database'],
+        dbname=db_config['dbname'],
         user=db_config['user'],
         password=db_config['password'],
         host=db_config['host'],
@@ -162,7 +162,7 @@ def write_summary(results, out_prefix="repo_check"):
 def main():
     parser = argparse.ArgumentParser(description="Verify and optionally re-clone corrupt Git repos")
     parser.add_argument('--dry-run', action='store_true', help="Only print actions without making changes")
-    parser.add_argument('--db-config', default="db.config.json", help="Path to Augur-style db.config.json")
+    parser.add_argument('--db-config', default="../db.config.json", help="Path to Augur-style db.config.json")
     args = parser.parse_args()
 
     try:

@@ -109,11 +109,17 @@ for i in range(1, instances+1):
     volumes += f"""  augur{i}-postgres:\n  augur{i}-cache:\n  augur{i}-config:\n  augur{i}-facade:\n  augur{i}-logs:\n"""
     networks += f"  augur{i}:\n"
 
-    # Create env file with placeholders if it doesn't exist
+    # Prompt before overwriting env files
     env_file = os.path.join("envs", f"augur{i}.env")
-    if not os.path.exists(env_file):
-        with open(env_file, "w") as ef:
-            ef.write(placeholder_content.format(index=i))
+    if os.path.exists(env_file):
+        overwrite = input(f"envs/augur{i}.env already exists. Overwrite? [y/N]: ").strip().lower()
+        if overwrite != "y":
+            print(f"  Skipping envs/augur{i}.env")
+            continue
+
+    with open(env_file, "w") as ef:
+        ef.write(placeholder_content.format(index=i))
+        print(f"  Created/updated envs/augur{i}.env")
 
 with open("docker-compose.yml", "w") as f:
     f.write(template.format(services=services, volumes=volumes, networks=networks))

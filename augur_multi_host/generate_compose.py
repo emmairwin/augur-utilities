@@ -96,11 +96,11 @@ service_block = """
 """
 
 placeholder_content = """# Environment variables for augur{index}
-AUGUR_GITHUB_API_KEY={your value here}
-AUGUR_GITLAB_API_KEY={your value here}
-AUGUR_GITHUB_USERNAME={your value here}
-AUGUR_GITLAB_USERNAME={your value here}
-AUGUR_FLAGS={your value here}
+AUGUR_GITHUB_API_KEY={{your value here}}
+AUGUR_GITLAB_API_KEY={{your value here}}
+AUGUR_GITHUB_USERNAME={{your value here}}
+AUGUR_GITLAB_USERNAME={{your value here}}
+AUGUR_FLAGS={{your value here}}
 """
 
 services, volumes, networks = "", "", ""

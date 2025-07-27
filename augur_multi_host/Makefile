@@ -1,11 +1,11 @@
-COMPOSE = podman-compose
+COMPOSE = podman compose
 INSTANCES = 8
-DOMAIN ?= sociallycompute.io
-AUGUR_PATH ?= .
+DOMAIN = sociallycompute.io
+INSTANCE ?= 1
 
 all: up
 
-up: build
+up:
 	$(COMPOSE) up -d
 
 down:
@@ -14,11 +14,19 @@ down:
 regen:
 	python3 generate_compose.py $(AUGUR_PATH)
 
-build:
-	$(COMPOSE) build
-
 nginx:
 	python3 generate_nginx.py $(DOMAIN)
 
 certbot:
 	sudo certbot --nginx $(shell seq -f "-d augur%g.$(DOMAIN)" 1 $(INSTANCES))
+
+restart:
+	$(COMPOSE) restart
+
+# Open an interactive shell into the chosen augur instance
+shell:
+	$(COMPOSE) exec augur$(INSTANCE) /bin/bash
+
+# Show logs for the chosen augur instance
+logs:
+	$(COMPOSE) logs -f augur$(INSTANCE)

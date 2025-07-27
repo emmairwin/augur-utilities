@@ -9,7 +9,7 @@ up:
 	$(COMPOSE) up -d
 
 down:
-	$(COMPOSE) down
+	$(COMPOSE) down --remove-orphans
 
 regen:
 	python3 generate_compose.py $(AUGUR_PATH)

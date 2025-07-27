@@ -1,8 +1,7 @@
 import sys
 
 # Usage: python3 generate_compose.py /path/to/augur/clone
-# If no path is given, defaults to current directory.
-
+# Default context is current directory if not given.
 instances = 8
 augur_path = sys.argv[1] if len(sys.argv) > 1 else '.'
 
@@ -71,6 +70,8 @@ service_block = """
       - augur{i}-config:/config:rw
       - augur{i}-facade:/facade:rw
       - augur{i}-logs:/logs:rw
+    env_file:
+      - ./envs/augur{i}.env
     environment:
       - AUGUR_DB=postgresql+psycopg2://augur:augur@augur{i}-db:5432/augur
       - AUGUR_DB_SCHEMA_BUILD=1

@@ -95,17 +95,25 @@ service_block = """
     user: 2345:2345
 """
 
+placeholder_content = """# Environment variables for augur{index}
+AUGUR_GITHUB_API_KEY={your value here}
+AUGUR_GITLAB_API_KEY={your value here}
+AUGUR_GITHUB_USERNAME={your value here}
+AUGUR_GITLAB_USERNAME={your value here}
+AUGUR_FLAGS={your value here}
+"""
+
 services, volumes, networks = "", "", ""
 for i in range(1, instances+1):
     services += service_block.format(i=i, pg_port=7000+i, api_port=6000+i, augur_path=augur_path)
     volumes += f"""  augur{i}-postgres:\n  augur{i}-cache:\n  augur{i}-config:\n  augur{i}-facade:\n  augur{i}-logs:\n"""
     networks += f"  augur{i}:\n"
 
-    # Create an env file if it doesn't exist
+    # Create env file with placeholders if it doesn't exist
     env_file = os.path.join("envs", f"augur{i}.env")
     if not os.path.exists(env_file):
         with open(env_file, "w") as ef:
-            ef.write("# Environment variables for augur{i}\n")
+            ef.write(placeholder_content.format(index=i))
 
 with open("docker-compose.yml", "w") as f:
     f.write(template.format(services=services, volumes=volumes, networks=networks))

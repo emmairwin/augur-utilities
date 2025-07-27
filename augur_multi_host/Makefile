@@ -30,3 +30,19 @@ shell:
 # Show logs for the chosen augur instance
 logs:
 	$(COMPOSE) logs -f augur$(INSTANCE)
+
+# List all containers managed by this compose file
+ps:
+	$(COMPOSE) ps
+
+# Show status of environment files for all instances
+status:
+	@echo "Environment files for Augur instances:"
+	@for i in $$(seq 1 $(INSTANCES)); do \
+	  f=envs/augur$$i.env; \
+	  if [ -f $$f ]; then \
+	    echo "  $$f (exists)"; \
+	  else \
+	    echo "  $$f (MISSING)"; \
+	  fi; \
+	done

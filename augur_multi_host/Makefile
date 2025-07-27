@@ -46,3 +46,7 @@ status:
 	    echo "  $$f (MISSING)"; \
 	  fi; \
 	done
+
+# Force stop all containers on the system
+stop-all:
+	podman stop $$(podman ps -q)

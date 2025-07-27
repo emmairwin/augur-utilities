@@ -1,9 +1,13 @@
 import sys
+import os
 
 # Usage: python3 generate_compose.py /path/to/augur/clone
 # Default context is current directory if not given.
 instances = 8
 augur_path = sys.argv[1] if len(sys.argv) > 1 else '.'
+
+# Ensure envs directory exists
+os.makedirs("envs", exist_ok=True)
 
 template = """version: '3.8'
 
@@ -96,6 +100,12 @@ for i in range(1, instances+1):
     services += service_block.format(i=i, pg_port=7000+i, api_port=6000+i, augur_path=augur_path)
     volumes += f"""  augur{i}-postgres:\n  augur{i}-cache:\n  augur{i}-config:\n  augur{i}-facade:\n  augur{i}-logs:\n"""
     networks += f"  augur{i}:\n"
+
+    # Create an env file if it doesn't exist
+    env_file = os.path.join("envs", f"augur{i}.env")
+    if not os.path.exists(env_file):
+        with open(env_file, "w") as ef:
+            ef.write("# Environment variables for augur{i}\n")
 
 with open("docker-compose.yml", "w") as f:
     f.write(template.format(services=services, volumes=volumes, networks=networks))

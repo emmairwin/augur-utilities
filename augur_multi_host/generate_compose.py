@@ -1,5 +1,15 @@
-import sys
 import os
+import sys
+from pathlib import Path
+
+# --- Custom PostgreSQL configuration template ---
+postgres_conf_template = """# Custom PostgreSQL configuration
+listen_addresses = '*'
+max_connections = 1000
+shared_buffers = 10GB
+work_mem = 3GB
+"""
+# --- End custom PostgreSQL configuration template ---
 
 # Usage: python3 generate_compose.py /path/to/augur/clone
 # Default context is current directory if not given.
@@ -106,10 +116,25 @@ AUGUR_FLAGS={{your value here}}
 """
 
 services, volumes, networks = "", "", ""
-for i in range(1, instances+1):
-    services += service_block.format(i=i, pg_port=7000+i, api_port=6000+i, augur_path=augur_path)
+for i in range(1, instances + 1):
+    services += service_block.format(i=i, pg_port=7000 + i, api_port=6000 + i, augur_path=augur_path)
     volumes += f"""  augur{i}-postgres:\n  augur{i}-cache:\n  augur{i}-config:\n  augur{i}-facade:\n  augur{i}-logs:\n"""
     networks += f"  augur{i}:\n"
+
+    # Ensure postgres config dir exists and write config files
+    pg_dir = Path("postgres") / f"augur{i}"
+    pg_dir.mkdir(parents=True, exist_ok=True)
+
+    with open(pg_dir / "postgresql.conf", "w") as f:
+        f.write(postgres_conf_template)
+
+    # Create pg_hba.conf with md5 auth
+    pg_hba_path = pg_dir / "pg_hba.conf"
+    if not pg_hba_path.exists():
+        pg_hba_path.write_text(
+            "host all all 0.0.0.0/0 md5\n"
+            "host all all ::/0 md5\n"
+        )
 
     # Prompt before overwriting env files
     env_file = os.path.join("envs", f"augur{i}.env")

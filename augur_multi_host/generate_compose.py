@@ -31,7 +31,9 @@ service_block = """
     ports:
       - "{pg_port}:5432"
     volumes:
-      - augur{i}-postgres:/var/lib/postgresql/data
+      - augur${i}-postgres:/var/lib/postgresql/data
+      - ./postgres/augur${i}/postgresql.conf:/var/lib/postgresql/data/pgdata/postgresql.conf
+      - ./postgres/augur${i}/pg_hba.conf:/var/lib/postgresql/data/pgdata/pg_hba.conf
     networks: [augur{i}]
 
   augur{i}-redis:

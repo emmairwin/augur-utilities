@@ -1,4 +1,4 @@
-COMPOSE = podman compose
+COMPOSE = podman-compose
 INSTANCES = 8
 DOMAIN = sociallycompute.io
 INSTANCE ?= 1
@@ -12,7 +12,16 @@ down:
 	$(COMPOSE) down --remove-orphans
 
 regen:
-	python3 generate_compose.py $(AUGUR_PATH)
+	@echo "Cleaning old configuration..."
+	rm -rf postgres
+	mkdir -p postgres
+	@for i in 1 2 3 4 5 6 7 8; do \
+		mkdir -p postgres/augur$$i; \
+		echo "listen_addresses = '*'" > postgres/augur$$i/postgresql.conf; \
+		echo "host all all 0.0.0.0/0 md5" > postgres/augur$$i/pg_hba.conf; \
+	done
+	@echo "Rebuilding docker-compose.yml ..."
+	python3 generate_compose.py
 
 nginx:
 	python3 generate_nginx.py $(DOMAIN)
@@ -50,3 +59,10 @@ status:
 # Force stop all containers on the system
 stop-all:
 	podman stop $$(podman ps -q)
+
+clean-networks:
+	-podman network ls --format "{{.Name}}" | grep augur_multi_host_augur | xargs -I {} podman network rm {}
+
+nuke:
+	-podman ps --all --format "{{.ID}} {{.Names}}" | grep augur_multi_host | awk '{print $$1}' | xargs podman rm -f
+	-podman network ls --format "{{.Name}}" | grep augur_multi_host_augur | xargs podman network rm

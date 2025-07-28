@@ -15,7 +15,7 @@ source ~/.bashrc
 ## 2. Generate configuration
 
 ```bash
-python3 generate_compose.py /path/to/8knot
+python3 generate_compose.py /home/sean/github/8knot
 ```
 
 This creates `docker-compose.yml` and env files in `envs/`.

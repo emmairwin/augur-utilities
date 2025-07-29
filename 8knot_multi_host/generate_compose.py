@@ -5,7 +5,7 @@ code_path = sys.argv[1] if len(sys.argv) > 1 else '.'
 
 os.makedirs("envs", exist_ok=True)
 
-placeholder = """# Environment for Augur instance {i}
+placeholder = """# Environment for Augur instance {{i}}
 
 AUGUR_DATABASE=a{{your value here}}
 AUGUR_HOST={{your value here}}

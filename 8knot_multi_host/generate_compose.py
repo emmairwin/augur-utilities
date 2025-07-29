@@ -1,9 +1,15 @@
-import sys, os
+import sys
+import os
 
 INSTANCES = 8
-code_path = sys.argv[1] if len(sys.argv) > 1 else '.'
+
+# First CLI argument is the base directory
+base_dir = sys.argv[1] if len(sys.argv) > 1 else '.'
+
+# Ensure envs directory exists
 os.makedirs("envs", exist_ok=True)
-placeholder = """ # Environment for Augur instance {{i}}
+
+placeholder = """ # Environment for Augur instance {i}
 AUGUR_DATABASE={{your value here}}
 AUGUR_HOST={{your value here}}
 AUGUR_PASSWORD={{your value here}} 
@@ -22,12 +28,14 @@ AUGUR_LOGIN_ENABLED=False
 
 template_header = "# Auto-generated multi-instance 8Knot compose\n# Use with `podman compose up -d`\n"
 compose = [template_header, "services:"]
+
+# Generate services
 for i in range(1, INSTANCES + 1):
     port = 8090 + i
     compose.append(f"""
   instance{i}:
     build:
-      context: {code_path}
+      context: {base_dir}
       dockerfile: docker/Dockerfile
     env_file:
       - ./envs/instance{i}.env
@@ -38,13 +46,16 @@ for i in range(1, INSTANCES + 1):
       - knot{i}
 """)
 
+# Networks section
 compose.append("networks:")
 for i in range(1, INSTANCES + 1):
     compose.append(f"  knot{i}:")
 
+# Write docker-compose.yml
 with open("docker-compose.yml", "w") as f:
     f.write("\n".join(compose))
 
+# Create env files
 for i in range(1, INSTANCES + 1):
     env_file = f"envs/instance{i}.env"
     if os.path.exists(env_file):

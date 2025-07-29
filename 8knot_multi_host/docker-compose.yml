@@ -5,7 +5,7 @@ services:
 
   instance1:
     build:
-      context: .
+      context: /home/sean/github/wellcome/8knot
     env_file:
       - ./envs/instance1.env
     ports:
@@ -17,7 +17,7 @@ services:
 
   instance2:
     build:
-      context: .
+      context: /home/sean/github/wellcome/8knot
     env_file:
       - ./envs/instance2.env
     ports:
@@ -29,7 +29,7 @@ services:
 
   instance3:
     build:
-      context: .
+      context: /home/sean/github/wellcome/8knot
     env_file:
       - ./envs/instance3.env
     ports:
@@ -41,7 +41,7 @@ services:
 
   instance4:
     build:
-      context: .
+      context: /home/sean/github/wellcome/8knot
     env_file:
       - ./envs/instance4.env
     ports:
@@ -53,7 +53,7 @@ services:
 
   instance5:
     build:
-      context: .
+      context: /home/sean/github/wellcome/8knot
     env_file:
       - ./envs/instance5.env
     ports:
@@ -65,7 +65,7 @@ services:
 
   instance6:
     build:
-      context: .
+      context: /home/sean/github/wellcome/8knot
     env_file:
       - ./envs/instance6.env
     ports:
@@ -77,7 +77,7 @@ services:
 
   instance7:
     build:
-      context: .
+      context: /home/sean/github/wellcome/8knot
     env_file:
       - ./envs/instance7.env
     ports:
@@ -89,7 +89,7 @@ services:
 
   instance8:
     build:
-      context: .
+      context: /home/sean/github/wellcome/8knot
     env_file:
       - ./envs/instance8.env
     ports:

@@ -28,7 +28,7 @@ for i in range(1, INSTANCES + 1):
   instance{i}:
     build:
       context: {code_path}
-      dockerfile: docker/Dockerfile
+      dockerfile: ./docker/Dockerfile
     env_file:
       - ./envs/instance{i}.env
     ports:

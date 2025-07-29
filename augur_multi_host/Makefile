@@ -5,6 +5,9 @@ INSTANCE ?= 1
 
 all: up
 
+build:
+	$(COMPOSE) build
+
 up:
 	$(COMPOSE) up -d
 

@@ -1,4 +1,4 @@
-    COMPOSE = podman compose
+    COMPOSE = podman-compose
     INSTANCES = 8
     INSTANCE ?= 1
 

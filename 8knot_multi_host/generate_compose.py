@@ -83,7 +83,7 @@ else:
 # ... rest of your script ...
 
 # Inside the loop where you generate env files:
-for i in range(1, num_instances + 1):
+for i in range(1, INSTANCES + 1):
     env_path = Path("envs") / f"instance{i}.env"
 
     # Select label, cycling if there are fewer labels than instances

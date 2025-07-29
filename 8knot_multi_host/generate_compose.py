@@ -54,7 +54,7 @@ for i in range(1, INSTANCES + 1):
 # Write docker-compose.yml
 with open("docker-compose.yml", "w") as f:
     f.write("\n".join(compose))
-
+""" 
 # Create env files
 for i in range(1, INSTANCES + 1):
     env_file = f"envs/instance{i}.env"
@@ -67,4 +67,50 @@ for i in range(1, INSTANCES + 1):
         ef.write(placeholder.format(i=i))
         print(f"  Created/updated {env_file}")
 
-print("docker-compose.yml generated successfully.")
+print("docker-compose.yml generated successfully.") """
+
+from pathlib import Path
+
+# Load labels from labels.txt
+labels_file = Path("labels.txt")
+if labels_file.exists():
+    with open(labels_file, "r") as lf:
+        labels = [line.strip() for line in lf if line.strip()]
+else:
+    print("labels.txt not found. Using default labels.")
+    labels = ["default"]
+
+# ... rest of your script ...
+
+# Inside the loop where you generate env files:
+for i in range(1, num_instances + 1):
+    env_path = Path("envs") / f"instance{i}.env"
+
+    # Select label, cycling if there are fewer labels than instances
+    label = labels[(i - 1) % len(labels)]
+
+    content = f"""# Environment for 8Knot instance {i}
+AUGUR_DATABASE=augur
+AUGUR_HOST=192.168.1.126
+AUGUR_PASSWORD=augur 
+AUGUR_PORT={7000+i}
+AUGUR_SCHEMA=augur_data
+AUGUR_USERNAME=augur
+DEBUG_8KNOT=False
+REDIS_PASSWORD=1234
+DEFAULT_SEARCHBAR_LABEL={label}
+POSTGRES_PASSWORD=somepassword
+AUGUR_LOGIN_ENABLED=False
+# Secret key used for cryptographic session cookie signing.
+# only needed if AUGUR_LOGIN_ENABLED=True
+#SECRET_KEY=somethingsecret
+"""
+
+    if env_path.exists():
+        overwrite = input(f"{env_path} exists. Overwrite? [y/N]: ").strip().lower()
+        if overwrite != "y":
+            print(f"Skipping {env_path}")
+            continue
+
+    with open(env_path, "w") as ef:
+        ef.write(content)

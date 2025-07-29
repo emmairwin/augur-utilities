@@ -2,14 +2,11 @@ import sys, os
 
 INSTANCES = 8
 code_path = sys.argv[1] if len(sys.argv) > 1 else '.'
-
 os.makedirs("envs", exist_ok=True)
-
 placeholder = """ # Environment for Augur instance {{i}}
-
-AUGUR_DATABASE=a{{your value here}}
+AUGUR_DATABASE={{your value here}}
 AUGUR_HOST={{your value here}}
-AUGUR_PASSWORD=a{{your value here}} 
+AUGUR_PASSWORD={{your value here}} 
 AUGUR_PORT={{DATABASE PORT HERE}}
 AUGUR_SCHEMA=augur_data
 AUGUR_USERNAME=augur

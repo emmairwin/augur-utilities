@@ -5,7 +5,7 @@ This setup runs 8 instances of 8Knot on ports 8091–8098.
 ## 1. Install Podman and podman-compose
 
 ```bash
-sudo apt update
+sudo apt update  fasdfasfasdf
 sudo apt install -y podman python3-pip
 pip3 install --user podman-compose
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
